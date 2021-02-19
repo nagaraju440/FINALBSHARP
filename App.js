@@ -25,9 +25,10 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 class App extends React.Component{
   render(){
+    console.log("ram vinay")
     return(
       <View>
-        <Text>hiii andiiii</Text>
+        <Text>hiiiiiiiiie  annnnaaaa</Text>
       </View>
     )
   }
@@ -42,7 +43,7 @@ class App extends React.Component{
 //           style={styles.scrollView}>
 //           <Header />
 //           {global.HermesInternal == null ? null : (
-//             <View style={styles.engine}>
+//             <View style={styles.engine}>  
 //               <Text style={styles.footer}>Engine: Hermes</Text>
 //             </View>
 //           )}
