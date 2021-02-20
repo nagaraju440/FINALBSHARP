@@ -28,7 +28,7 @@ class App extends React.Component{
     console.log("ram vinay")
     return(
       <View>
-        <Text>hiiiiiiiiie  annnnaaaa</Text>
+        <Text>hiiiiiiiiie  annnnaaaa ehhehehehheh</Text>
       </View>
     )
   }
