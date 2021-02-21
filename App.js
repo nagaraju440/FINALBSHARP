@@ -23,6 +23,7 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+<<<<<<< HEAD
 
 import Courses from './topnav2'
 class App extends React.Component {
@@ -30,6 +31,14 @@ class App extends React.Component {
     return (
       <View>
         <Courses />
+=======
+class App extends React.Component{
+  render(){
+    console.log("ram vinay")
+    return(
+      <View>
+        <Text>hiiiiiiiiie  annnnaaaa ehhehehehheh</Text>
+>>>>>>> 7a4ecdf7117cfea704116fcf63b86fb0097c475f
       </View>
     )
   }
@@ -44,7 +53,7 @@ class App extends React.Component {
 //           style={styles.scrollView}>
 //           <Header />
 //           {global.HermesInternal == null ? null : (
-//             <View style={styles.engine}>
+//             <View style={styles.engine}>  
 //               <Text style={styles.footer}>Engine: Hermes</Text>
 //             </View>
 //           )}
