@@ -25,10 +25,10 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 class App extends React.Component{
   render(){
-    console.log("ram vinay")
+    console.log("ram vinay hehe")
     return(
       <View>
-        <Text>hiiiiiiiiie  annnnaaaa ehhehehehheh</Text>
+        <Text>hiiiiiiiiiu</Text>
       </View>
     )
   }
