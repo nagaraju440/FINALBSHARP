@@ -23,11 +23,13 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-class App extends React.Component{
-  render(){
-    return(
+
+import Courses from './topnav2'
+class App extends React.Component {
+  render() {
+    return (
       <View>
-        <Text>hiii andiiii</Text>
+        <Courses />
       </View>
     )
   }
