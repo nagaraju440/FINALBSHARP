@@ -5,7 +5,7 @@
  * @format
  * @flow strict-local
  */
-
+import 'react-native-gesture-handler';
 import React from 'react';
 import {
   SafeAreaView,
@@ -15,7 +15,8 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
-
+import { Provider as PaperProvider } from 'react-native-paper';
+import { NavigationContainer } from '@react-navigation/native';
 import {
   Header,
   LearnMoreLinks,
@@ -24,32 +25,42 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import auth from '@react-native-firebase/auth';
+import { createStackNavigator } from '@react-navigation/stack';
+import Home from './Admin/home.js'
+import Notification from './Admin/notification'
+const Stack = createStackNavigator();
 class App extends React.Component{
-  componentDidMount=()=>{
-    auth()
-  .createUserWithEmailAndPassword('jane123.doe@example.com', 'SuperSecretPassword!')
-  .then(() => {
-    console.log('User account created & signed in!');
-  })
-  .catch(error => {
-    if (error.code === 'auth/email-already-in-use') {
-      console.log('That email address is already in use!');
-    }
+  // componentDidMount=()=>{
+  //   auth()
+  // .createUserWithEmailAndPassword('jane123.doe@example.com', 'SuperSecretPassword!')
+  // .then(() => {
+  //   console.log('User account created & signed in!');
+  // })
+  // .catch(error => {
+  //   if (error.code === 'auth/email-already-in-use') {
+  //     console.log('That email address is already in use!');
+  //   }
 
-    if (error.code === 'auth/invalid-email') {
-      console.log('That email address is invalid!');
-    }
+  //   if (error.code === 'auth/invalid-email') {
+  //     console.log('That email address is invalid!');
+  //   }
 
-    console.error(error);
-  });
-    console.log("ram vinay huhuhuhuhuuhu")
-  }
+  //   console.error(error);
+  // });
+  //   console.log("ram vinay huhuhuhuhuuhu")
+  // }
   render(){
     
     return(
-      <View>
-        <Text>hiiiiiiiiie  annnnaaaa fghjsdfghj h</Text>
-      </View>
+      // <View>
+      //   <Text>hiiiiiiiiie  annnnaaaa fghjsdfghj h</Text>
+      // </View>
+     <PaperProvider>
+        <NavigationContainer><Stack.Navigator>
+      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Upload course" component={Notification} />
+    </Stack.Navigator></NavigationContainer>
+     </PaperProvider>
     )
   }
 }
@@ -100,7 +111,6 @@ class App extends React.Component{
 //     </>
 //   );
 // };
-
 const styles = StyleSheet.create({
   scrollView: {
     backgroundColor: Colors.lighter,
@@ -141,3 +151,4 @@ const styles = StyleSheet.create({
 });
 
 export default App;
+// AppRegistry.registerComponent(App, () => Main);
