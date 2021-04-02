@@ -1,11 +1,4 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
+import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import {
   SafeAreaView,
@@ -23,13 +16,20 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import Aboutpage from './Aboutpage'
+
+import Adminnav from './Admin/Adminnav'
+import Cour from './topnav2'
 class App extends React.Component{
   render(){
-    console.log("ram vinay hehe")
     return(
-      <View>
-        <Text>hiiiiiiiiiu</Text>
-      </View>
+      // <View>
+      //   {/* <Aboutpage/> */}
+        <Adminnav/>
+      // </View>
+      // <NavigationContainer>
+      //   <Adminnav/>
+      // </NavigationContainer>
     )
   }
 }
