@@ -5,7 +5,7 @@
  * @format
  * @flow strict-local
  */
-
+import 'react-native-gesture-handler';
 import React from 'react';
 import {
   SafeAreaView,
@@ -15,7 +15,8 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
-
+import { Provider as PaperProvider } from 'react-native-paper';
+import { NavigationContainer } from '@react-navigation/native';
 import {
   Header,
   LearnMoreLinks,
@@ -23,23 +24,17 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-<<<<<<< HEAD
 
-import Courses from './topnav2'
-class App extends React.Component {
-  render() {
-    return (
-      <View>
-        <Courses />
-=======
+import SplashScreen from './screens/Login';
+
+
 class App extends React.Component{
+  
   render(){
-    console.log("ram vinay")
+    
     return(
-      <View>
-        <Text>hiiiiiiiiie  annnnaaaa ehhehehehheh</Text>
->>>>>>> 7a4ecdf7117cfea704116fcf63b86fb0097c475f
-      </View>
+      <SplashScreen />
+     
     )
   }
 }
@@ -90,7 +85,6 @@ class App extends React.Component{
 //     </>
 //   );
 // };
-
 const styles = StyleSheet.create({
   scrollView: {
     backgroundColor: Colors.lighter,
@@ -131,3 +125,4 @@ const styles = StyleSheet.create({
 });
 
 export default App;
+// AppRegistry.registerComponent(App, () => Main);
