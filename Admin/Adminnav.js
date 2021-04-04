@@ -10,6 +10,7 @@ import {
     ImageBackground
 } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import auth from '@react-native-firebase/auth';
 
 import { createStackNavigator } from '@react-navigation/stack';
 import Home from './home.js'
@@ -17,6 +18,26 @@ import Students from './Students'
 const Stack = createStackNavigator();
 class Adminnav extends React.Component {
     state = {  }
+    componentDidMount=()=>{
+        console.log("hehehhhehehlohohlhihlojih  ")
+        auth()
+  .createUserWithEmailAndPassword('nagarajuuuuuuuu1@gmail.com', 'S')
+  .then(() => {
+    console.log('User account created & signed in!');
+  })
+  .catch(error => {
+      alert(error.code)
+    // if (error.code === 'auth/email-already-in-use') {
+    //   console.log('That email address is already in use!');
+    // }
+
+    // if (error.code === 'auth/invalid-email') {
+    //   console.log('That email address is invalid!');
+    // }
+
+    // console.error(error);
+  });
+    }
     render() { 
         return ( 
             // <View>

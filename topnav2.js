@@ -43,32 +43,33 @@ const styles = StyleSheet.create({
     container1: {
         // marginTop: 50,
         height: 1532,
-        width: 428
+        width: "100%"
     },
     TopNav: {
         height: 57,
-        width: 414,
+        width: "90%",
         color: 'blue',
         // padding: 25,
-        paddingLeft: 25
+        marginLeft: 25
     },
     Image: {
         height: 189,
-        width: 300
+        width: "73%",
+        borderRadius:15,
     },
     heading1: {
         marginTop: 35,
-        textAlign: 'justify',
-        fontFamily: 'SemiBold',
+        // textAlign: '',
+        fontFamily: 'Bold',
         fontSize: 16,
         marginLeft: 50
     },
     text1: {
         marginTop: 17,
         fontSize: 12,
-        textAlign: 'center',
+        // textAlign: 'center',
         fontFamily: 'Regular',
-        marginRight: 91
+        // marginRight: 91
     }
 });
 
