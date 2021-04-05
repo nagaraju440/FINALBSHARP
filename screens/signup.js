@@ -7,7 +7,8 @@ import {
     StyleSheet,
     StatusBar,
     Image,
-    TextInput,Button,ScrollView
+    TextInput,Button,ScrollView,
+    
 } from 'react-native';
 import {
   TextField,
@@ -15,37 +16,21 @@ import {
   OutlinedTextField,
 } from 'react-native-material-textfield';
 
- class SplashScreen extends React.Component {
+const Userinfo = {username:'admin' ,password:'admin123', email:'decoder@123'}
+
+ class Signup extends React.Component {
   constructor(props){
     super(props);
     this.state={
       check:false,
       username: '',
+      password:'',
+      email:'',
 
     }
-    this.validates = this.validates.bind(this);
+    
   }
- componentDidMount=()=>{
-// LogBox.ignoreWarnings([
-//   'Animated: `useNativeDriver` was not specified.',
-// ]);
- }
-  validates = () => { 
-
-    let text = this.state.username; 
-    let usernameError = this.state.usernames;
-    let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ ; 
-    if(reg.test(text) === false) 
-    { 
-    alert("Invalid username")
-    this.setState({username:text}) 
-    return false; 
-    } 
-    else { 
-    this.setState({username:text}) 
-    alert("Username is Correct"); 
-    } 
-} 
+ 
    render() {
      return (
       <ScrollView style={styles.container}>
@@ -88,17 +73,29 @@ import {
         keyboardType='default'
         labelTextStyle={{fontWeight:"bold",fontFamily:"poppins",color:"black"}}
         containerStyle={{height:46,borderRadius:15}}
+        secureTextEntry={true}
         inputContainerStyle={{height:46}}
         baseColor="black"
       /></View>
-            <TouchableOpacity  style={styles.button}onPress={this.validates} ><Text style={styles.ButtonText}>Signup</Text></TouchableOpacity>
-            <TouchableOpacity  style={styles.button1} onPress={this.validates} ><Text style={styles.ButtonText1}>Login</Text></TouchableOpacity>
+
+            <TouchableOpacity  style={styles.button} onPress={() => this.props.navigation.navigate('Aboutpage')}><Text style={styles.ButtonText}>Signup</Text></TouchableOpacity>
+            <TouchableOpacity  style={styles.button1}
+            // onPress = {this._signup}
+            onPress={() => this.props.navigation.navigate('SplashScreen')}
+            ><Text style={styles.ButtonText1}>Login</Text></TouchableOpacity>
             
             </View>
           </ScrollView>
-         
-      
     );
+  }
+  _signup =async() =>{
+    if(Userinfo.username ===this.state.username && Userinfo.password ===this.state.password)
+    {
+      this.props.navigation.navigate('Aboutpage');
+    }
+    else{
+      alert("Username or password is wrong");
+    }
   }
 }
 
@@ -197,4 +194,4 @@ const styles = StyleSheet.create({
    
   }
 });
-export default SplashScreen;
+export default Signup;

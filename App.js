@@ -28,7 +28,7 @@ import Adminnav from './Admin/Adminnav'
 import Cour from './topnav2'
 
 // import { Provider as PaperProvider } from 'react-native-paper';
-// import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 // import {
 //   Header,
 //   LearnMoreLinks,
@@ -38,22 +38,26 @@ import Cour from './topnav2'
 // } from 'react-native/Libraries/NewAppScreen';
 
 import SplashScreen from './screens/signup';
+import RootStackScreen from './navigation/Stack';
+
+  
 
 
 export default class App extends React.Component{
   
+    
   render(){
     return(
       
       // <View>
-      //   {/* <Aboutpage/> */}
+      //  <Aboutpage/>
         // <Adminnav/>
-        // <Courses/>
+      // <Courses/>  
       // </View>
-      <SplashScreen />
-      // <NavigationContainer>
-      //   <Adminnav/>
-      // </NavigationContainer>
+      // <SplashScreen />
+      <NavigationContainer>
+        <RootStackScreen/>
+       </NavigationContainer>
 
     
 //     return(

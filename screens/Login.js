@@ -14,6 +14,8 @@ import {
   FilledTextField,
   OutlinedTextField,
 } from 'react-native-material-textfield';
+import AsyncStorage from '@react-native-community/async-storage';
+const Userinfo = {username:'admin' ,password:'admin123', email:'decoder@123'}
 
  class SplashScreen extends React.Component {
   constructor(props){
@@ -21,31 +23,14 @@ import {
     this.state={
       check:false,
       username: '',
+      password:'',
+      email:'',
 
     }
-    this.validates = this.validates.bind(this);
-  }
- componentDidMount=()=>{
-// LogBox.ignoreWarnings([
-//   'Animated: `useNativeDriver` was not specified.',
-// ]);
- }
-  validates = () => { 
 
-    let text = this.state.username; 
-    let usernameError = this.state.usernames;
-    let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ ; 
-    if(reg.test(text) === false) 
-    { 
-    alert("Invalid username")
-    this.setState({username:text}) 
-    return false; 
-    } 
-    else { 
-    this.setState({username:text}) 
-    alert("Username is Correct"); 
-    } 
-} 
+  }
+ 
+  
    render() {
      return (
       <ScrollView style={styles.container}>
@@ -57,18 +42,13 @@ import {
           <View style={styles.footer}>
               <Text style={{fontSize: 15,color: "#707070"}}>Welcome To</Text>
               <Text style={{fontWeight: "bold",fontSize: 35,}}>BMinor</Text>
-{/*               
-              <TextInput style={styles.input} placeholder="Username" autoCapitalize="none"  onChangeText={(text) => this.setState({usernamel:text})} type='username'
-            value={this.state.email} keyboardType='email-address' underlineColorAndroid='transparent'/>
-              <TextInput style={styles.input} placeholder="Name" autoCapitalize="none" />
-              
-              
-              <TextInput style={styles.input} placeholder="Password" secureTextEntry={true}  underlineColorAndroid='transparent'/>   */}
+
            <View style={{marginTop:23}}>
            <OutlinedTextField
         label='Username'
         keyboardType='default'
         labelTextStyle={{fontWeight:"bold",fontFamily:"poppins",color:"black"}}
+       onChangeText={(username) => this.setState({username})} value={this.state.username}
         containerStyle={{height:46,borderRadius:15}}
         inputContainerStyle={{height:46}}
         baseColor="black"
@@ -79,6 +59,7 @@ import {
         label='Email'
         keyboardType='default'
         labelTextStyle={{fontWeight:"bold",fontFamily:"poppins",color:"black"}}
+        onChangeText={(email) => this.setState({email})} value={this.state.email}
         containerStyle={{height:46,borderRadius:15}}
         inputContainerStyle={{height:46}}
         baseColor="black"
@@ -87,18 +68,43 @@ import {
         label='Password'
         keyboardType='default'
         labelTextStyle={{fontWeight:"bold",fontFamily:"poppins",color:"black"}}
+        onChangeText={(password) => this.setState({password})} value={this.state.password}
         containerStyle={{height:46,borderRadius:15}}
         inputContainerStyle={{height:46}}
+        secureTextEntry={true}
         baseColor="black"
       /></View>
-            <TouchableOpacity  style={styles.button}onPress={this.validates} ><Text style={styles.ButtonText}>Signup</Text></TouchableOpacity>
-            <TouchableOpacity  style={styles.button1} onPress={this.validates} ><Text style={styles.ButtonText1}>Login</Text></TouchableOpacity>
-            
+            <TouchableOpacity  style={styles.button} 
+            onPress = {this._login}
+            // onPress={() => this.props.navigation.navigate('Aboutpage')}
+            >
+              <Text style={styles.ButtonText}>Login</Text></TouchableOpacity>
+            <TouchableOpacity  style={styles.button1} onPress={() => this.props.navigation.navigate('Signup')} ><Text style={styles.ButtonText1}>Signup</Text></TouchableOpacity>
+            <View style={{flexDirection:'row', alignItems: 'center', flexGrow:1, paddingLeft:40}}>
+            <Text>Forget password?</Text>
+            <Text>Click here</Text>
             </View>
+            </View>
+            
+            
+
+           
+           
           </ScrollView>
          
       
     );
+  }
+  _login =async() =>{
+    if(Userinfo.username ===this.state.username && Userinfo.password ===this.state.password && Userinfo.email ===this.state.email )
+    {
+     
+      this.props.navigation.navigate('Aboutpage');
+    }
+    
+    else{
+      alert("wrong credentials" );
+    }
   }
 }
 
