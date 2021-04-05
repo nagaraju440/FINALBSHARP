@@ -7,7 +7,7 @@ import {
     Text,
     StatusBar,
   } from 'react-native';
-class Home extends React.Component {
+class HomeC extends React.Component {
     componentDidMount=()=>{
         var x=this.props.navigation;
         x.navigate('Upload course')
@@ -22,4 +22,4 @@ class Home extends React.Component {
     }
 }
  
-export default Home;
+export default HomeC;

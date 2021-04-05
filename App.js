@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import Drawernav from './NavBar/Nav'
 import 'react-native-gesture-handler';
-import React from 'react';
+// import React from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -16,7 +16,7 @@ import {
 import Courses from './topnav2';
 import Home from './TestNavigate/Home'
 import { createStackNavigator } from '@react-navigation/stack';
-import Home from './Admin/home.js'
+import HomeC from './Admin/home'
 import Notification from './Admin/notification'
 const Stack = createStackNavigator();
 function App (){
