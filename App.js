@@ -20,7 +20,7 @@ import {
   StatusBar,
 } from 'react-native';
 
-import Courses from './topnav2'
+// import Courses from './topnav2'
 
 import Aboutpage from './Aboutpage'
 
