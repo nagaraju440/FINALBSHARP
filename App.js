@@ -25,7 +25,7 @@ import Courses from './topnav2'
 import Aboutpage from './Aboutpage'
 
 import Adminnav from './Admin/Adminnav'
-import Cour from './topnav2'
+import Courses from './topnav2'
 
 // import { Provider as PaperProvider } from 'react-native-paper';
 // import { NavigationContainer } from '@react-navigation/native';
@@ -50,7 +50,8 @@ export default class App extends React.Component{
         // <Adminnav/>
         // <Courses/>
       // </View>
-      <SplashScreen />
+      // <SplashScreen />
+      <Courses/>
       // <NavigationContainer>
       //   <Adminnav/>
       // </NavigationContainer>
