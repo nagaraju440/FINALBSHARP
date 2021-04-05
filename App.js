@@ -24,7 +24,7 @@ import {
 
 import Aboutpage from './Aboutpage'
 
-import Adminnav from './Admin/Adminnav'
+// import Adminnav from './Admin/Adminnav'
 import Courses from './topnav2'
 
 // import { Provider as PaperProvider } from 'react-native-paper';
