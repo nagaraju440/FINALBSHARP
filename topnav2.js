@@ -8,7 +8,7 @@ import {
     TouchableOpacity,
     Button
 } from 'react-native';
-import Piano from './pianoimage.jpg'
+import Piano from './IMAGES/pianoimage.jpg'
 
 class Courses extends React.Component {
     render() {
