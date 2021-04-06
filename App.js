@@ -6,6 +6,9 @@ import {
   View,
   Text,
   StatusBar,
+  TouchableOpacity,
+  Image,
+  Br
 } from 'react-native';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
@@ -69,3 +72,4 @@ function App(){
 // });
 
 export default App;
+// AppRegistry.registerComponent(App, () => Main);

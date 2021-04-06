@@ -6,8 +6,30 @@ import {
     View,
     Image,
     TouchableOpacity,
-    Button
+    Button,
+    ScrollView
 } from 'react-native';
+import Svg, {
+    Circle,
+    Ellipse,
+    G,
+    TSpan,
+    TextPath,
+    Path,
+    Polygon,
+    Polyline,
+    Line,
+    Rect,
+    Use,
+    Symbol,
+    Defs,
+    LinearGradient,
+    RadialGradient,
+    Stop,
+    ClipPath,
+    Pattern,
+    Mask,
+  } from 'react-native-svg';
 import Piano from './IMAGES/pianoimage.jpg'
 
 class Courses extends React.Component {
@@ -15,14 +37,14 @@ class Courses extends React.Component {
         console.log(Piano);
         return (
             <View style={styles.container1}>
+                {/* <ScrollView> */}
                 <View style={styles.TopNav}>
                     <Text>Hii</Text>
-
                     <Text>
                         Coursesss
                     </Text>
                     <Image source={Piano} style={styles.Image} />
-                    <Text style={styles.heading1}>Full Course Mastering Keyboard</Text>
+                   <Text style={styles.heading1}>Full Course Mastering Keyboard</Text>
                     <Text style={styles.text1}>
                         We are the best Carnatic Classical Music Academy in{'\n'}
                         Hyderabad, specialised in both online music classes and offline{'\n'}
@@ -32,6 +54,7 @@ class Courses extends React.Component {
                         students.
                     </Text>
                 </View>
+                {/* </ScrollView> */}
             </View>
         )
     }
