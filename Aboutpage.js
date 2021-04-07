@@ -20,12 +20,20 @@ import image5 from './drawable-xxxhdpi/b7.png'
 // import image7 from './drawable-xxxhdpi/image7.png'
 import image6 from './drawable-xxxhdpi/image6.png'
 import image7 from './drawable-xxxhdpi/image7.png'
+import auth from '@react-native-firebase/auth';
 class Aboutpage extends React.Component{
   constructor(props){
     super(props);
     this.state={
 
     }
+  }
+  componentDidMount=()=>{
+    auth()
+  .signOut()
+  .then(() => console.log('User signed out!')
+  
+  );
   }
   click=()=>{
     console.log("hiii")
@@ -173,6 +181,7 @@ and and stuff.
                  </View>          
                 </View>
             </ScrollView>
+        
         )
     }
 }

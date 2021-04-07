@@ -28,7 +28,7 @@ import Aboutpage from './Aboutpage'
 import Courses from './topnav2'
 
 // import { Provider as PaperProvider } from 'react-native-paper';
-// import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 // import {
 //   Header,
 //   LearnMoreLinks,
@@ -38,24 +38,27 @@ import Courses from './topnav2'
 // } from 'react-native/Libraries/NewAppScreen';
 
 import SplashScreen from './screens/signup';
+import RootStackScreen from './navigation/Stack';
+
+  import Sample from './sample.js'
 
 
 export default class App extends React.Component{
   
+    
   render(){
     return(
       
       // <View>
-      //   {/* <Aboutpage/> */}
-        // <Adminnav/>
-        // <Courses/>
+      //  <Aboutpage/>
+      //   <Adminnav/>
+      // <Courses/>  
       // </View>
       // <SplashScreen />
-      <Courses/>
       // <NavigationContainer>
-      //   <Adminnav/>
-      // </NavigationContainer>
-
+      //     <RootStackScreen/>
+      //  </NavigationContainer>
+     <Sample/>
     
 //     return(
 //       <SplashScreen />

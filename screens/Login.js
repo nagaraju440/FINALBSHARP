@@ -1,4 +1,5 @@
   import React from 'react';
+  import { NavigationActions } from 'react-navigation'
 import { 
     View, 
     Text, 
@@ -14,6 +15,9 @@ import {
   FilledTextField,
   OutlinedTextField,
 } from 'react-native-material-textfield';
+import auth from '@react-native-firebase/auth';
+// import AsyncStorage from '@react-native-community/async-storage';
+// const Userinfo = {username:'admin' ,password:'admin123', email:'decoder@123'}
 
  class SplashScreen extends React.Component {
   constructor(props){
@@ -21,31 +25,39 @@ import {
     this.state={
       check:false,
       username: '',
+      password:'',
+      email:'',
 
     }
-    this.validates = this.validates.bind(this);
-  }
- componentDidMount=()=>{
-// LogBox.ignoreWarnings([
-//   'Animated: `useNativeDriver` was not specified.',
-// ]);
- }
-  validates = () => { 
 
-    let text = this.state.username; 
-    let usernameError = this.state.usernames;
-    let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ ; 
-    if(reg.test(text) === false) 
-    { 
-    alert("Invalid username")
-    this.setState({username:text}) 
-    return false; 
-    } 
-    else { 
-    this.setState({username:text}) 
-    alert("Username is Correct"); 
-    } 
-} 
+  }
+ 
+  login=()=>{  
+    console.log("hiiii", this.state.email,this.state.password)  
+      if(this.state.email==='' || this.state.password===''){
+          console.log("provide")
+          alert(" please provide email or password")
+      }else{
+        auth().signInWithEmailAndPassword(this.state.email,this.state.password)
+        .then(()=>{
+          console.log("sucsessfully logged")
+              //  this.props.navigation.navigate('Aboutpage')
+              this.props.navigation.dispatch(NavigationActions.reset({
+                index: 0,
+                actions: [
+                  NavigationActions.navigate({ routeName: 'Aboutpage' })
+                ]
+              }))
+             
+        })
+        .catch(error => {
+          if (error.code === 'auth/invalid-email') {
+            console.log('That email address is invalid!');
+            alert(error.code)
+          }
+        })
+      }
+  }
    render() {
      return (
       <ScrollView style={styles.container}>
@@ -57,49 +69,61 @@ import {
           <View style={styles.footer}>
               <Text style={{fontSize: 15,color: "#707070"}}>Welcome To</Text>
               <Text style={{fontWeight: "bold",fontSize: 35,}}>BMinor</Text>
-{/*               
-              <TextInput style={styles.input} placeholder="Username" autoCapitalize="none"  onChangeText={(text) => this.setState({usernamel:text})} type='username'
-            value={this.state.email} keyboardType='email-address' underlineColorAndroid='transparent'/>
-              <TextInput style={styles.input} placeholder="Name" autoCapitalize="none" />
-              
-              
-              <TextInput style={styles.input} placeholder="Password" secureTextEntry={true}  underlineColorAndroid='transparent'/>   */}
-           <View style={{marginTop:23}}>
-           <OutlinedTextField
-        label='Username'
-        keyboardType='default'
-        labelTextStyle={{fontWeight:"bold",fontFamily:"poppins",color:"black"}}
-        containerStyle={{height:46,borderRadius:15}}
-        inputContainerStyle={{height:46}}
-        baseColor="black"
-    
-      />
-           </View>
+
+           
            <View style={{marginTop:23}}><OutlinedTextField
         label='Email'
         keyboardType='default'
         labelTextStyle={{fontWeight:"bold",fontFamily:"poppins",color:"black"}}
+        onChangeText={(email) => this.setState({email})} value={this.state.email}
         containerStyle={{height:46,borderRadius:15}}
         inputContainerStyle={{height:46}}
         baseColor="black"
+        onChangeText={(emailvalue)=>{this.setState({email:emailvalue})}}
       /></View>
       <View style={{marginTop:23}}><OutlinedTextField
         label='Password'
         keyboardType='default'
         labelTextStyle={{fontWeight:"bold",fontFamily:"poppins",color:"black"}}
+        onChangeText={(password) => this.setState({password})} value={this.state.password}
         containerStyle={{height:46,borderRadius:15}}
         inputContainerStyle={{height:46}}
+        secureTextEntry={true}
         baseColor="black"
+        onChangeText={(passvalue)=>{this.setState({password:passvalue})}}
       /></View>
-            <TouchableOpacity  style={styles.button}onPress={this.validates} ><Text style={styles.ButtonText}>Signup</Text></TouchableOpacity>
-            <TouchableOpacity  style={styles.button1} onPress={this.validates} ><Text style={styles.ButtonText1}>Login</Text></TouchableOpacity>
-            
+            <TouchableOpacity  style={styles.button} 
+            onPress = {()=>{this.login()}}
+            // onPress={() => this.props.navigation.navigate('Aboutpage')}
+            >
+              <Text style={styles.ButtonText}>Login</Text></TouchableOpacity>
+            <TouchableOpacity  style={styles.button1} onPress={() => this.props.navigation.navigate('Signup')} ><Text style={styles.ButtonText1}>Signup</Text></TouchableOpacity>
+            <View style={{flexDirection:'row', alignItems: 'center', flexGrow:1, paddingLeft:40}}>
+            <Text>Forget password?</Text>
+            <Text>Click here</Text>
             </View>
+            </View>
+            
+            
+
+           
+           
           </ScrollView>
          
       
     );
   }
+//   _login =async() =>{
+//     if(Userinfo.username ===this.state.username && Userinfo.password ===this.state.password && Userinfo.email ===this.state.email )
+//     {
+     
+//       this.props.navigation.navigate('Aboutpage');
+//     }
+    
+//     else{
+//       alert("wrong credentials" );
+//     }
+//   }
 }
 
 
