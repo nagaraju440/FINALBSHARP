@@ -1,5 +1,5 @@
 import React from 'react'
-import CreditCardicon from './CreditCardicon'
+// import CreditCardicon from './CreditCardicon'
 import {
     AppRegistry,
     StyleSheet,
@@ -10,11 +10,11 @@ import {
     Button,
     View
 } from 'react-native';
-export default function Settings() {
+ function Settings() {
     return (
         <View>
-            {/* <CreditCardicon /> */}
-            <Text>hiii this is Payments</Text>
+            <Text>hiii this is Settings</Text>
         </View>
     )
 }
+export default Settings

@@ -1,6 +1,4 @@
-import React from 'react'
-// import { createStackNavigator } from '@react-navigation/stack';
-// import { createDrawerNavigator, DrawerContent } from '@react-navigation/drawer';
+import React, { PropTypes, Component } from 'react';
 import {
     SafeAreaView,
     StyleSheet,
@@ -10,6 +8,7 @@ import {
     StatusBar,
     TextInput,
     TouchableOpacity,
+    Image,
     Button
 } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -24,17 +23,23 @@ import AboutIcon from '../Icons/AboutIcon';
 import HelpNSupportIcon from '../Icons/HelpNSupportIcon';
 import MyCourseIcon from '../Icons/MyCourseIcon';
 import PaymentsIcon from '../Icons/PaymentsIcon';
-// import
+// import Bsharp from '../IMAGES/bsharp.png'
 import Dashboard from '../DrawerNavFiles/Dashboard'
-import About from '../DrawerNavFiles/About'
+import About from '../DrawerNavFiles/About';
+// import MyCourses from '../DrawerNavFiles/MyCourse'
 import HelpNSupport from '../DrawerNavFiles/HelpNSupport'
-import MyCourse from'../DrawerNavFiles/MyCourse'
+import MyCourses from'../DrawerNavFiles/mycourses-P'
 import Payments from '../DrawerNavFiles/Payments'
 import SettingsIcon from '../Icons/SettingsIcon';
+import NotificationPage from './NotificationPage'
+import UserPage from './UserPage'
+import DrawerContent from './DrawerContent';
+import Settings from '../DrawerNavFiles/Settings'
+import DashBoardIcon from '../Icons/DashBoardIcon';
 // import Piano from '../IMAGES/pianoimage.jpg'
 const Stack = createStackNavigator();
 
-const TopNav=()=> {
+const TopNav=({navigation})=> {
     return (
             //--------------- Creating stack navigation for TopNav-------------------
                 <Stack.Navigator>
@@ -55,7 +60,7 @@ const TopNav=()=> {
                             >
                                             <TouchableOpacity 
                                             style={styles.Menu}
-                                            // onPress={() =>  navigation.openDrawer()}
+                                            onPress={() =>  navigation.openDrawer()}
                                             ><Menu /></TouchableOpacity>
                                             </View>),
                              
@@ -64,11 +69,13 @@ const TopNav=()=> {
                                             >
                                             < TouchableOpacity
                                             style={styles.Notification}
+                                            onPress={()=> navigation.navigate('NotificationPage')}
                                             >
                                             <Notification />
                                             </TouchableOpacity>
                                             < TouchableOpacity
                                             style={styles.User}
+                                            onPress={()=> navigation.navigate('UserPage')}
                                             >
                                             <User/>
                                             </TouchableOpacity>
@@ -76,33 +83,63 @@ const TopNav=()=> {
                         }
                     }
                         />
+                        <Stack.Screen name="NotificationPage" component={NotificationPage} />
+                        <Stack.Screen name="UserPage" component={UserPage} />
                     </Stack.Navigator>
     )
 }
 const Drawer = createDrawerNavigator();
 function Drawernavi(){
         return(
+            <>
         <NavigationContainer>
-             <Drawer.Navigator
-            // drawerContent={props =><DrawerContent {...props}/>} 
+            <Drawer.Navigator
+            drawerContent={props =><DrawerContent {...props} />}
             >
-            <Drawer.Screen name="TopNav" component={TopNav}
-             options={{
-                title:'BS#arp',
-                //  drawerIcon:()=>(
-                    //  <Piano/>
-    // // //                 <DrawerIcon/>
-                // )
-            }}
-    />
-    <Drawer.Screen name="Dashboard" component={Dashboard}/>
-    <Drawer.Screen name="About" component={About}/>
-    <Drawer.Screen name="HelpNSupport" component={HelpNSupport}/>
-    <Drawer.Screen name="MyCourse" component={MyCourse}/>
-    <Drawer.Screen name="Payments" component={Payments}/>
-             {/* //  drawerContent={props=><DrawerContent{...props}/>}  */}
+    <Drawer.Screen name="Dashboard" component={TopNav} 
+    options={{
+        drawerIcon: ({focused, size}) => (
+            <DashBoardIcon/>
+      )
+      }}/>
+    <Drawer.Screen name="MyCourses" component={MyCourses}
+     options={{
+        drawerIcon: ({focused, size}) => (
+            <MyCourseIcon/>
+      )
+      }}
+      />
+    <Drawer.Screen name="Payments" component={Payments}
+     options={{
+        drawerIcon: ({focused, size}) => (
+            <PaymentsIcon/>
+      )
+      }}
+      />
+    <Drawer.Screen name="About" component={About}
+     options={{
+        drawerIcon: ({focused, size}) => (
+            <AboutIcon/>
+      )
+      }}
+      />
+    <Drawer.Screen name="HelpNSupport" component={HelpNSupport}
+     options={{
+        drawerIcon: ({focused, size}) => (
+            <HelpNSupportIcon/>
+      )
+      }}
+      />
+    <Drawer.Screen name="Settings" component={Settings}
+     options={{
+        drawerIcon: ({focused, size}) => (
+            <SettingsIcon/>
+      )
+      }}
+      />
              </Drawer.Navigator>
         </NavigationContainer>
+        </>
         )
     }
 const styles=StyleSheet.create({
@@ -118,6 +155,25 @@ const styles=StyleSheet.create({
       },
      User:{
          paddingRight:20
+     },
+     image:{
+         width:26,
+         height:39,
      }
     })
 export default Drawernavi
+// // title="BS#arp"
+//             // drawerIcon:()=>(
+//             //              <Image source={Bsharp} style={styles.image}/>
+//             //         )
+//             >
+//             {/* <Drawer.Screen name="TopNav" component={TopNav}
+//             //  options={{
+//             //     // title:'BS#arp',
+//             //      drawerIcon:()=>(
+//             //          <Image source={Bsharp} style={styles.image}/>
+//             //     )
+//             // }}
+//     /> */}
+//     {/* <Drawer.Navigator/> */}
+    

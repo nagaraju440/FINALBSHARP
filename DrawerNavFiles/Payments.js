@@ -16,7 +16,7 @@ function Payments(){
     return(
     <View>
         <Text>
-            hi dashboard
+            hi Payments
         </Text>
     </View>
     )
