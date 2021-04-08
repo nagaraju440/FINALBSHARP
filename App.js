@@ -26,8 +26,6 @@ function App(){
     return(
 // ---------------------------Adding drawer nav--------------------
         <Drawernavi />
-        // <Bsharpimage/>
-      
     )
 }
 

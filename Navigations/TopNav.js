@@ -18,12 +18,10 @@ import Courses from '../topnav2';
 import Menu from '../Icons/Menu'
 import Notification from '../Icons/Notification';
 import User from '../Icons/User'
-import DashboardIcon from '../Icons/DashBoardIcon';
 import AboutIcon from '../Icons/AboutIcon';
 import HelpNSupportIcon from '../Icons/HelpNSupportIcon';
 import MyCourseIcon from '../Icons/MyCourseIcon';
 import PaymentsIcon from '../Icons/PaymentsIcon';
-import Dashboard from '../DrawerNavFiles/Dashboard'
 import About from '../DrawerNavFiles/About';
 import HelpNSupport from '../DrawerNavFiles/HelpNSupport'
 import MyCourses from'../DrawerNavFiles/mycourses-P'
@@ -158,18 +156,5 @@ const styles=StyleSheet.create({
       }
     })
 export default Drawernavi
-// // title="BS#arp"
-//             // drawerIcon:()=>(
-//             //              <Image source={Bsharp} style={styles.image}/>
-//             //         )
-//             >
-//             {/* <Drawer.Screen name="TopNav" component={TopNav}
-//             //  options={{
-//             //     // title:'BS#arp',
-//             //      drawerIcon:()=>(
-//             //          <Image source={Bsharp} style={styles.image}/>
-//             //     )
-//             // }}
-//     /> */}
-//     {/* <Drawer.Navigator/> */}
+
     
