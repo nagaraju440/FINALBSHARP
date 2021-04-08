@@ -59,10 +59,6 @@ export default class Piano extends React.Component {
                         </G>
                     </G>
                 </Svg>
-
-
-
-
             </View>
 
 

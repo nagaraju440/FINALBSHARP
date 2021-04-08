@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { DrawerContentScrollView, DrawerItem, DrawerItemList } from '@react-navigation/drawer';
-import { Drawer } from 'react-native-paper';
+import { Avatar, Drawer, Title } from 'react-native-paper';
 import {
     SafeAreaView,
     StyleSheet,
@@ -8,56 +8,57 @@ import {
     View,
     Text,
     StatusBar,
+    // Avatar
 } from 'react-native';
+import Bsharpimage from '../IMAGES/Bsharpimage'
 import Bsharp from '../IMAGES/bsharp.png'
 import DashBoardIcon from '../Icons/DashBoardIcon';
-import { Image } from 'react-native';
+import { Image ,Left} from 'react-native';
+import {Container, Content} from 'native-base'
+import { Header } from 'react-native/Libraries/NewAppScreen';
 function DrawerContent(props) {
    return(
-       <DrawerContentScrollView {...props}
-        >
-             <Drawer.Section 
-              title="BS#arp"
-              options={{
-                drawerIcon:()=>(
-                  <Image source={Bsharp} />
-                )
-        //      drawerIcon:()=>(
-        //       <Image source={Bsharp} style={styles.image}/>
-        //  )
-           }} 
-               >
-              <DrawerItemList {...props} />
-             </Drawer.Section>
-            </DrawerContentScrollView>
-   )
-    
+      <View style={{flex:1}}>
+      {/* // --------------------------------Displaying drawer sections--------------------------------- */}
+             <DrawerContentScrollView {...props} >
+                <View style={styles.direction}>
+                  <Bsharpimage />
+                  <View>
+                    <Title style={styles.title}>BSH#ARP</Title>
+                  </View>
+                </View>
+                <View >
+                <Drawer.Section styles={{flexDirection:'row'}}>
+                </Drawer.Section>
+                </View>
+                <View> 
+                  <Drawer.Section>
+                    <View>
+                    <DrawerItemList {...props} />
+                    </View>
+                   </Drawer.Section>
+                   </View>
+                  </DrawerContentScrollView>
+                  </View> 
+)
+   
 }
-export default DrawerContent
 
-            //    <View>
-              
-            //    <Drawer.Section></Drawer.Section>
-            //      {/* <Drawer.Section>
-            //       <DrawerItem label="Home"/>
-            //     </Drawer.Section> */}
-            //     {/* </View> */}
-            //    </DrawerContentScrollView>
-            {/* <Drawer.Section></Drawer.Section> */}
-             {/* <DrawerItem
-             label="help"/> */}
-             {/* <View>
-                   <Text>Main Content</Text>
-             </View>
-             <Drawer.Section title="Dashboard">
-               <DrawerItem label="Dashboard"
-               icon={()=>(
-                 <DashBoardIcon/>
-               )}/>
-             </Drawer.Section> */}
-             {/* <Drawer.Section>
-               <View>
-                 <Text>hiii</Text>
-               </View>
-             </Drawer.Section> */}
+export default DrawerContent
+const styles=StyleSheet.create({
+  direction:{
+    flexDirection:'row'
+  },
+  Title:{
+      fontSize:40,
+      color:"red"
+  },
+  Sections:{
+    marginLeft:15
+  },
+  title:{
+    paddingLeft:22,
+    marginTop:20
+  }
+})
            

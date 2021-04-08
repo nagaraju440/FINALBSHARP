@@ -37,7 +37,6 @@ class Courses extends React.Component {
         console.log(Piano);
         return (
             <View style={styles.container1}>
-                {/* <ScrollView> */}
                 <View style={styles.TopNav}>
                     <Text>Hii</Text>
                     <Text>
@@ -54,7 +53,6 @@ class Courses extends React.Component {
                         students.
                     </Text>
                 </View>
-                {/* </ScrollView> */}
             </View>
         )
     }

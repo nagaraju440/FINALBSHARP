@@ -23,10 +23,8 @@ import AboutIcon from '../Icons/AboutIcon';
 import HelpNSupportIcon from '../Icons/HelpNSupportIcon';
 import MyCourseIcon from '../Icons/MyCourseIcon';
 import PaymentsIcon from '../Icons/PaymentsIcon';
-// import Bsharp from '../IMAGES/bsharp.png'
 import Dashboard from '../DrawerNavFiles/Dashboard'
 import About from '../DrawerNavFiles/About';
-// import MyCourses from '../DrawerNavFiles/MyCourse'
 import HelpNSupport from '../DrawerNavFiles/HelpNSupport'
 import MyCourses from'../DrawerNavFiles/mycourses-P'
 import Payments from '../DrawerNavFiles/Payments'
@@ -36,25 +34,17 @@ import UserPage from './UserPage'
 import DrawerContent from './DrawerContent';
 import Settings from '../DrawerNavFiles/Settings'
 import DashBoardIcon from '../Icons/DashBoardIcon';
-// import Piano from '../IMAGES/pianoimage.jpg'
 const Stack = createStackNavigator();
 
 const TopNav=({navigation})=> {
     return (
             //--------------- Creating stack navigation for TopNav-------------------
-                <Stack.Navigator>
+                <Stack.Navigator>        
                    <Stack.Screen 
                          name="Courses " 
                          component={Courses }
                          options={{
                              title:'BS#arp',
-                            // headerTitleStyle:{
-                            //     // height:80,
-                            //     fontSize:16,
-                            //     fontWeight:"500",
-                            //     marginLeft:40,
-                            //     fontFamily:'Roboto',
-                            // },
                              headerLeft:()=>(<View 
                              style={styles.direction}
                             >
@@ -92,52 +82,55 @@ const Drawer = createDrawerNavigator();
 function Drawernavi(){
         return(
             <>
+{/* -------------------------------creating Navigation Container------------------------------             */}
         <NavigationContainer>
+    {/* --------------------------------creating Drawer navigation--------------------------------         */}
             <Drawer.Navigator
-            drawerContent={props =><DrawerContent {...props} />}
+            drawerContent={props =><DrawerContent {...props}
+            options={{
+                title:"BS#ARP"
+            }} 
+              />}
             >
-    <Drawer.Screen name="Dashboard" component={TopNav} 
-    options={{
-        drawerIcon: ({focused, size}) => (
-            <DashBoardIcon/>
-      )
-      }}/>
-    <Drawer.Screen name="MyCourses" component={MyCourses}
-     options={{
-        drawerIcon: ({focused, size}) => (
+         {/* --------------------------------creating Drawer Screens---------------------------------- */}
+            <Drawer.Screen name="Dashboard" component={TopNav} 
+             options={{
+             drawerIcon: ({focused, size}) => (
+             <DashBoardIcon/>
+             
+            )
+            }}/>
+            <Drawer.Screen name="MyCourses" component={MyCourses}
+            options={{
+            drawerIcon: ({focused, size}) => (
             <MyCourseIcon/>
-      )
-      }}
-      />
-    <Drawer.Screen name="Payments" component={Payments}
-     options={{
-        drawerIcon: ({focused, size}) => (
+            )
+            }}/>
+            <Drawer.Screen name="Payments" component={Payments}
+            options={{
+            drawerIcon: ({focused, size}) => (
             <PaymentsIcon/>
-      )
-      }}
-      />
-    <Drawer.Screen name="About" component={About}
-     options={{
-        drawerIcon: ({focused, size}) => (
+            )
+            }}/>
+            <Drawer.Screen name="About" component={About}
+            options={{
+            drawerIcon: ({focused, size}) => (
             <AboutIcon/>
-      )
-      }}
-      />
-    <Drawer.Screen name="HelpNSupport" component={HelpNSupport}
-     options={{
-        drawerIcon: ({focused, size}) => (
+            )
+            }}/>
+            <Drawer.Screen name="HelpNSupport" component={HelpNSupport}
+            options={{
+            drawerIcon: ({focused, size}) => (
             <HelpNSupportIcon/>
-      )
-      }}
-      />
-    <Drawer.Screen name="Settings" component={Settings}
-     options={{
-        drawerIcon: ({focused, size}) => (
+            )
+            }}/>
+            <Drawer.Screen name="Settings" component={Settings}
+            options={{
+            drawerIcon: ({focused, size}) => (
             <SettingsIcon/>
-      )
-      }}
-      />
-             </Drawer.Navigator>
+            )
+            }}/>
+            </Drawer.Navigator>
         </NavigationContainer>
         </>
         )
@@ -159,7 +152,10 @@ const styles=StyleSheet.create({
      image:{
          width:26,
          height:39,
-     }
+     },
+     Sections:{
+        marginLeft:15
+      }
     })
 export default Drawernavi
 // // title="BS#arp"
