@@ -21,6 +21,7 @@ import image5 from './drawable-xxxhdpi/b7.png'
 import image6 from './drawable-xxxhdpi/image6.png'
 import image7 from './drawable-xxxhdpi/image7.png'
 import auth from '@react-native-firebase/auth';
+import { NavigationActions, StackActions } from 'react-navigation'
 class Aboutpage extends React.Component{
   constructor(props){
     super(props);

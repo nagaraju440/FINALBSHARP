@@ -1,5 +1,5 @@
   import React from 'react';
-  import { NavigationActions } from 'react-navigation'
+
 import { 
     View, 
     Text, 
@@ -18,7 +18,7 @@ import {
 import auth from '@react-native-firebase/auth';
 // import AsyncStorage from '@react-native-community/async-storage';
 // const Userinfo = {username:'admin' ,password:'admin123', email:'decoder@123'}
-
+import { NavigationActions, StackActions } from 'react-navigation'
  class SplashScreen extends React.Component {
   constructor(props){
     super(props);
@@ -41,13 +41,10 @@ import auth from '@react-native-firebase/auth';
         auth().signInWithEmailAndPassword(this.state.email,this.state.password)
         .then(()=>{
           console.log("sucsessfully logged")
-              //  this.props.navigation.navigate('Aboutpage')
-              this.props.navigation.dispatch(NavigationActions.reset({
-                index: 0,
-                actions: [
-                  NavigationActions.navigate({ routeName: 'Aboutpage' })
-                ]
-              }))
+          console.log("does not navigatin hehehhe")
+
+               this.props.navigation.navigate('Aboutpage')
+               console.log("does not navigatin")
              
         })
         .catch(error => {

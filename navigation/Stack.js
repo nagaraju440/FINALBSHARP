@@ -26,7 +26,7 @@ class RootStackScreen extends React.Component{
      
         <RootStack.Navigator headerMode='none'>
 
-        <RootStack.Screen name="SplashScreen" component={SplashScreen} />
+        <RootStack.Screen name="SplashScreen" component={SplashScreen}/>
         <RootStack.Screen name="Signup" component={Signup}/>
         <RootStack.Screen name="Aboutpage" component={Aboutpage}/>
     </RootStack.Navigator>
