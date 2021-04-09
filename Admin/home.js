@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+<<<<<<< HEAD
     AppRegistry,
     StyleSheet,
     Text,
@@ -91,10 +92,31 @@ class Home extends React.Component {
                 </View>
                 <View style={{height:70}}></View>
             </ScrollView>
+=======
+    SafeAreaView,
+    StyleSheet,
+    ScrollView,
+    View,
+    Text,
+    StatusBar,
+  } from 'react-native';
+class HomeC extends React.Component {
+    componentDidMount=()=>{
+        var x=this.props.navigation;
+        x.navigate('Upload course')
+    }
+   
+    render() { 
+        return ( 
+            <View>
+                <Text>hiiiii</Text>
+            </View>
+>>>>>>> 649fac8f2d39fd0210e55b93c81b04f45786021f
          );
     }
 }
  
+<<<<<<< HEAD
 export default Home;
 const styles = StyleSheet.create({
     overall:{
@@ -103,3 +125,6 @@ const styles = StyleSheet.create({
         marginTop:85,
     }
 })
+=======
+export default HomeC;
+>>>>>>> 649fac8f2d39fd0210e55b93c81b04f45786021f

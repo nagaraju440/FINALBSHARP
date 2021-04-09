@@ -6,28 +6,51 @@ import {
     View,
     Image,ScrollView,
     TouchableOpacity,
-    Button
+    Button,
+    // ScrollView
 } from 'react-native';
-import Piano from './pianoimage.jpg'
+
+// import Piano from './pianoimage.jpg'
 import {
     TextField,
     FilledTextField,
     OutlinedTextField,
   } from 'react-native-material-textfield';
   
+
+import Svg, {
+    Circle,
+    Ellipse,
+    G,
+    TSpan,
+    TextPath,
+    Path,
+    Polygon,
+    Polyline,
+    Line,
+    Rect,
+    Use,
+    Symbol,
+    Defs,
+    LinearGradient,
+    RadialGradient,
+    Stop,
+    ClipPath,
+    Pattern,
+    Mask,
+  } from 'react-native-svg';
+import Piano from './images/pianoimage.jpg'
+
+
 class Courses extends React.Component {
     render() {
         console.log(Piano);
         return (
             <ScrollView style={styles.container1}>
                 <View style={styles.TopNav}>
-                    <Text>Hii</Text>
-
-                    <Text>
-                        Coursesss
-                    </Text>
+                    
                     <Image source={Piano} style={styles.Image} />
-                    <Text style={styles.heading1}>Full Course Mastering Keyboard</Text>
+                   <Text style={styles.heading1}>Full Course Mastering Keyboard</Text>
                     <Text style={styles.text1}>
                     We are the best Carnatic Classical Music Academy in 
 Hyderabad, specialised in both online music classes and offline
@@ -119,6 +142,7 @@ const styles = StyleSheet.create({
         height: 189,
         width: "100%",
         borderRadius:15,
+        marginTop:30
     },
     heading1: {
         marginTop: 35,
