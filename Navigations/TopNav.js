@@ -37,10 +37,11 @@ const Stack = createStackNavigator();
 const TopNav=({navigation})=> {
     return (
             //--------------- Creating stack navigation for TopNav-------------------
-                <Stack.Navigator>        
+            <NavigationContainer>
+               <Stack.Navigator>        
                    <Stack.Screen 
-                         name="Courses " 
-                         component={Courses }
+                         name="Dashboard " 
+                         component={Drawernavi}
                          options={{
                              title:'BS#arp',
                              headerLeft:()=>(<View 
@@ -74,6 +75,7 @@ const TopNav=({navigation})=> {
                         <Stack.Screen name="NotificationPage" component={NotificationPage} />
                         <Stack.Screen name="UserPage" component={UserPage} />
                     </Stack.Navigator>
+                    </NavigationContainer>
     )
 }
 const Drawer = createDrawerNavigator();
@@ -81,7 +83,7 @@ function Drawernavi(){
         return(
             <>
 {/* -------------------------------creating Navigation Container------------------------------             */}
-        <NavigationContainer>
+        {/* <NavigationContainer> */}
     {/* --------------------------------creating Drawer navigation--------------------------------         */}
             <Drawer.Navigator
             drawerContent={props =><DrawerContent {...props}
@@ -91,7 +93,7 @@ function Drawernavi(){
               />}
             >
          {/* --------------------------------creating Drawer Screens---------------------------------- */}
-            <Drawer.Screen name="Dashboard" component={TopNav} 
+            <Drawer.Screen name="Dashboard" component={Courses} 
              options={{
              drawerIcon: ({focused, size}) => (
              <DashBoardIcon/>
@@ -129,7 +131,7 @@ function Drawernavi(){
             )
             }}/>
             </Drawer.Navigator>
-        </NavigationContainer>
+        {/* </NavigationContainer> */}
         </>
         )
     }
@@ -155,6 +157,6 @@ const styles=StyleSheet.create({
         marginLeft:15
       }
     })
-export default Drawernavi
+export default TopNav
 
     
