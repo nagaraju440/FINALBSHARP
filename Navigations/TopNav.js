@@ -12,7 +12,7 @@ import {
     Button
 } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer ,useRoute} from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import Courses from '../topnav2';
 import Menu from '../Icons/Menu'
@@ -32,10 +32,26 @@ import UserPage from './UserPage'
 import DrawerContent from './DrawerContent';
 import Settings from '../DrawerNavFiles/Settings'
 import DashBoardIcon from '../Icons/DashBoardIcon';
-const Stack = createStackNavigator();
-var X=About
+const Stack = new createStackNavigator();
+// const route = useRoute();
+
+var X=About,i="Dashboard",j:'Dashboard';
 const TopNav=(props)=> {
-    console.log(props.route.params.Params,"hloooooooo")
+    // console.log(props.route.params.Params,props.route.name,"hloooooooo")
+      React.useEffect(() => {
+    var unsubscribe = props.navigation.addListener('focus', () => {
+      // The screen is focused
+      // Call any action
+      console.log("changing",props,props.route.name) 
+    // console.log(route.name,"rout name");
+    // props.navigation.navigate('About')
+
+    //    {()=>{TopNav()}}
+    });
+
+    // Return the function to unsubscribe from the event so it gets removed on unmount
+    return unsubscribe;
+  });
     return (
             //--------------- Creating stack navigation for TopNav-------------------
                 <Stack.Navigator>        
@@ -58,7 +74,16 @@ const TopNav=(props)=> {
                                             >
                                             <TouchableOpacity
                                             style={styles.Notification}
-                                            onPress={()=> props.navigation.navigate('NotificationPage')}
+                                            onPress={()=>
+                                            {
+                                            // setTimeout(function(){
+                                            //    props.navigation.navigate('Settings')    
+                                            // }, 0.001);
+                                             props.navigation.navigate('NotificationPage')
+
+                                              console.log("navigation clicking")
+                                            }
+                                             }
                                             >
                                             <Notification />
                                             </TouchableOpacity>
@@ -85,6 +110,7 @@ function Drawernavi(route,navigation){
         <NavigationContainer>
     {/* --------------------------------creating Drawer navigation--------------------------------         */}
             <Drawer.Navigator
+              onChange={()=>{console.log("clicked")}}
             drawerContent={props =><DrawerContent {...props}
             options={{
                 title:"BS#ARP"
@@ -101,6 +127,7 @@ function Drawernavi(route,navigation){
             )
             }}/>
             <Drawer.Screen name="MyCourses" component={TopNav}
+          
             initialParams={{ Params: MyCourses}} 
             options={{
             drawerIcon: ({focused, size}) => (
