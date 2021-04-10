@@ -80,7 +80,6 @@ const TopNav=(props)=> {
                                             //    props.navigation.navigate('Settings')    
                                             // }, 0.001);
                                              props.navigation.navigate('NotificationPage')
-
                                               console.log("navigation clicking")
                                             }
                                              }
