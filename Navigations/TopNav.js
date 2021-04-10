@@ -34,14 +34,16 @@ import Settings from '../DrawerNavFiles/Settings'
 import DashBoardIcon from '../Icons/DashBoardIcon';
 const Stack = createStackNavigator();
 
-const TopNav=({navigation})=> {
+const TopNav1=({ navigation })=> {
+    console.log('hii dashboard:TopNav1');
+    // console.log(props.route.params.Params,"hloooooooo")
     return (
             //--------------- Creating stack navigation for TopNav-------------------
-            <NavigationContainer>
+            // <NavigationContainer>
                <Stack.Navigator>        
                    <Stack.Screen 
                          name="Dashboard " 
-                         component={Drawernavi}
+                         component={Courses}
                          options={{
                              title:'BS#arp',
                              headerLeft:()=>(<View 
@@ -49,6 +51,8 @@ const TopNav=({navigation})=> {
                             >
                                             <TouchableOpacity 
                                             style={styles.Menu}
+                                            // onPress={()=>}
+                                            // onPress={() =>  navigation.dispatch(DrawerActions.openDrawer())}
                                             onPress={() =>  navigation.openDrawer()}
                                             ><Menu /></TouchableOpacity>
                                             </View>),
@@ -58,12 +62,14 @@ const TopNav=({navigation})=> {
                                             >
                                             < TouchableOpacity
                                             style={styles.Notification}
-                                            onPress={()=> navigation.navigate('NotificationPage')}
+                                            // onPress={()=>console.log('hlo')}
+                                            onPress={()=>navigation.navigate('NotificationPage')}
                                             >
                                             <Notification />
                                             </TouchableOpacity>
                                             < TouchableOpacity
                                             style={styles.User}
+                                            // onPress={()=>console.log('hii-2')}
                                             onPress={()=> navigation.navigate('UserPage')}
                                             >
                                             <User/>
@@ -75,15 +81,257 @@ const TopNav=({navigation})=> {
                         <Stack.Screen name="NotificationPage" component={NotificationPage} />
                         <Stack.Screen name="UserPage" component={UserPage} />
                     </Stack.Navigator>
-                    </NavigationContainer>
+                    // {/* </NavigationContainer> */}
     )
 }
+const TopNav2=({ navigation })=> {
+    console.log('hii MyCourses:TopNav2');
+    return (
+            //--------------- Creating stack navigation for TopNav-------------------
+            // <NavigationContainer>
+               <Stack.Navigator>        
+                   <Stack.Screen 
+                         name="MyCourses " 
+                         component={MyCourses}
+                         options={{
+                             title:'BS#arp',
+                             headerLeft:()=>(<View 
+                             style={styles.direction}
+                            >
+                                            <TouchableOpacity 
+                                            style={styles.Menu}
+                                            // onPress={() =>  navigation.dispatch(DrawerActions.openDrawer())}
+                                            onPress={() =>  navigation.openDrawer()}
+                                            ><Menu /></TouchableOpacity>
+                                            </View>),
+                             
+                                            headerRight:()=>(<View 
+                                            style={styles.direction}
+                                            >
+                                            < TouchableOpacity
+                                            style={styles.Notification}
+                                            // onPress={()=>console.log('hlo')}
+                                            onPress={()=>navigation.navigate('NotificationPage')}
+                                            >
+                                            <Notification />
+                                            </TouchableOpacity>
+                                            < TouchableOpacity
+                                            style={styles.User}
+                                            // onPress={()=>console.log('hii-2')}
+                                            onPress={()=> navigation.navigate('UserPage')}
+                                            >
+                                            <User/>
+                                            </TouchableOpacity>
+                                            </View>)   
+                        }
+                    }
+                        />
+                        <Stack.Screen name="NotificationPage" component={NotificationPage} />
+                        <Stack.Screen name="UserPage" component={UserPage} />
+                    </Stack.Navigator>
+                    // {/* </NavigationContainer> */}
+    )
+}
+const TopNav3=({ navigation })=> {
+    console.log('hii Payments:TopNav3');
+    return (
+            //--------------- Creating stack navigation for TopNav-------------------
+            // <NavigationContainer>
+               <Stack.Navigator>        
+                   <Stack.Screen 
+                         name="Payments" 
+                         component={Payments}
+                         options={{
+                             title:'BS#arp',
+                             headerLeft:()=>(<View 
+                             style={styles.direction}
+                            >
+                                            <TouchableOpacity 
+                                            style={styles.Menu}
+                                            // onPress={() =>  navigation.dispatch(DrawerActions.openDrawer())}
+                                            onPress={() =>  navigation.openDrawer()}
+                                            ><Menu /></TouchableOpacity>
+                                            </View>),
+                             
+                                            headerRight:()=>(<View 
+                                            style={styles.direction}
+                                            >
+                                            < TouchableOpacity
+                                            style={styles.Notification}
+                                            // onPress={()=>console.log('hlo')}
+                                            onPress={()=>navigation.navigate('NotificationPage')}
+                                            >
+                                            <Notification />
+                                            </TouchableOpacity>
+                                            < TouchableOpacity
+                                            style={styles.User}
+                                            // onPress={()=>console.log('hii-2')}
+                                            onPress={()=> navigation.navigate('UserPage')}
+                                            >
+                                            <User/>
+                                            </TouchableOpacity>
+                                            </View>)   
+                        }
+                    }
+                        />
+                        <Stack.Screen name="NotificationPage" component={NotificationPage} />
+                        <Stack.Screen name="UserPage" component={UserPage} />
+                    </Stack.Navigator>
+                    // {/* </NavigationContainer> */}
+    )
+}
+const TopNav4=({ navigation })=> {
+    console.log('hii About:TopNav4');
+    return (
+            //--------------- Creating stack navigation for TopNav-------------------
+            // <NavigationContainer>
+               <Stack.Navigator>        
+                   <Stack.Screen 
+                         name="About" 
+                         component={About}
+                         options={{
+                             title:'BS#arp',
+                             headerLeft:()=>(<View 
+                             style={styles.direction}
+                            >
+                                            <TouchableOpacity 
+                                            style={styles.Menu}
+                                            // onPress={() =>  navigation.dispatch(DrawerActions.openDrawer())}
+                                            onPress={() =>  navigation.openDrawer()}
+                                            ><Menu /></TouchableOpacity>
+                                            </View>),
+                             
+                                            headerRight:()=>(<View 
+                                            style={styles.direction}
+                                            >
+                                            < TouchableOpacity
+                                            style={styles.Notification}
+                                            // onPress={()=>console.log('hlo')}
+                                            onPress={()=>navigation.navigate('NotificationPage')}
+                                            >
+                                            <Notification />
+                                            </TouchableOpacity>
+                                            < TouchableOpacity
+                                            style={styles.User}
+                                            // onPress={()=>console.log('hii-2')}
+                                            onPress={()=> navigation.navigate('UserPage')}
+                                            >
+                                            <User/>
+                                            </TouchableOpacity>
+                                            </View>)   
+                        }
+                    }
+                        />
+                        <Stack.Screen name="NotificationPage" component={NotificationPage} />
+                        <Stack.Screen name="UserPage" component={UserPage} />
+                    </Stack.Navigator>
+                    // {/* </NavigationContainer> */}
+    )
+}
+const TopNav5=({ navigation })=> {
+    console.log('hii HelpNSupport:TopNav5');
+    return (
+            //--------------- Creating stack navigation for TopNav-------------------
+            // <NavigationContainer>
+               <Stack.Navigator>        
+                   <Stack.Screen 
+                         name="HelpNSupport" 
+                         component={HelpNSupport}
+                         options={{
+                             title:'BS#arp',
+                             headerLeft:()=>(<View 
+                             style={styles.direction}
+                            >
+                                            <TouchableOpacity 
+                                            style={styles.Menu}
+                                            // onPress={() =>  navigation.dispatch(DrawerActions.openDrawer())}
+                                            onPress={() =>  navigation.openDrawer()}
+                                            ><Menu /></TouchableOpacity>
+                                            </View>),
+                             
+                                            headerRight:()=>(<View 
+                                            style={styles.direction}
+                                            >
+                                            < TouchableOpacity
+                                            style={styles.Notification}
+                                            // onPress={()=>console.log('hlo')}
+                                            onPress={()=>navigation.navigate('NotificationPage')}
+                                            >
+                                            <Notification />
+                                            </TouchableOpacity>
+                                            < TouchableOpacity
+                                            style={styles.User}
+                                            // onPress={()=>console.log('hii-2')}
+                                            onPress={()=> navigation.navigate('UserPage')}
+                                            >
+                                            <User/>
+                                            </TouchableOpacity>
+                                            </View>)   
+                        }
+                    }
+                        />
+                        <Stack.Screen name="NotificationPage" component={NotificationPage} />
+                        <Stack.Screen name="UserPage" component={UserPage} />
+                    </Stack.Navigator>
+                    // {/* </NavigationContainer> */}
+    )
+}
+const TopNav6=({ navigation })=> {
+    console.log('hii Settings:TopNav6');
+    return (
+            //--------------- Creating stack navigation for TopNav-------------------
+            // <NavigationContainer>
+               <Stack.Navigator>        
+                   <Stack.Screen 
+                         name="Settings" 
+                         component={Settings}
+                         options={{
+                             title:'BS#arp',
+                             headerLeft:()=>(<View 
+                             style={styles.direction}
+                            >
+                                            <TouchableOpacity 
+                                            style={styles.Menu}
+                                            // onPress={() =>  navigation.dispatch(DrawerActions.openDrawer())}
+                                            onPress={() =>  navigation.openDrawer()}
+                                            ><Menu /></TouchableOpacity>
+                                            </View>),
+                             
+                                            headerRight:()=>(<View 
+                                            style={styles.direction}
+                                            >
+                                            < TouchableOpacity
+                                            style={styles.Notification}
+                                            // onPress={()=>console.log('hlo')}
+                                            onPress={()=>navigation.navigate('NotificationPage')}
+                                            >
+                                            <Notification />
+                                            </TouchableOpacity>
+                                            < TouchableOpacity
+                                            style={styles.User}
+                                            // onPress={()=>console.log('hii-2')}
+                                            onPress={()=> navigation.navigate('UserPage')}
+                                            >
+                                            <User/>
+                                            </TouchableOpacity>
+                                            </View>)   
+                        }
+                    }
+                        />
+                        <Stack.Screen name="NotificationPage" component={NotificationPage} />
+                        <Stack.Screen name="UserPage" component={UserPage} />
+                    </Stack.Navigator>
+                    // {/* </NavigationContainer> */}
+    )
+}
+
+
 const Drawer = createDrawerNavigator();
 function Drawernavi(){
         return(
             <>
 {/* -------------------------------creating Navigation Container------------------------------             */}
-        {/* <NavigationContainer> */}
+        <NavigationContainer>
     {/* --------------------------------creating Drawer navigation--------------------------------         */}
             <Drawer.Navigator
             drawerContent={props =><DrawerContent {...props}
@@ -93,45 +341,45 @@ function Drawernavi(){
               />}
             >
          {/* --------------------------------creating Drawer Screens---------------------------------- */}
-            <Drawer.Screen name="Dashboard" component={Courses} 
+            <Drawer.Screen name="Dashboard" component={TopNav1} 
              options={{
              drawerIcon: ({focused, size}) => (
              <DashBoardIcon/>
              
             )
             }}/>
-            <Drawer.Screen name="MyCourses" component={MyCourses}
+            <Drawer.Screen name="MyCourses" component={TopNav2}
             options={{
             drawerIcon: ({focused, size}) => (
             <MyCourseIcon/>
             )
             }}/>
-            <Drawer.Screen name="Payments" component={Payments}
+            <Drawer.Screen name="Payments" component={TopNav3}
             options={{
             drawerIcon: ({focused, size}) => (
             <PaymentsIcon/>
             )
             }}/>
-            <Drawer.Screen name="About" component={About}
+            <Drawer.Screen name="About" component={TopNav4}
             options={{
             drawerIcon: ({focused, size}) => (
             <AboutIcon/>
             )
             }}/>
-            <Drawer.Screen name="HelpNSupport" component={HelpNSupport}
+            <Drawer.Screen name="HelpNSupport" component={TopNav5}
             options={{
             drawerIcon: ({focused, size}) => (
             <HelpNSupportIcon/>
             )
             }}/>
-            <Drawer.Screen name="Settings" component={Settings}
+            <Drawer.Screen name="Settings" component={TopNav6}
             options={{
             drawerIcon: ({focused, size}) => (
             <SettingsIcon/>
             )
             }}/>
             </Drawer.Navigator>
-        {/* </NavigationContainer> */}
+        </NavigationContainer>
         </>
         )
     }
@@ -157,6 +405,5 @@ const styles=StyleSheet.create({
         marginLeft:15
       }
     })
-export default TopNav
-
-    
+    export default Drawernavi
+// export default TopNav
