@@ -10,9 +10,12 @@ import {
   Image,
   Br
 } from 'react-native';
+// import 'react-native-gesture-handler';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import Drawernavi from './Navigations/TopNav'
+// import TopNav from './Navigations/TopNav'
+import StackNav from './TopNavs/stack'
 import {
   Header,
   LearnMoreLinks,
@@ -26,6 +29,8 @@ function App(){
     return(
 // ---------------------------Adding drawer nav--------------------
         <Drawernavi />
+        // <StackNav/>
+        // <TopNav/>
     )
 }
 

@@ -32,75 +32,13 @@ import UserPage from './UserPage'
 import DrawerContent from './DrawerContent';
 import Settings from '../DrawerNavFiles/Settings'
 import DashBoardIcon from '../Icons/DashBoardIcon';
+import TopNav1 from '../TopNavs/TopNav1'
+import TopNav2 from '../TopNavs/TopNav2'
+import TopNav3 from '../TopNavs/TopNav3'
+import TopNav4 from '../TopNavs/TopNav4'
+import TopNav5 from '../TopNavs/TopNav5'
+import TopNav6 from '../TopNavs/TopNav6'
 const Stack = new createStackNavigator();
-// const route = useRoute();
-
-var X=About,i="Dashboard",j:'Dashboard';
-const TopNav=(props)=> {
-    // console.log(props.route.params.Params,props.route.name,"hloooooooo")
-      React.useEffect(() => {
-    var unsubscribe = props.navigation.addListener('focus', () => {
-      // The screen is focused
-      // Call any action
-      console.log("changing",props,props.route.name) 
-    // console.log(route.name,"rout name");
-    // props.navigation.navigate('About')
-
-    //    {()=>{TopNav()}}
-    });
-
-    // Return the function to unsubscribe from the event so it gets removed on unmount
-    return unsubscribe;
-  });
-    return (
-            //--------------- Creating stack navigation for TopNav-------------------
-                <Stack.Navigator>        
-                   <Stack.Screen 
-                         name="Courses" 
-                         component={props.route.params.Params}
-                         options={{
-                             title:'BS#arp',
-                             headerLeft:()=>(<View 
-                             style={styles.direction}
-                            >
-                                            <TouchableOpacity 
-                                            style={styles.Menu}
-                                            onPress={() =>  props.navigation.openDrawer()}
-                                            ><Menu /></TouchableOpacity>
-                                            </View>),
-                             
-                                            headerRight:()=>(<View 
-                                            style={styles.direction}
-                                            >
-                                            <TouchableOpacity
-                                            style={styles.Notification}
-                                            onPress={()=>
-                                            {
-                                            // setTimeout(function(){
-                                            //    props.navigation.navigate('Settings')    
-                                            // }, 0.001);
-                                             props.navigation.navigate('NotificationPage')
-                                              console.log("navigation clicking")
-                                            }
-                                             }
-                                            >
-                                            <Notification />
-                                            </TouchableOpacity>
-                                            <TouchableOpacity
-                                            style={styles.User}
-                                            onPress={()=> props.navigation.navigate('UserPage')}
-                                            >
-                                            <User/>
-                                            </TouchableOpacity>
-                                            </View>)   
-                        }
-                    }
-                        />
-                        <Stack.Screen name="NotificationPage" component={NotificationPage} />
-                        <Stack.Screen name="UserPage" component={UserPage} />
-                    </Stack.Navigator>
-    )
-}
 const Drawer = createDrawerNavigator();
 function Drawernavi(route,navigation){
         return(
@@ -112,50 +50,47 @@ function Drawernavi(route,navigation){
               onChange={()=>{console.log("clicked")}}
             drawerContent={props =><DrawerContent {...props}
             options={{
-                title:"BS#ARP"
-            }} 
+                title:"BS#ARP",
+            }}
+
               />}
+             
             >
          {/* --------------------------------creating Drawer Screens---------------------------------- */}
-            <Drawer.Screen name="Dashboard" component={TopNav}
-            initialParams={{ Params: Courses}} 
+            <Drawer.Screen name="Dashboard" component={TopNav1}
+           
              options={{
+                headerShown: false,
              drawerIcon: ({focused, size}) => (
              <DashBoardIcon/>
              
             )
             }}/>
-            <Drawer.Screen name="MyCourses" component={TopNav}
-          
-            initialParams={{ Params: MyCourses}} 
+            <Drawer.Screen name="MyCourses" component={TopNav2}
             options={{
             drawerIcon: ({focused, size}) => (
             <MyCourseIcon/>
             )
             }}/>
-            <Drawer.Screen name="Payments" component={TopNav}
-            initialParams={{ Params: Payments}} 
+            <Drawer.Screen name="Payments" component={TopNav3}
             options={{
             drawerIcon: ({focused, size}) => (
             <PaymentsIcon/>
             )
             }}/>
-            <Drawer.Screen name="About" component={TopNav}
-            initialParams={{ Params: About}} 
+            <Drawer.Screen name="About" component={TopNav4}
             options={{
             drawerIcon: ({focused, size}) => (
             <AboutIcon/>
             )
             }}/>
-            <Drawer.Screen name="HelpNSupport" component={TopNav}
-             initialParams={{ Params:HelpNSupport}}
+            <Drawer.Screen name="HelpNSupport" component={TopNav5}
             options={{
             drawerIcon: ({focused, size}) => (
             <HelpNSupportIcon/>
             )
             }}/>
-            <Drawer.Screen name="Settings" component={TopNav}
-            initialParams={{ Params:Settings}}  
+            <Drawer.Screen name="Settings" component={TopNav6}
             options={{
             drawerIcon: ({focused, size}) => (
             <SettingsIcon/>
@@ -188,11 +123,5 @@ const styles=StyleSheet.create({
         marginLeft:15
       }
     })
-export default Drawernavi
-
-    //    {"navigation": {"addListener": [Function addListener], "canGoBack": [Function canGoBack], "closeDrawer": [Function anonymous],
-    //     "dangerouslyGetParent": [Function dangerouslyGetParent], "dangerouslyGetState": [Function anonymous], "dispatch": [Function dispatch], 
-    //     "goBack": [Function anonymous], "isFocused": [Function isFocused], "jumpTo": [Function anonymous], "navigate": [Function anonymous], 
-    //     "openDrawer": [Function anonymous], "removeListener": [Function removeListener], "reset": [Function anonymous], "setOptions": [Function setOptions], 
-    //     "setParams": [Function anonymous], "toggleDrawer": [Function anonymous]},
-    //     "route": {"key": "Dashboard-d5T1fGAJeeZ8qXEwH0tpt", "name": "Dashboard", "params": {"Params": [Function Courses]}}}
+    export default Drawernavi;
+// export default TopNav

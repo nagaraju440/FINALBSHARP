@@ -40,13 +40,57 @@ import Svg, {
     Mask,
   } from 'react-native-svg';
 import Piano from './images/pianoimage.jpg'
-
-
+import StackNav from './TopNavs/stack'
+import Menu from './Icons/Menu'
+import Notification from './Icons/Notification';
+import User from './Icons/User'
 class Courses extends React.Component {
+  click=()=>{
+    console.log("registering")
+    this.props.navigation.navigate('UserPage1')
+  }
     render() {
         console.log(Piano);
         return (
-            <ScrollView style={styles.container1}>
+          <View style={{backgroundColor:'white'}}>
+      {/* <StackNav/> */}
+       {/* .........................top bsharp..............................      */}
+             <View style={{width:"100%",height:57,flexDirection:'row',alignItems:'center',borderWidth:0.0,elevation:1}}>
+
+             <View style={{marginLeft:'6.5%'}}>
+                <TouchableOpacity 
+                onPress={()=>{
+                  this.props.navigation.openDrawer()
+                }}
+                >
+                <Menu/>
+                </TouchableOpacity>
+             </View>
+           <View style={{marginLeft:'5.5%'}}>
+               <Text style={{fontSize:18,fontWeight:'bold',fontFamily:'Poppins'}}>BS#arp</Text>
+           </View>
+           <View style={{marginLeft:'44.9%'}}>
+               <TouchableOpacity
+               onPress={()=>{
+                    this.props.navigation.navigate('NotificationPage')
+                }}
+               >
+               <Notification/>
+               </TouchableOpacity>
+           </View>
+           <View style={{marginLeft:'3.5%'}}>
+              <TouchableOpacity
+              onPress={()=>{
+                    this.props.navigation.navigate('UserPage')
+                }}>
+              <User/>
+              </TouchableOpacity>
+           </View>
+             </View>
+          
+            <ScrollView >
+            {/* <StckNav */}
+      
                 <View style={styles.TopNav}>
                     
                     <Image source={Piano} style={styles.Image} />
@@ -119,6 +163,7 @@ students.
                 </View>
                 </View>
             </ScrollView>
+            </View>
         )
     }
 
@@ -129,13 +174,15 @@ const styles = StyleSheet.create({
     container1: {
         // marginTop: 50,
         height: 944,
-        width: "100%"
+        width: "100%",
+        // marginTop:45,
     },
     TopNav: {
         // height: 57,
         width: "87%",
         color: 'blue',
         // padding: 25,
+        // marginTop:85,
         marginLeft: 25
     },
     Image: {

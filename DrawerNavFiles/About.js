@@ -18,6 +18,9 @@ import image4 from  '../drawable-xxxhdpi/Conservatory-student-advances-to-final-
 import image5 from '../drawable-xxxhdpi/b7.png'
 import image6 from '../drawable-xxxhdpi/image6.png'
 import image7 from '../drawable-xxxhdpi/image7.png'
+import Menu from '../Icons/Menu'
+import Notification from '../Icons/Notification';
+import User from '../Icons/User'
 class Aboutpage extends React.Component{
   constructor(props){
     super(props);
@@ -30,6 +33,38 @@ class Aboutpage extends React.Component{
   }
     render(){
         return(
+          <View style={{backgroundColor:'white'}}>
+          <View>
+             <View style={{width:"100%",height:57,flexDirection:'row',alignItems:'center',borderWidth:0.0,elevation:1}}>
+
+             <View style={{marginLeft:'6.5%'}}>
+                <TouchableOpacity 
+               onPress={()=>{
+                    this.props.navigation.openDrawer()
+                }}
+                >
+                <Menu/>
+                </TouchableOpacity>
+             </View>
+           <View style={{marginLeft:'5.5%'}}>
+               <Text style={{fontSize:18,fontWeight:'bold',fontFamily:'Poppins'}}>BS#arp</Text>
+           </View>
+           <View style={{marginLeft:'44.9%'}}>
+               <TouchableOpacity
+               onPress={()=>{
+                    this.props.navigation.navigate('NotificationPage')
+                }}
+               >
+               <Notification/>
+               </TouchableOpacity>
+           </View>
+           <View style={{marginLeft:'3.5%'}}>
+              <TouchableOpacity>
+              <User/>
+              </TouchableOpacity>
+           </View>
+             </View>
+            </View>
             <ScrollView >
                 <View style={styles.topnavstyle}>
                     {/* fortopnav okkkk */}
@@ -171,6 +206,7 @@ and and stuff.
                  </View>          
                 </View>
             </ScrollView>
+            </View>
         )
     }
 }

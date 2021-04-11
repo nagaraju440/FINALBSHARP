@@ -12,9 +12,47 @@ import {
     TouchableOpacity,
     Button
 } from 'react-native';
-function Payments(){
+import Menu from '../Icons/Menu'
+import Notification from '../Icons/Notification';
+import User from '../Icons/User'
+function Payments({navigation}){
     return(
+    <View style={{backgroundColor:'white',height:800}}>
+    {/* .............................top bsharp header ....................... */}
     <View>
+             <View style={{width:"100%",height:57,flexDirection:'row',alignItems:'center',borderWidth:0.0,elevation:1}}>
+
+             <View style={{marginLeft:'6.5%'}}>
+                <TouchableOpacity 
+                onPress={()=>{
+                navigation.openDrawer()
+                }}
+                >
+                <Menu/>
+                </TouchableOpacity>
+             </View>
+           <View style={{marginLeft:'5.5%'}}>
+               <Text style={{fontSize:18,fontWeight:'bold',fontFamily:'Poppins'}}>BS#arp</Text>
+           </View>
+           <View style={{marginLeft:'44.9%'}}>
+               <TouchableOpacity
+               onPress={()=>{
+                  navigation.navigate('NotificationPage')
+                }}
+               >
+               <Notification/>
+               </TouchableOpacity>
+           </View>
+           <View style={{marginLeft:'3.5%'}}>
+              <TouchableOpacity
+              onPress={()=>{
+                   navigation.navigate('UserPage')
+                }}>
+              <User/>
+              </TouchableOpacity>
+           </View>
+             </View>
+            </View>
         <Text>
             hi Payments
         </Text>

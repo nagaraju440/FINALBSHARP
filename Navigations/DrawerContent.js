@@ -58,7 +58,10 @@ const styles=StyleSheet.create({
   },
   title:{
     paddingLeft:22,
-    marginTop:20
+    marginTop:20,
+    fontSize:22,
+    fontFamily:'medium'
+
   }
 })
            
