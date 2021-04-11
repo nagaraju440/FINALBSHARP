@@ -43,7 +43,10 @@ function HelpNSupport(){
                </TouchableOpacity>
            </View>
            <View style={{marginLeft:'3.5%'}}>
-              <TouchableOpacity>
+              <TouchableOpacity
+              onPress={()=>{
+                    this.props.navigation.navigate('UserPage')
+                }}>
               <User/>
               </TouchableOpacity>
            </View>

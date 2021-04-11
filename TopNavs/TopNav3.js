@@ -37,14 +37,14 @@ const Stack = new createStackNavigator();
 
 
 const TopNav3=({ navigation })=> {
-    console.log('hii dashboard:TopNav1');
+    console.log('hii Payments:TopNav3');
     // console.log(props.route.params.Params,"hloooooooo")
     return (
             //--------------- Creating stack navigation for TopNav-------------------
             // <NavigationContainer>
                <Stack.Navigator>        
                    <Stack.Screen 
-                         name="Dashboard " 
+                         name="Payments" 
                          component={Payments}
                          options={{headerShown: false}}
                         />
