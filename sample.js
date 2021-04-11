@@ -12,7 +12,15 @@ import {
     Text,
     StatusBar,
   } from 'react-native';
+  import Drawernavi from './Navigations/TopNav'
   var x=0
+
+  //   auth()
+  // .signOut()
+  // .then(() => console.log('User signed out!')
+  
+  // );
+  
   auth().onAuthStateChanged((user) => {
     if (user) {
     //   setAuthenticated(true);
@@ -28,7 +36,10 @@ class Sample extends React.Component {
     render() {
          if(x===1){
                  return(
-                    <Aboutpage/>
+                    
+                    <NavigationContainer>
+                    <Drawernavi/>
+                 </NavigationContainer>
                  )
          }else{
                  return(

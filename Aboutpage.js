@@ -10,7 +10,7 @@ import {
     TextInput,
     Button
 } from 'react-native';
-import Piano from './pianoimage.jpg'
+import Piano from './images/pianoimage.jpg'
 import image1 from './drawable-xxxhdpi/instrumental_doha_mar10_1.png'
 import image2 from './drawable-xxxhdpi/image2.png'
 import image3 from './drawable-xxxhdpi/15_1_1.png'
