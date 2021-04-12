@@ -8,7 +8,7 @@ import {
     StyleSheet,
     StatusBar,
     Image,
-    TextInput,Button,ScrollView, ActivityIndicator
+    TextInput,Button,ScrollView, ActivityIndicator,LogBox 
 } from 'react-native';
 import {
   TextField,
@@ -44,6 +44,9 @@ import { Drawer } from 'native-base';
       if(this.state.email==='' || this.state.password===''){
           console.log("provide")
           alert("please provide email or password")
+          setTimeout(()=>{
+              this.setState({l:0})
+          },1000)
 
       }else{
         auth().signInWithEmailAndPassword(this.state.email,this.state.password)
@@ -53,31 +56,33 @@ import { Drawer } from 'native-base';
           auth().onAuthStateChanged((user) => {
             if (user) {
             //   setAuthenticated(true);
-            console.log("a user is there",auth().currentUser.email ,"and this is from login bro and x is",this.state.x)
             this.state.x=1;
             this.setState({x:this.state.x,l:0})
+            console.log("a user is there",auth().currentUser.email ,"and this is from login bro and x is",this.state.x)
+
             } else {
-              this.state.x=0;
-              this.setState({x:this.state.x})
+              // this.state.x=0;
+              // this.setState({x:this.state.x})
             console.log("no  user is there and fro login ",this.state.x,"is x")
           
             }
           })
-              // this.props.navigation.navigate('Aboutpage')
              
         })
         .catch(error => {
           alert(error.code)
           this.setState({l:0})
-          if (error.code === 'auth/invalid-email') {
-            console.log('That email address is invalid!');
-            alert(error.code)
-          }
+          // if (error.code === 'auth/invalid-email') {
+          //   console.log('That email address is invalid!');
+          //   alert(error.code)
+          // }
         })
       }
   }
   
     render(){
+  LogBox.ignoreLogs(['Animated: `useNativeDriver` was not specified.']);
+
       if(this.state.x===1){
 return(<Drawernavi/>)
       }else{
