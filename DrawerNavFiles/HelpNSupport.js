@@ -15,7 +15,7 @@ import {
 import Menu from '../Icons/Menu'
 import Notification from '../Icons/Notification';
 import User from '../Icons/User'
-function HelpNSupport(){
+function HelpNSupport({navigation}){
     return(
     <View style={{backgroundColor:'white',height:800}}>
       <View>
@@ -24,7 +24,7 @@ function HelpNSupport(){
              <View style={{marginLeft:'6.5%'}}>
                 <TouchableOpacity 
                onPress={()=>{
-                    this.props.navigation.openDrawer()
+                    navigation.openDrawer()
                 }}
                 >
                 <Menu/>
@@ -36,7 +36,7 @@ function HelpNSupport(){
            <View style={{marginLeft:'44.9%'}}>
                <TouchableOpacity
                onPress={()=>{
-                    this.props.navigation.navigate('NotificationPage')
+                    navigation.navigate('NotificationPage')
                 }}
                >
                <Notification/>
@@ -45,8 +45,8 @@ function HelpNSupport(){
            <View style={{marginLeft:'3.5%'}}>
               <TouchableOpacity
               onPress={()=>{
-                    this.props.navigation.navigate('UserPage')
-                }}>
+                    navigation.navigate('UserPage')
+                }} >
               <User/>
               </TouchableOpacity>
            </View>

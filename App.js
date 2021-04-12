@@ -23,12 +23,15 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import Sample from './sample'
+
 import Bsharpimage from './images/Bsharpimage';
 function App(){
-    // ----------------port-1111------------------
+    // ----------------port-8081------------------
     return(
 // ---------------------------Adding drawer nav--------------------
-        <Drawernavi />
+        // <Drawernavi />
+        <Sample/>
         // <StackNav/>
         // <TopNav/>
     )

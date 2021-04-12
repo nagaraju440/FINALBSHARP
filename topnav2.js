@@ -44,7 +44,15 @@ import StackNav from './TopNavs/stack'
 import Menu from './Icons/Menu'
 import Notification from './Icons/Notification';
 import User from './Icons/User'
+import auth from '@react-native-firebase/auth';
 class Courses extends React.Component {
+  componentDidMount=()=>{
+    auth()
+  .signOut()
+  .then(() => console.log('User signed out!')
+  
+  );
+  }
   click=()=>{
     console.log("registering")
     this.props.navigation.navigate('UserPage1')

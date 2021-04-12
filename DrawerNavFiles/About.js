@@ -21,6 +21,8 @@ import image7 from '../drawable-xxxhdpi/image7.png'
 import Menu from '../Icons/Menu'
 import Notification from '../Icons/Notification';
 import User from '../Icons/User'
+import Courosal from '../corosal/courosal'
+import Courosel2 from '../corosal/courosel2'
 class Aboutpage extends React.Component{
   // constructor(props){
   //   super(props);
@@ -62,20 +64,17 @@ class Aboutpage extends React.Component{
               <TouchableOpacity
               onPress={()=>{
                 this.props.navigation.navigate('UserPage')
-            }}>
+                }}>
               <User/>
               </TouchableOpacity>
            </View>
              </View>
             </View>
             <ScrollView >
-                <View style={styles.topnavstyle}>
-                    {/* fortopnav okkkk */}
-                    {/* <Text>hello</Text> */}
-                </View>
+                
                 <View style={styles.outerbox}>
                    <View style={styles.imagestyle}>
-                        <Text>hii</Text>
+                      <Courosal/>
                    </View>
                     <Text style={styles.text1style}>About our acadamy</Text>  
                     <Text style={styles.text2style}>
@@ -179,7 +178,7 @@ seem to work so added some more text. This is for courses
 and and stuff. 
                 </Text>
              <View style={styles.haricstyle}>
-                 
+                 <Courosel2/>
                  </View>
                  <Text  style={styles.teacherstyle}>Achievements</Text> 
                  <Text style={styles.text2style}>
@@ -233,9 +232,10 @@ const styles = StyleSheet.create({
         // position:"fixed",
       },
       imagestyle:{
-          width:"100%",
-          height:233,
-          backgroundColor:"whitesmoke",
+          // width:"100%",
+          // height:233,
+          // backgroundColor:"whitesmoke",
+          
       },
       text1style:{
         fontFamily: 'Poppins',
@@ -329,7 +329,7 @@ const styles = StyleSheet.create({
       haricstyle:{
           width:"100%",
           height:236,
-          backgroundColor:"whitesmoke",
+          // backgroundColor:"whitesmoke",
           marginTop:25,
       },
       achive:{

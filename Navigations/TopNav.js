@@ -44,7 +44,7 @@ function Drawernavi(route,navigation){
         return(
             <>
 {/* -------------------------------creating Navigation Container------------------------------             */}
-        <NavigationContainer>
+        {/* <NavigationContainer> */}
     {/* --------------------------------creating Drawer navigation--------------------------------         */}
             <Drawer.Navigator
               onChange={()=>{console.log("clicked")}}
@@ -97,7 +97,7 @@ function Drawernavi(route,navigation){
             )
             }}/>
             </Drawer.Navigator>
-        </NavigationContainer>
+        {/* </NavigationContainer> */}
         </>
         )
     }
