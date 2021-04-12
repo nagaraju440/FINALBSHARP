@@ -24,7 +24,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import Sample from './sample'
-
+import Stack100 from './StackTesting/Stack'
 import Bsharpimage from './images/Bsharpimage';
 function App(){
     // ----------------port-1111------------------
@@ -32,6 +32,7 @@ function App(){
 // ---------------------------Adding drawer nav--------------------
         // <Drawernavi />
         <Sample/>
+        // <Stack100/>
         // <StackNav/>
         // <TopNav/>
     )

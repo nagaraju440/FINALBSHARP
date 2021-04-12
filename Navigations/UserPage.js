@@ -30,7 +30,13 @@ import Svg, {
     Pattern,
     Mask,
   } from 'react-native-svg';
+  import auth from '@react-native-firebase/auth';
 function UserPage({navigation}){
+    auth()
+  .signOut()
+  .then(() => console.log('User signed out!')
+  
+  );
     return(
         <View>
             <Text>Hi Userrrrrrrr!!!!!!!!!!!!!!!!!!!!!!!!!!!</Text>

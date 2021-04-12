@@ -51,39 +51,7 @@ const TopNav1=({ navigation })=> {
                          name="Dashboard" 
                          component={Courses}
                          options={{headerShown: false}}
-                        //  options={{
-                            //  title:'BS#arp',
-                            //  headerLeft:()=>(<View 
-                            //  style={styles.direction}
-                            // >
-                            //                 <TouchableOpacity 
-                            //                 style={styles.Menu}
-                            //                 // onPress={()=>}
-                            //                 // onPress={() =>  navigation.dispatch(DrawerActions.openDrawer())}
-                            //                 onPress={() =>  navigation.openDrawer()}
-                            //                 ><Menu /></TouchableOpacity>
-                            //                 </View>),
-                             
-                            //                 headerRight:()=>(<View 
-                            //                 style={styles.direction}
-                            //                 >
-                            //                 <TouchableOpacity
-                            //                 style={styles.Notification}
-                            //                 // onPress={()=>console.log('hlo')}
-                            //                 onPress={()=>navigation.navigate('NotificationPage')}
-                            //                 >
-                            //                 <Notification />
-                            //                 </TouchableOpacity>
-                            //                 <TouchableOpacity
-                            //                 style={styles.User}
-                            //                 // onPress={()=>console.log('hii-2')}
-                            //                 onPress={()=> navigation.navigate('UserPage')}
-                            //                 >
-                            //                 <User/>
-                            //                 </TouchableOpacity>
-                            //                 </View>)   
-                    //     }
-                    // }
+                        
                         />
                         <Stack.Screen name="NotificationPage" component={NotificationPage} />
                         <Stack.Screen name="UserPage" component={UserPage} />
