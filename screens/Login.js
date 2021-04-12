@@ -8,7 +8,7 @@ import {
     StyleSheet,
     StatusBar,
     Image,
-    TextInput,Button,ScrollView
+    TextInput,Button,ScrollView, ActivityIndicator
 } from 'react-native';
 import {
   TextField,
@@ -33,16 +33,18 @@ import { Drawer } from 'native-base';
       password:'',
       email:'',
       x:0,
-
+      l:0,
     }
 
   }
  
   login=()=>{  
+    this.setState({l:1})
     console.log("hiiii", this.state.email,this.state.password)  
       if(this.state.email==='' || this.state.password===''){
           console.log("provide")
-          alert(" please provide email or password")
+          alert("please provide email or password")
+
       }else{
         auth().signInWithEmailAndPassword(this.state.email,this.state.password)
         .then(()=>{
@@ -53,7 +55,7 @@ import { Drawer } from 'native-base';
             //   setAuthenticated(true);
             console.log("a user is there",auth().currentUser.email ,"and this is from login bro and x is",this.state.x)
             this.state.x=1;
-            this.setState({x:this.state.x})
+            this.setState({x:this.state.x,l:0})
             } else {
               this.state.x=0;
               this.setState({x:this.state.x})
@@ -66,6 +68,7 @@ import { Drawer } from 'native-base';
         })
         .catch(error => {
           alert(error.code)
+          this.setState({l:0})
           if (error.code === 'auth/invalid-email') {
             console.log('That email address is invalid!');
             alert(error.code)
@@ -115,18 +118,26 @@ return(<Drawernavi/>)
             onPress = {()=>{this.login()}}
             // onPress={() => this.props.navigation.navigate('Aboutpage')}
             >
-              <Text style={styles.ButtonText}>Login</Text></TouchableOpacity>
+            <View>
+              {
+                this.state.l===0?<View>
+                <Text style={styles.ButtonText}>Login</Text>
+                </View>:<View style={{flexDirection:'row'}}>
+                <ActivityIndicator color={'white'} />                
+                  <Text style={styles.ButtonText}>Logging In</Text>
+                </View>
+
+
+              }
+            </View>
+
+              </TouchableOpacity> 
             <TouchableOpacity  style={styles.button1} onPress={() => this.props.navigation.navigate('Signup')} ><Text style={styles.ButtonText1}>Signup</Text></TouchableOpacity>
             <View style={{flexDirection:'row', alignItems: 'center', flexGrow:1, paddingLeft:40}}>
             <Text>Forget password?</Text>
             <Text>Click here</Text>
             </View>
             </View>
-            
-            
-
-           
-           
           </ScrollView>
          )
        
