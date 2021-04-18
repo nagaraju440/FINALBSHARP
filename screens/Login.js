@@ -1,5 +1,5 @@
   import React from 'react';
-
+  // import com.facebook.FacebookSdk;
 import { 
     View, 
     Text, 
@@ -8,7 +8,7 @@ import {
     StyleSheet,
     StatusBar,
     Image,
-    TextInput,Button,ScrollView, ActivityIndicator,LogBox 
+    TextInput,Button,ScrollView, ActivityIndicator,LogBox ,Linking
 } from 'react-native';
 import {
   TextField,
@@ -16,6 +16,8 @@ import {
   OutlinedTextField,
 } from 'react-native-material-textfield';
 import auth from '@react-native-firebase/auth';
+// import auth from '@react-native-firebase/auth';
+import { LoginManager, AccessToken } from 'react-native-fbsdk';
 import Sample from '../sample'
 import Drawernavi from '../Navigations/TopNav'
 // import AsyncStorage from '@react-native-community/async-storage';
@@ -24,6 +26,28 @@ import { NavigationActions, StackActions } from 'react-navigation'
 import { Drawer } from 'native-base';
  var x=0;
 
+ async function onFacebookButtonPress() {
+  // Attempt login with permissions
+  // console.log(LoginManager.logInWithPermissions,"this is the reason bro");
+  const result = await LoginManager.logInWithPermissions(['public_profile', 'email']);
+
+  if (result.isCancelled) {
+    throw 'User cancelled the login process';
+  }
+
+  // Once signed in, get the users AccesToken
+  const data = await AccessToken.getCurrentAccessToken();
+
+  if (!data) {
+    throw 'Something went wrong obtaining access token';
+  }
+
+  // Create a Firebase credential with the AccessToken
+  const facebookCredential = auth.FacebookAuthProvider.credential(data.accessToken);
+
+  // Sign-in the user with the credential
+  return auth().signInWithCredential(facebookCredential);
+}
  class SplashScreen extends React.Component {
   constructor(props){
     super(props);
@@ -83,6 +107,7 @@ import { Drawer } from 'native-base';
     render(){
   LogBox.ignoreLogs(['Animated: `useNativeDriver` was not specified.']);
 
+  
       if(this.state.x===1){
 return(<Drawernavi/>)
       }else{
@@ -95,9 +120,7 @@ return(<Drawernavi/>)
           </View>
           <View style={styles.footer}>
               <Text style={{fontSize: 15,color: "#707070"}}>Welcome To</Text>
-              <Text style={{fontWeight: "bold",fontSize: 35,}}>BMinor</Text>
-
-           
+              <Text style={{fontWeight: "bold",fontSize: 35,}}>Bs#arp</Text>           
            <View style={{marginTop:23}}><OutlinedTextField
         label='Email'
         keyboardType='default'
@@ -141,8 +164,13 @@ return(<Drawernavi/>)
             <View style={{flexDirection:'row', alignItems: 'center', flexGrow:1, paddingLeft:40}}>
             <Text>Forget password?</Text>
             <Text>Click here</Text>
+            
             </View>
             </View>
+            <Button
+      title="Facebook Sign-In"
+      onPress={() => onFacebookButtonPress().then(() => console.log('Signed in with Facebook!'))}
+    />
           </ScrollView>
          )
        

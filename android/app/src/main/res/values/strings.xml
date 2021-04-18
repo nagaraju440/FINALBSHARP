@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">reactnativecli</string>
+    <string name="facebook_app_id">554402405944646</string>
+    <string name="fb_login_protocol_scheme">fb554402405944646</string>
+
 </resources>
