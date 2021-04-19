@@ -42,7 +42,7 @@ class Signupp extends React.Component {
                 
                 <View style={styles.header}>
                   
-                    <Image source ={require ('../images/bsharp.png')} style={styles.logo} />
+                    <Image source ={require ('../IMAGES/bsharp.png')} style={styles.logo} />
                 </View>
                 <View style={styles.footer}>
                          

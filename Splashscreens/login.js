@@ -42,7 +42,7 @@ class Login extends React.Component {
                 
                 <View style={styles.header}>
                   
-                    <Image source ={require ('../images/bsharp.png')} style={styles.logo} />
+                    <Image source ={require ('../IMAGES/bsharp.jpg')} style={styles.logo} />
                 </View>
                 <View style={styles.footer}>
                          
@@ -86,7 +86,7 @@ class Login extends React.Component {
 
                     <View  style={{paddingLeft:48,flexDirection:"row", width:250,height:53,}}>
                     <TouchableOpacity  style={styles.google}>  
-                    <Image source ={require ('../images/google.png')}  />      
+                    <Image source ={require ('../IMAGES/google.png')}  />      
                  <Text style={{fontSize: 16, color: "white",fontWeight:"bold"}}>Login with Google</Text>
                     </TouchableOpacity> 
                     </View> 
@@ -94,7 +94,7 @@ class Login extends React.Component {
 
                     <View  style={{paddingLeft:48,flexDirection:"row", width:250,height:53,}}>
                     <TouchableOpacity  style={styles.fb}>  
-                    <Image source ={require ('../images/Facebook.png')}  />  
+                    <Image source ={require ('../IMAGES/Facebook.png')}  />  
                  <Text style={{fontSize: 16, color: "white",fontWeight:"bold"}}>Login with Facebook</Text>
                     </TouchableOpacity></View> 
 
