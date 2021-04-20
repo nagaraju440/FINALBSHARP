@@ -24,14 +24,17 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import Sample from './sample'
-
+import Stack100 from './StackTesting/Stack'
 import Bsharpimage from './images/Bsharpimage';
+import LandngPg2 from './screens/LandingPage2';
 function App(){
     // ----------------port-8081------------------
     return(
 // ---------------------------Adding drawer nav--------------------
         // <Drawernavi />
-        <Sample/>
+        // <Sample/>
+        <LandngPg2/>
+        // <Stack100/>
         // <StackNav/>
         // <TopNav/>
     )

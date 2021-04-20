@@ -51,6 +51,7 @@ const TopNav1=({ navigation })=> {
                          name="Dashboard" 
                          component={Courses}
                          options={{headerShown: false}}
+                        
                         />
                         <Stack.Screen name="NotificationPage" component={NotificationPage} />
                         <Stack.Screen name="UserPage" component={UserPage} />

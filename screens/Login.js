@@ -16,9 +16,14 @@ import {
   OutlinedTextField,
 } from 'react-native-material-textfield';
 import auth from '@react-native-firebase/auth';
+import Sample from '../sample'
+import Drawernavi from '../Navigations/TopNav'
 // import AsyncStorage from '@react-native-community/async-storage';
 // const Userinfo = {username:'admin' ,password:'admin123', email:'decoder@123'}
 import { NavigationActions, StackActions } from 'react-navigation'
+import { Drawer } from 'native-base';
+ var x=0;
+
  class SplashScreen extends React.Component {
   constructor(props){
     super(props);
@@ -27,6 +32,7 @@ import { NavigationActions, StackActions } from 'react-navigation'
       username: '',
       password:'',
       email:'',
+      x:0,
 
     }
 
@@ -42,12 +48,24 @@ import { NavigationActions, StackActions } from 'react-navigation'
         .then(()=>{
           console.log("sucsessfully logged")
           console.log("does not navigatin hehehhe")
-
-               this.props.navigation.navigate('Aboutpage')
-               console.log("does not navigatin")
+          auth().onAuthStateChanged((user) => {
+            if (user) {
+            //   setAuthenticated(true);
+            console.log("a user is there",auth().currentUser.email ,"and this is from login bro and x is",this.state.x)
+            this.state.x=1;
+            this.setState({x:this.state.x})
+            } else {
+              this.state.x=0;
+              this.setState({x:this.state.x})
+            console.log("no  user is there and fro login ",this.state.x,"is x")
+          
+            }
+          })
+              // this.props.navigation.navigate('Aboutpage')
              
         })
         .catch(error => {
+          alert(error.code)
           if (error.code === 'auth/invalid-email') {
             console.log('That email address is invalid!');
             alert(error.code)
@@ -55,9 +73,13 @@ import { NavigationActions, StackActions } from 'react-navigation'
         })
       }
   }
-   render() {
-     return (
-      <ScrollView style={styles.container}>
+  
+    render(){
+      if(this.state.x===1){
+return(<Drawernavi/>)
+      }else{
+        return(
+          <ScrollView style={styles.container}>
           
           <View style={styles.header}>
             
@@ -106,10 +128,19 @@ import { NavigationActions, StackActions } from 'react-navigation'
            
            
           </ScrollView>
+         )
+       
+ 
+
+      }
+    }
+    
+       
+         
          
       
-    );
-  }
+    
+  
 //   _login =async() =>{
 //     if(Userinfo.username ===this.state.username && Userinfo.password ===this.state.password && Userinfo.email ===this.state.email )
 //     {

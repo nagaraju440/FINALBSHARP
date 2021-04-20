@@ -19,7 +19,18 @@ import Drawernavi from '../Navigations/TopNav'
 // import AsyncStorage from '@react-native-community/async-storage';
 import auth from '@react-native-firebase/auth';
 const RootStack = createStackNavigator();
+x=0;
+ auth().onAuthStateChanged((user) => {
+    if (user) {
+    //   setAuthenticated(true);
+    console.log("a user is there",auth().currentUser.email)
+    x=1;
+    } else {
+        x=0;
+    console.log("no  user is there")
 
+    }
+  })
 class RootStackScreen extends React.Component{
       render(){
        return(
@@ -29,7 +40,7 @@ class RootStackScreen extends React.Component{
 
         <RootStack.Screen name="SplashScreen" component={SplashScreen}/>
         <RootStack.Screen name="Signup" component={Signup}/>
-        {/* <RootStack.Screen name="Aboutpage" component={Drawernavi}/> */}
+        
     </RootStack.Navigator>
        )
    }
