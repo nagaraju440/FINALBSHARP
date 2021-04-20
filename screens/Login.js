@@ -17,7 +17,7 @@ import {
 } from 'react-native-material-textfield';
 import auth from '@react-native-firebase/auth';
 // import auth from '@react-native-firebase/auth';
-import { LoginManager, AccessToken } from 'react-native-fbsdk';
+import { LoginManager, AccessToken,LoginButton } from 'react-native-fbsdk';
 import Sample from '../sample'
 import Drawernavi from '../Navigations/TopNav'
 // import AsyncStorage from '@react-native-community/async-storage';
@@ -25,10 +25,17 @@ import Drawernavi from '../Navigations/TopNav'
 import { NavigationActions, StackActions } from 'react-navigation'
 import { Drawer } from 'native-base';
  var x=0;
-
+// var y=LoginManager.getInstance()
  async function onFacebookButtonPress() {
+  // LoginManager.setLoginBehavior(WEB_ONLY);
+
   // Attempt login with permissions
   // console.log(LoginManager.logInWithPermissions,"this is the reason bro");
+   LoginManager.logOut();
+   console.log(LoginManager.getDefaultAudience(),LoginManager.logOut())
+  // y.logOut();
+ 
+  
   const result = await LoginManager.logInWithPermissions(['public_profile', 'email']);
 
   if (result.isCancelled) {
@@ -37,6 +44,8 @@ import { Drawer } from 'native-base';
 
   // Once signed in, get the users AccesToken
   const data = await AccessToken.getCurrentAccessToken();
+  // console.log(data,"this is the acsess token")
+
 
   if (!data) {
     throw 'Something went wrong obtaining access token';
@@ -61,7 +70,11 @@ import { Drawer } from 'native-base';
     }
 
   }
- 
+ componentDidMount=()=>{
+  // LoginManager.loginBehavior = 'web'
+  LoginManager.logOut();
+  console.log("hlooo",LoginManager.getDefaultAudience(),LoginManager.logOut())
+ }
   login=()=>{  
     this.setState({l:1})
     console.log("hiiii", this.state.email,this.state.password)  
@@ -171,6 +184,23 @@ return(<Drawernavi/>)
       title="Facebook Sign-In"
       onPress={() => onFacebookButtonPress().then(() => console.log('Signed in with Facebook!'))}
     />
+ <LoginButton
+          onLoginFinished={
+            (error, result) => {
+              if (error) {
+                console.log("login has error: " + result.error);
+              } else if (result.isCancelled) {
+                console.log("login is cancelled.");
+              } else {
+                AccessToken.getCurrentAccessToken().then(
+                  (data) => {
+                    console.log(data.accessToken.toString())
+                  }
+                )
+              }
+            }
+          } 
+          onLogoutFinished={() => console.log("logout.")}/>
           </ScrollView>
          )
        

@@ -24,6 +24,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import Sample from './sample'
+import Switch from './Authentication/Switch'
 // import Stack100 from './StackTesting/Stack'
 import Bsharpimage from './images/Bsharpimage';
 function App(){
@@ -32,6 +33,7 @@ function App(){
 // ---------------------------Adding drawer nav--------------------
         // <Drawernavi />
         <Sample/>
+        // <Switch/>
         // <Stack100/>
         // <StackNav/>
         // <TopNav/>

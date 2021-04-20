@@ -31,11 +31,12 @@ import Svg, {
     Mask,
   } from 'react-native-svg';
   import auth from '@react-native-firebase/auth';
+  import { LoginManager, AccessToken,LoginButton } from 'react-native-fbsdk';
 function UserPage({navigation}){
+  LoginManager.logOut();
     auth()
   .signOut()
   .then(() => console.log('User signed out!')
-  
   );
     return(
         <View>
