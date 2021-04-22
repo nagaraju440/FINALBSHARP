@@ -42,7 +42,11 @@ class Signupp extends React.Component {
                 
                 <View style={styles.header}>
                   
-                    <Image source ={require ('../IMAGES/bsharp.png')} style={styles.logo} />
+                    <Image source ={require ('../IMAGES/cover.png')} style={styles.logo} />
+                    <View style={styles.pic1} >
+                    
+                    <Image source ={require ('../IMAGES/bs.png')} style={styles.pic} />
+                    </View>
                 </View>
                 <View style={styles.footer}>
                          
@@ -81,14 +85,14 @@ class Signupp extends React.Component {
 
                   
 
-            <View  style={{paddingLeft:45}}>
+            <View  style={{paddingLeft:38}}>
                     <TouchableOpacity  style={styles.button}>  
                  <Text style={styles.ButtonText}>Signup</Text>
                     </TouchableOpacity> 
                     </View> 
 
             
-                    <View style={{flexDirection:"row",paddingLeft:56,marginTop:35}}>
+                    <View style={{flexDirection:"row",paddingLeft:56,marginTop:30}}>
                     <Text style={{fontWeight:"bold",color:"#858192"}}>Already have an Account?</Text>
                     <TouchableOpacity > 
                   <Text style={{fontWeight:"bold",color:"#858192"}}>   Login</Text>
@@ -119,32 +123,37 @@ class Signupp extends React.Component {
           backgroundColor: '#FFFFFF'
         },
         header: {
-            flex: 2,
-            justifyContent: 'center',
-            alignItems: 'center',
-            paddingBottom:0,
+          flex: 2,
+          justifyContent: 'center',
+          alignItems: 'center',
+          paddingBottom:4,
+          flexDirection:"row",
+          paddingRight:5,
+          paddingTop:17,
         },
         footer: {
           flex:3,
-          width:"94%",
+          width:"92%",
           backgroundColor: '#FFFFFF',
-        
-          paddingVertical:5,
+          paddingHorizontal:3,
+          paddingVertical:14,
           marginLeft:11,
         },
 
         logo: {
-          height: 280,
-          width: 200,
-          paddingBottom:50,
-        
-         
+          height: 295,
+          width: 295,
         },
-      
-        title: {
-            color: '#05375a',
-            fontSize: 30,
-            fontWeight: 'bold'
+      pic:{
+        height: 195,
+        width: 165, 
+       position:'absolute',
+        
+      },
+      pic1:{
+        paddingRight:164,
+        position:'absolute',
+        paddingBottom:150
         },
       
         text: {
@@ -153,7 +162,7 @@ class Signupp extends React.Component {
         },
       
         button: {
-            marginTop: 50,
+            marginTop: 40,
             
             alignSelf:'stretch',
             alignItems:"center",
@@ -162,7 +171,7 @@ class Signupp extends React.Component {
             borderWidth:1,
             borderRadius: 30,
             paddingVertical: 10,
-            paddingHorizontal: 12,
+            paddingHorizontal: 1,
             borderColor:"#B0B0B0",
             width:240,
             height:45,

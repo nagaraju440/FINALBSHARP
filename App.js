@@ -36,8 +36,8 @@ function App(){
         // <Drawernavi />
         // <Sample/>
         // <Stack100/>
-        <Splash />
-        // <Login />
+        // <Splash />
+        <Login />
         // <Signupp/>
         // <StackNav/>
         // <TopNav/>

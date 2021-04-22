@@ -41,8 +41,14 @@ class Login extends React.Component {
                 <ScrollView style={styles.container}>
                 
                 <View style={styles.header}>
+                 
                   
-                    <Image source ={require ('../IMAGES/bsharp.jpg')} style={styles.logo} />
+                    <Image source ={require ('../IMAGES/bb.png')} style={styles.logo} />
+                    <View style={styles.pic1} >
+                    
+                    <Image source ={require ('../IMAGES/bs.png')} style={styles.pic} />
+                    </View>
+                  
                 </View>
                 <View style={styles.footer}>
                          
@@ -69,7 +75,7 @@ class Login extends React.Component {
             /></View>
 
 
-                   <View  style={{paddingLeft:90}}>
+                   <View  style={{paddingLeft:84}}>
                     <TouchableOpacity  style={styles.forget}> 
                   <Text style={styles.ForgetText}>Forgot Password?</Text>
                 </TouchableOpacity> 
@@ -82,7 +88,7 @@ class Login extends React.Component {
                     </View> 
 
             
-          <Text style={{color:'#858192',fontSize:12,fontWeight:'bold',paddingLeft:19,paddingTop:23,}}> ──────────  OR CONNECT WITH:  ──────────</Text>
+          <Text style={{color:'#A5A5A5',fontSize:12,fontWeight:'bold',paddingLeft:28,paddingTop:28}}> ─────────  OR CONNECT WITH:  ───────── </Text>
 
                     <View  style={{paddingLeft:48,flexDirection:"row", width:250,height:53,}}>
                     <TouchableOpacity  style={styles.google}>  
@@ -100,7 +106,7 @@ class Login extends React.Component {
 
 
 
-                    <View style={{flexDirection:"row",paddingLeft:56,marginTop:30}}>
+                    <View style={{flexDirection:"row",paddingLeft:56,marginTop:25}}>
                     <Text style={{fontWeight:"bold",color:"#858192"}}>Don't you have any Account?</Text>
                     <TouchableOpacity > 
                   <Text style={{fontWeight:"bold",color:"#858192"}}>   Signup</Text>
@@ -134,23 +140,36 @@ class Login extends React.Component {
             flex: 2,
             justifyContent: 'center',
             alignItems: 'center',
-            paddingBottom:0,
+            paddingBottom:1,
+            flexDirection:"row",
+            paddingLeft:17,
+            paddingTop:17,
         },
         footer: {
           flex:3,
-          width:"94%",
+          width:"92%",
           backgroundColor: '#FFFFFF',
-        
-          paddingVertical:5,
+          paddingHorizontal:2,
+          paddingVertical:1,
           marginLeft:11,
         },
 
         logo: {
-          height: 280,
-          width: 200,
-          paddingBottom:50,
-        
+          height: 272,
+          width: 297,
          
+        
+        },
+        pic:{
+          height: 180,
+          width: 160, 
+         position:'absolute',
+        },
+        pic1:{
+          paddingLeft:165,
+          position:'absolute',
+          paddingTop:139
+
         },
       
         title: {
@@ -165,7 +184,7 @@ class Login extends React.Component {
         },
       
         button: {
-            marginTop: 25,
+            marginTop: 19,
             
             alignSelf:'stretch',
             alignItems:"center",
@@ -189,7 +208,7 @@ class Login extends React.Component {
             backgroundColor:"#000DFF",
             borderRadius: 25,
             paddingVertical: 10,
-            paddingHorizontal: 12,
+            paddingHorizontal: 20,
             flexDirection:"row",
             width:240,
             height:45,
@@ -205,7 +224,7 @@ class Login extends React.Component {
             marginTop:20,
             borderRadius: 25,
             paddingVertical: 10,
-            paddingHorizontal: 12,
+            paddingHorizontal: 22,
             flexDirection:"row",
             width:240,
             height:45,
