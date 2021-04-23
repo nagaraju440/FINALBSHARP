@@ -14,27 +14,32 @@ import {
   } from 'react-native';
   import Drawernavi from './Navigations/TopNav'
   var x=0
-
-  //   auth()
-  // .signOut()
-  // .then(() => console.log('User signed out!')
-  
-  // );
-  
-  auth().onAuthStateChanged((user) => {
-    if (user) {
-    //   setAuthenticated(true);
-    console.log("a user is there",auth().currentUser.email)
-    x=1;
-    } else {
-    console.log("no  user is there")
-
+  class Sample extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+        x:0,
     }
-  })
-class Sample extends React.Component {
-    state = {  }
+  }
+
+    
+    componentDidMount=()=>{
+      auth().onAuthStateChanged((user) => {
+        if (user) {
+        //   setAuthenticated(true);
+        console.log("a user is there",auth().currentUser.email ,"and i am from sample.js bro")
+        this.state.x=1;
+        this.setState({x:this.state.x})
+        } else {
+          this.state.x=0;
+          this.setState({x:this.state.x})
+        console.log("no  user is there and i am from smaple .js bro")
+    
+        }
+      })
+    }
     render() {
-         if(x===1){
+         if(this.state.x===1){
                  return(
                     
                     // <NavigationContainer>

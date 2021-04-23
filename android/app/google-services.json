@@ -8,35 +8,6 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:251203130049:android:7287f73728303332cfba40",
-        "android_client_info": {
-          "package_name": "com.mycompany.com"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "251203130049-bfofh8n0mvo3m2r1dmfl00p3329p0tjd.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDCHzn4WbYq1WMJ_V249I9vXbxkc-B_GTs"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "251203130049-bfofh8n0mvo3m2r1dmfl00p3329p0tjd.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
         "mobilesdk_app_id": "1:251203130049:android:9a4e7caa9e68138fcfba40",
         "android_client_info": {
           "package_name": "com.reactnativecli"

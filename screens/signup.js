@@ -25,8 +25,8 @@
       this.state={
         check:false,
         username: '',
-        password:'',
-        email:'',
+        password1:'',
+        email1:'',
   
       }
       
@@ -35,8 +35,8 @@
        console.log(e)
     }
     signupbuttonclicking=()=>{
-      console.log("hiiii", this.state.email,this.state.password)
-        auth().createUserWithEmailAndPassword(this.state.email,this.state.password)
+      console.log("hiiii", this.state.email1,this.state.password1)
+        auth().createUserWithEmailAndPassword(this.state.email1,this.state.password1)
         .then(() => {
           console.log('User account created & signed in!');
           alert("User account created and please log in")
@@ -94,7 +94,7 @@
           containerStyle={{height:46,borderRadius:15}}
           inputContainerStyle={{height:46}}
           baseColor="black"
-          onChangeText={(emailvalue)=>{this.setState({email:emailvalue})}}
+          onChangeText={(emailvalue)=>{this.setState({email1:emailvalue})}}
         /></View>
         <View style={{marginTop:23}}><OutlinedTextField
           label='Password'
@@ -104,7 +104,7 @@
           secureTextEntry={true}
           inputContainerStyle={{height:46}}
           baseColor="black"
-          onChangeText={(passvalue)=>{this.setState({password:passvalue})}}
+          onChangeText={(passvalue)=>{this.setState({password1:passvalue})}}
         /></View>
   
               <TouchableOpacity  style={styles.button} onPress={this.signupbuttonclicking}><Text style={styles.ButtonText}>Signup</Text></TouchableOpacity>
