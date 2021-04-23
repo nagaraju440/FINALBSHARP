@@ -28,7 +28,7 @@ import {
 // import Bsharpimage from './images/Bsharpimage';
 import Login from './Splashscreens/login';
 import Signupp from './Splashscreens/Signup';
-import Splash from './Splashscreens/SplashScreen';
+import Splash from './mywork/SplashScreen';
 function App(){
     // ----------------port-1111------------------
     return(
@@ -37,7 +37,7 @@ function App(){
         // <Sample/>
         // <Stack100/>
         // <Splash />
-        <Login />
+        <Splash/>
         // <Signupp/>
         // <StackNav/>
         // <TopNav/>
