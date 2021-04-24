@@ -25,18 +25,20 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import Sample from './sample'
 import Switch from './Authentication/Switch'
+import RunSwitchNav from './switchNavigations/RunSwitchNav';
 // import Stack100 from './StackTesting/Stack'
-import Bsharpimage from './images/Bsharpimage';
+// import Bsharpimage from './images/Bsharpimage';
 function App(){
     // ----------------port-1111------------------
     return(
 // ---------------------------Adding drawer nav--------------------
         // <Drawernavi />
-        <Sample/>
+        // <Sample/>
         // <Switch/>
         // <Stack100/>
         // <StackNav/>
         // <TopNav/>
+        <RunSwitchNav/>
     )
 }
 
