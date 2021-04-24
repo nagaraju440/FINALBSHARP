@@ -1,4 +1,5 @@
 import React from "react";
+import {  SwitchNavigator, NavigationContainer } from 'react-navigation';
 import {
     SafeAreaView,
     StyleSheet,
@@ -7,6 +8,8 @@ import {
     Text,
     StatusBar,
   } from 'react-native';
+import { NavigationContainer } from "@react-navigation/native";
+const Switch = createSwitchNavigator();
   class Switch extends React.Component {
       constructor(props) {
           super(props);
@@ -14,11 +17,15 @@ import {
       }
       render() { 
           return ( 
-              <View>
-                  <Text>
-                      hlooo
-                  </Text>
-              </View>
+              <NavigationContainer>
+                  <Switch.Navigator>
+                    <Switch.Screen name="ResolveAuth" component={ResolveAuthScreen} />
+                    <Switch.Screen name="signinFlow" component={SignInFlowScreens} />
+                    <Switch.Screen name="appFlow" component={AppFlowScreens} />
+                </Switch.Navigator>
+
+
+              </NavigationContainer>
            );
       }
   }

@@ -33,8 +33,8 @@ function App(){
     return(
 // ---------------------------Adding drawer nav--------------------
         // <Drawernavi />
-        <Sample/>
-        // <LandingPage22/>
+        // <Sample/>
+        <LandingPage22/>
         // <Switch/>
         // <Stack100/>
         // <StackNav/>
