@@ -10,16 +10,14 @@ import {
   Image,TouchableOpacity
 } from 'react-native';
 import SwipeButton from 'rn-swipe-button';
-import logo from "../images/bsharpLogo.png"
 
-const Splash = (props) => {
+const Splash = () => {
   return (              
                     <View style={styles.container}>
                     
                     <View style={styles.header}>
                       
-                        {/* <Image source ={require ('../images/bsharp.jpg')} style={styles.logo} /> */}
-                        <Image source ={logo} style={styles.logo} />
+                        <Image source ={require ('../IMAGES/bsharp.jpg')} style={styles.logo} />
                     </View>
 
                     <View style={styles.footer}>
@@ -48,8 +46,6 @@ const Splash = (props) => {
          
           onSwipeSuccess={() => {
             alert('Submitted Successfully!');
-            console.log("swiped ");
-            props.navigation.navigate("Deside");
           }}
           
           railFillBackgroundColor="#e688a1" 
@@ -94,10 +90,9 @@ const Splash = (props) => {
             },
     
             logo: {
-              height: 320,
-              width: 360,
+              height: 300,
+              width: 250,
               paddingBottom:50,
-              
             
              
             },

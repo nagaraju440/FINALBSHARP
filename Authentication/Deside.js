@@ -2,9 +2,9 @@ import React from 'react'
 import { TouchableOpacity } from 'react-native'
 import { View, Text,Image,StyleSheet } from 'react-native'
 import Guitar from '../images/guitarImage.png'
-import BackGroundForLndgPg from'./BackGroundForLndgPg'
+import BackGroundForLndgPg from'../screens/BackGroundForLndgPg'
 
- const LandingPage22=({navigation})=>{
+ const LandingPage22=(props)=>{
     return (
         <View>
             
@@ -16,18 +16,20 @@ import BackGroundForLndgPg from'./BackGroundForLndgPg'
                 <Text style={styles.BSharp}>BS#arp</Text>
             </View>
             <View style={{paddingLeft:70}}>
-                <TouchableOpacity style={styles.login} onPress={()=>
-                // console.log('hi login')
-                navigation.navigate('LoginPage')
-                }
-                    >
+                <TouchableOpacity style={styles.login} 
+                    onPress={()=>{
+                        console.log('hi login',props);
+                        props.navigation.navigate("Login");
+                    }
+                    }
+                >
                     <Text style={{paddingLeft:80,fontWeight:'bold'}}>Login</Text>
                 </TouchableOpacity>
             </View>
             <View style={{paddingLeft:70,paddingTop:5}}>
                 <TouchableOpacity style={styles.signup} onPress={()=>
                 // console.log('hi signup')
-                navigation.navigate('SignUpPage')
+                props.navigation.navigate('SignUp')
                 }
                     >
                     <Text style={{paddingLeft:80,color:'white',fontWeight:'bold'}}>signup</Text>
