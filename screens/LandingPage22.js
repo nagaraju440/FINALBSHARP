@@ -17,8 +17,8 @@ import BackGroundForLndgPg from'./BackGroundForLndgPg'
             </View>
             <View style={{paddingLeft:70}}>
                 <TouchableOpacity style={styles.login} onPress={()=>
-                console.log('hi login')
-                // navigation.navigate('LoginPage')
+                // console.log('hi login')
+                navigation.navigate('LoginPage')
                 }
                     >
                     <Text style={{paddingLeft:80,fontWeight:'bold'}}>Login</Text>
@@ -26,8 +26,8 @@ import BackGroundForLndgPg from'./BackGroundForLndgPg'
             </View>
             <View style={{paddingLeft:70,paddingTop:5}}>
                 <TouchableOpacity style={styles.signup} onPress={()=>
-                console.log('hi signup')
-                // navigation.navigate('SignUpPage')
+                // console.log('hi signup')
+                navigation.navigate('SignUpPage')
                 }
                     >
                     <Text style={{paddingLeft:80,color:'white',fontWeight:'bold'}}>signup</Text>

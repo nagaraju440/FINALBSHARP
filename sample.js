@@ -42,15 +42,15 @@ import {
          if(this.state.x===1){
                  return(
                     
-                    // <NavigationContainer>
+                    <NavigationContainer>
                     <Drawernavi/>
-                //  </NavigationContainer>
+                  </NavigationContainer>
                  )
          }else{
                  return(
-                    // <NavigationContainer>
+                    <NavigationContainer>
                     <RootStackScreen />
-                //  </NavigationContainer>
+                  </NavigationContainer>
                  )
          }
           
