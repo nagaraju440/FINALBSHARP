@@ -33,12 +33,12 @@ function App(){
     return(
 // ---------------------------Adding drawer nav--------------------
         // <Drawernavi />
-        // <Sample/>
+        <Sample/>
         // <Switch/>
         // <Stack100/>
         // <StackNav/>
         // <TopNav/>
-        <RunSwitchNav/>
+        // <RunSwitchNav/> //sunil component
     )
 }
 
