@@ -210,7 +210,15 @@ class Login extends React.Component {
                 console.log('about page will be displayed');
                 this.login()
               }}>
-              <Text style={styles.ButtonText}>Login</Text>
+
+              {
+                this.state.l === 0 ? <View>
+                  <Text style={styles.ButtonText}>Login</Text>
+                </View> : <View style={{ flexDirection: 'row' }}>
+                  <ActivityIndicator color={'black'} />
+                  <Text style={styles.ButtonText}>Logging In</Text>
+                </View>
+              }
             </TouchableOpacity>
           </View>
 
