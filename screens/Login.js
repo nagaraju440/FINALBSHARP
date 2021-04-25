@@ -31,8 +31,8 @@ import { Drawer } from 'native-base';
 
   // Attempt login with permissions
   // console.log(LoginManager.logInWithPermissions,"this is the reason bro");
-   LoginManager.logOut();
-   console.log(LoginManager.getDefaultAudience(),LoginManager.logOut())
+  //  LoginManager.logOut();
+  //  console.log(LoginManager.getDefaultAudience(),LoginManager.logOut())
   // y.logOut();
  
   
@@ -69,11 +69,11 @@ import { Drawer } from 'native-base';
     }
 
   }
- componentDidMount=()=>{
-  // LoginManager.loginBehavior = 'web'
-  LoginManager.logOut();
-  console.log("hlooo",LoginManager.getDefaultAudience(),LoginManager.logOut())
- }
+//  componentDidMount=()=>{
+//   // LoginManager.loginBehavior = 'web'
+//   LoginManager.logOut();
+//   console.log("hlooo",LoginManager.getDefaultAudience(),LoginManager.logOut())
+//  }
   login=()=>{  
     this.setState({l:1})
     console.log("hiiii", this.state.email,this.state.password)  
@@ -188,7 +188,7 @@ return(<Drawernavi/>)
       title="Facebook Sign-In"
       onPress={() => onFacebookButtonPress().then(() => console.log('Signed in with Facebook!'))}
     />
- <LoginButton
+ {/* <LoginButton
           onLoginFinished={
             (error, result) => {
               if (error) {
@@ -204,7 +204,7 @@ return(<Drawernavi/>)
               }
             }
           } 
-          onLogoutFinished={() => console.log("logout.")}/>
+          onLogoutFinished={() => console.log("logout.")}/> */}
           </ScrollView>
          )
        

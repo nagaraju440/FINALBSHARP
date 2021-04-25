@@ -10,6 +10,7 @@ import {
   Image,
   Br
 } from 'react-native';
+import { AppRegistry } from 'react-native';
 // import 'react-native-gesture-handler';
 // import 'react-native-gesture-handler';
 // import { NavigationContainer } from '@react-navigation/native';
