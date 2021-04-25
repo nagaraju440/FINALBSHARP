@@ -119,85 +119,19 @@ class Courses extends React.Component {
               classes for kids and all age group of students.
             </Text>
 
-            <View style={{marginTop: 20, height: 500}}>
-              <View style={{marginTop: 22}}>
-                <OutlinedTextField
-                  label="Name"
-                  keyboardType="default"
-                  labelTextStyle={{
-                    fontWeight: 'bold',
-                    fontFamily: 'poppins',
-                    color: 'black',
-                  }}
-                  containerStyle={{height: 46, borderRadius: 15}}
-                  inputContainerStyle={{height: 46, borderRadius: 15}}
-                  baseColor="black"
-                />
-              </View>
-              <View style={{marginTop: 22}}>
-                <OutlinedTextField
-                  label="Age"
-                  keyboardType="default"
-                  labelTextStyle={{
-                    fontWeight: 'bold',
-                    fontFamily: 'poppins',
-                    color: 'black',
-                  }}
-                  containerStyle={{height: 46, borderRadius: 15}}
-                  inputContainerStyle={{height: 46, borderRadius: 15}}
-                  baseColor="black"
-                />
-              </View>
-              <View style={{marginTop: 22}}>
-                <OutlinedTextField
-                  label="Phone Number"
-                  keyboardType="default"
-                  labelTextStyle={{
-                    fontWeight: 'bold',
-                    fontFamily: 'poppins',
-                    color: 'black',
-                  }}
-                  containerStyle={{height: 46, borderRadius: 15}}
-                  inputContainerStyle={{height: 46, borderRadius: 15}}
-                  baseColor="black"
-                />
-              </View>
-              <View style={{marginTop: 22}}>
-                <OutlinedTextField
-                  label="Email"
-                  keyboardType="default"
-                  labelTextStyle={{
-                    fontWeight: 'bold',
-                    fontFamily: 'poppins',
-                    color: 'black',
-                  }}
-                  containerStyle={{height: 46, borderRadius: 15}}
-                  inputContainerStyle={{height: 46, borderRadius: 15}}
-                  baseColor="black"
-                />
-              </View>
-              <View style={{marginTop: 22}}>
-                <OutlinedTextField
-                  label="Batch"
-                  keyboardType="default"
-                  labelTextStyle={{
-                    fontWeight: 'bold',
-                    fontFamily: 'poppins',
-                    color: 'black',
-                  }}
-                  containerStyle={{height: 46, borderRadius: 15}}
-                  inputContainerStyle={{height: 46, borderRadius: 15}}
-                  baseColor="black"
-                />
-              </View>
-              <View>
-                <TouchableOpacity onPress={this.click}>
-                  <Text style={styles.registerBtn}>Register</Text>
+             <View 
+             style={{marginLeft:'6.5%'}}
+             >
+                <TouchableOpacity 
+                onPress={()=>{
+                  this.props.navigation.openDrawer()
+                }}
+                >
+                <Menu/>
                 </TouchableOpacity>
               </View>
             </View>
-          </View>
-        </ScrollView>
+      </ScrollView>
       </View>
     );
   }

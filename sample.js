@@ -44,13 +44,13 @@ import {
                     
                     <NavigationContainer>
                     <Drawernavi/>
-                 </NavigationContainer>
+                  </NavigationContainer>
                  )
          }else{
                  return(
                     <NavigationContainer>
                     <RootStackScreen />
-                 </NavigationContainer>
+                  </NavigationContainer>
                  )
          }
           

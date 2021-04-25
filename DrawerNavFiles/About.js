@@ -20,13 +20,18 @@ import image6 from '../drawable-xxxhdpi/image6.png';
 import image7 from '../drawable-xxxhdpi/image7.png';
 import Menu from '../Icons/Menu';
 import Notification from '../Icons/Notification';
-import User from '../Icons/User';
-import Courosal from '../corosal/courosal';
-import Courosel2 from '../corosal/courosel2';
-class Aboutpage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
+import User from '../Icons/User'
+import Courosal from '../corosal/courosal'
+import Courosel2 from '../corosal/courosel2'
+class Aboutpage extends React.Component{
+  // constructor(props){
+  //   super(props);
+  //   this.state={
+
+  //   }
+  // }
+  click=()=>{
+    console.log("hiii")
   }
   click = () => {
     console.log('hiii');
@@ -64,8 +69,8 @@ class Aboutpage extends React.Component {
             </View>
             <View style={{marginLeft: '44.9%'}}>
               <TouchableOpacity
-                onPress={() => {
-                  this.props.navigation.navigate('NotificationPage');
+              onPress={()=>{
+                this.props.navigation.navigate('UserPage')
                 }}>
                 <Notification />
               </TouchableOpacity>

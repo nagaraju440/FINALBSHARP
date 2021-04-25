@@ -10,8 +10,9 @@ import {
     TextInput,Button,ScrollView
 } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
-
-
+import LandingPage22 from '../screens/LandingPage22'
+import LoginPage from '../screens/LoginPage'
+import SignUpPage from '../screens/SignUpPage'
 import SplashScreen from '../screens/Login';
 import Signup from '../screens/signup';
 import Aboutpage from '../Aboutpage';
@@ -34,14 +35,11 @@ x=0;
 class RootStackScreen extends React.Component{
       render(){
        return(
-        //    <Text>{this.state.com}</Text>
-     
-        <RootStack.Navigator headerMode='none'>
-
-        <RootStack.Screen name="SplashScreen" component={SplashScreen}/>
-        <RootStack.Screen name="Signup" component={Signup}/>
-
-    </RootStack.Navigator>
+       <RootStack.Navigator headerMode='none'>
+        <RootStack.Screen name="LandingPage22" component={LandingPage22}/>
+        <RootStack.Screen name="LoginPage" component={LoginPage}/>
+        <RootStack.Screen name="SignUpPage"component={SignUpPage}/>
+        </RootStack.Navigator>
        )
    }
 }
