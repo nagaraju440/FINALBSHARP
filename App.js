@@ -27,12 +27,15 @@ import Sample from './sample'
 import Switch from './Authentication/Switch'
 // import Stack100 from './StackTesting/Stack'
 import Bsharpimage from './images/Bsharpimage';
+import VolumeSlider from 'react-native-volume-slider';
 function App(){
     // ----------------port-1111------------------
     return(
 // ---------------------------Adding drawer nav--------------------
         // <Drawernavi />
         <Sample/>
+  
+        
         // <Switch/>
         // <Stack100/>
         // <StackNav/>
@@ -41,3 +44,9 @@ function App(){
 }
 
 export default App;
+const styles = StyleSheet.create({
+  slider: {
+    height: 30,
+    marginLeft: 7,
+  }
+});

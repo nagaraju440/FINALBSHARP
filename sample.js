@@ -13,6 +13,7 @@ import {
     StatusBar,
   } from 'react-native';
   import Drawernavi from './Navigations/TopNav'
+  import database from '@react-native-firebase/database';
   var x=0
   class Sample extends React.Component {
   constructor(props){
@@ -24,10 +25,11 @@ import {
 
     
     componentDidMount=()=>{
+      console.log("hlo login database")
       auth().onAuthStateChanged((user) => {
         if (user) {
         //   setAuthenticated(true);
-        console.log("a user is there",auth().currentUser.email ,"and i am from sample.js bro")
+        console.log("a user is there",auth().currentUser.email ,"and i am from sample.js bro")  
         this.state.x=1;
         this.setState({x:this.state.x})
         } else {
