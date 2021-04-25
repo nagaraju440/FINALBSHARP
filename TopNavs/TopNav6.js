@@ -37,14 +37,14 @@ const Stack = new createStackNavigator();
 
 
 const TopNav6=({ navigation })=> {
-    console.log('hii dashboard:TopNav1');
+    console.log('hii Settings:TopNav6');
     // console.log(props.route.params.Params,"hloooooooo")
     return (
             //--------------- Creating stack navigation for TopNav-------------------
             // <NavigationContainer>
                <Stack.Navigator>        
                    <Stack.Screen 
-                         name="Dashboard " 
+                         name="Settings" 
                          component={Settings}
                          options={{headerShown: false}}
                         />

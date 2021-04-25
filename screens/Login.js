@@ -137,7 +137,7 @@ return(<Drawernavi/>)
         label='Email'
         keyboardType='default'
         labelTextStyle={{fontWeight:"bold",fontFamily:"poppins",color:"black"}}
-        onChangeText={(email) => this.setState({email})} value={this.state.email}
+        // onChangeText={(email) => this.setState({email})} value={this.state.email}
         containerStyle={{height:46,borderRadius:15}}
         inputContainerStyle={{height:46}}
         baseColor="black"
@@ -147,7 +147,7 @@ return(<Drawernavi/>)
         label='Password'
         keyboardType='default'
         labelTextStyle={{fontWeight:"bold",fontFamily:"poppins",color:"black"}}
-        onChangeText={(password) => this.setState({password})} value={this.state.password}
+        // onChangeText={(password) => this.setState({password})} value={this.state.password}
         containerStyle={{height:46,borderRadius:15}}
         inputContainerStyle={{height:46}}
         secureTextEntry={true}
@@ -172,7 +172,12 @@ return(<Drawernavi/>)
             </View>
 
               </TouchableOpacity> 
-            <TouchableOpacity  style={styles.button1} onPress={() => this.props.navigation.navigate('Signup')} ><Text style={styles.ButtonText1}>Signup</Text></TouchableOpacity>
+            <TouchableOpacity  
+            style={styles.button1} 
+            onPress={() => this.props.navigation.navigate('Signup')}
+             >
+               <Text style={styles.ButtonText1}>Signup</Text>
+            </TouchableOpacity>
             <View style={{flexDirection:'row', alignItems: 'center', flexGrow:1, paddingLeft:40}}>
             <Text>Forget password?</Text>
             <Text>Click here</Text>

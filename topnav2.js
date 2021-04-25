@@ -66,7 +66,9 @@ class Courses extends React.Component {
        {/* .........................top bsharp..............................      */}
              <View style={{width:"100%",height:57,flexDirection:'row',alignItems:'center',borderWidth:0.0,elevation:1}}>
 
-             <View style={{marginLeft:'6.5%'}}>
+             <View 
+             style={{marginLeft:'6.5%'}}
+             >
                 <TouchableOpacity 
                 onPress={()=>{
                   this.props.navigation.openDrawer()

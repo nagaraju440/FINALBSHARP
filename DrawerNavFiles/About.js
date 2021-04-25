@@ -24,12 +24,12 @@ import User from '../Icons/User'
 import Courosal from '../corosal/courosal'
 import Courosel2 from '../corosal/courosel2'
 class Aboutpage extends React.Component{
-  constructor(props){
-    super(props);
-    this.state={
+  // constructor(props){
+  //   super(props);
+  //   this.state={
 
-    }
-  }
+  //   }
+  // }
   click=()=>{
     console.log("hiii")
   }
@@ -63,7 +63,7 @@ class Aboutpage extends React.Component{
            <View style={{marginLeft:'3.5%'}}>
               <TouchableOpacity
               onPress={()=>{
-                    navigation.navigate('UserPage')
+                this.props.navigation.navigate('UserPage')
                 }}>
               <User/>
               </TouchableOpacity>
