@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import com.horcrux.svg.SvgPackage;
 // import com.horcrux.svg.SvgPackage;
 // import com.horcrux.svg.RNSvgPackage;
 import com.swmansion.reanimated.ReanimatedPackage;
@@ -47,6 +48,7 @@ public class MainApplication extends Application implements ReactApplication {
           
             Arrays.<ReactPackage>asList(
             new MainReactPackage(),
+            new SvgPackage(),
            
             // new SvgPackage(),
             new ReanimatedPackage(),

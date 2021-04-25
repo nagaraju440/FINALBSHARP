@@ -120,7 +120,7 @@ import { Button,View ,Text } from 'react-native';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import auth from '@react-native-firebase/auth';
 
-// import { GoogleSignin } from '@react-native-google-signin/google-signin';
+
 GoogleSignin.configure({
   webClientId: '251203130049-bfofh8n0mvo3m2r1dmfl00p3329p0tjd.apps.googleusercontent.com',
 });
@@ -131,18 +131,12 @@ function GoogleLogin() {
         // Get the users ID token
         const { idToken } = await GoogleSignin.signIn();
        
-      
         // Create a Google credential with the token
         const googleCredential = auth.GoogleAuthProvider.credential(idToken);
       
         // Sign-in the user with the credential
         return auth().signInWithCredential(googleCredential);
       }
-
-      // GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-      // .requestIdToken("251203130049-bfofh8n0mvo3m2r1dmfl00p3329p0tjd.apps.googleusercontent.com")
-      // .requestEmail()
-      // .build();
       async  function signOut()  {
         try {
           await GoogleSignin.revokeAccess();
@@ -150,16 +144,10 @@ function GoogleLogin() {
           auth()
             .signOut()
             .then(() => alert('Your are signed out!'));
-          // setloggedIn(false);
-          // setuserInfo([]);
         } catch (error) {
           console.error(error);
         }
-      };
-      
-
-
-      
+      };    
   return (
     <View>
 <Button
