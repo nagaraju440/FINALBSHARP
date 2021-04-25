@@ -143,7 +143,19 @@ function GoogleLogin() {
       // .requestIdToken("251203130049-bfofh8n0mvo3m2r1dmfl00p3329p0tjd.apps.googleusercontent.com")
       // .requestEmail()
       // .build();
-
+      async  function signOut()  {
+        try {
+          await GoogleSignin.revokeAccess();
+          await GoogleSignin.signOut();
+          auth()
+            .signOut()
+            .then(() => alert('Your are signed out!'));
+          // setloggedIn(false);
+          // setuserInfo([]);
+        } catch (error) {
+          console.error(error);
+        }
+      };
       
 
 
@@ -153,6 +165,10 @@ function GoogleLogin() {
 <Button
       title="Google Sign-In"
       onPress={() => onGoogleButtonPress().then(() => console.log('Signed in with Google!'))}
+    />
+    <Button
+      title="Google Sign-Out"
+      onPress={() => signOut().then(() => console.log('Signed out with Google!'))}
     />
     </View>
   );
