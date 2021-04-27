@@ -40,11 +40,11 @@ import Tanpura from './floating/tanpura'
 // import Signupp from './Splashscreens/Signup';
 // import Splash from './Splashscreens/SplashScreen';
 
-class   App extends React.Component {
-  constructor(props){
+class App extends React.Component {
+  constructor(props) {
     super(props);
     this.state = {
-        x:0,
+      x: 0,
     }
   }
   // componentDidMount=()=>{
@@ -78,31 +78,48 @@ class   App extends React.Component {
     //   return(<SwitchNav/>)
     // }
 
-  }
-    // ----------------port-8081------------------
-    // if(x==1){
-    //   return(<NavigationContainer>
-    //     <Drawernavi/>
+  
+    // if (this.state.x == 1) {
+    //   return (<NavigationContainer>
+    //     <Drawernavi />
 
     //   </NavigationContainer>
     //   )
     // }
-    // else{
-    //   return(<SwitchNav/>)
+    // else {
+    //   return (<SwitchNav />)
     // }
     // return(
-// ---------------------------Adding drawer nav--------------------
-        // <Drawernavi />
-        // <Sample/>
-        // <LandingPage22/>
-        // <SwitchNav/>
-        // <Stack100/>
-        // <Splash />
-        // <Login />
-        // <Signupp/>
-        // <StackNav/>
-        // <TopNav/>
+    // <Tanpura />
     // )
+  }
+
+
+
+  // ----------------port-8081------------------
+  // if(x==1){
+  //   return(<NavigationContainer>
+  //     <Drawernavi/>
+
+  //   </NavigationContainer>
+  //   )
+  // }
+  // else{
+  //   return(<SwitchNav/>)
+  // }
+  // return(
+  // ---------------------------Adding drawer nav--------------------
+  // <Drawernavi />
+  // <Sample/>
+  // <LandingPage22/>
+  // <SwitchNav/>
+  // <Stack100/>
+  // <Splash />
+  // <Login />
+  // <Signupp/>
+  // <StackNav/>
+  // <TopNav/>
+  // )
 }
 
 export default App;

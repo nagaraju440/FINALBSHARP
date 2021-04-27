@@ -6,6 +6,7 @@ import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
 // import com.BV.LinearGradient.LinearGradientPackage;
 import com.BV.LinearGradient.LinearGradientPackage; 
+import com.reactnativecommunity.slider.ReactSliderPackage;
 import com.horcrux.svg.SvgPackage;
 // import com.horcrux.svg.SvgPackage;
 // import com.horcrux.svg.RNSvgPackage;
@@ -57,6 +58,7 @@ public class MainApplication extends Application implements ReactApplication {
             new MainReactPackage(),
             // new LinearGradientPackage(),
             new LinearGradientPackage(),
+            new ReactSliderPackage(),
             new SvgPackage(),
             new FBSDKPackage(),
             // new SvgPackage(),

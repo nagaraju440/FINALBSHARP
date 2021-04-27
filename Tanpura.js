@@ -1,67 +1,18 @@
-import React from 'react'
-import { View, Text,ScrollView,Image,Dimensions ,TouchableOpacity ,Picker,
-Button } from 'react-native';
+import React, { useState } from "react";
+import { View, Picker, StyleSheet, Text, TouchableOpacity, Button, TextInput } from "react-native";
 import Slider from '@react-native-community/slider';
-// import { Slider } from 'react-native-elements/dist/slider/Slider';
+// import { Button } from "react-native-paper";
 
-import tanpuraImg from '../images/tanpuraImage.png'
-width=Dimensions.get('window').width
-height=Dimensions.get('window').height
-console.log(width,height,"thsea re the details")
-class Tanpura extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { 
-          first:'',
-          second:''
-         };
-    }
-    render() {
-        return (
-            // <ScrollView >
-            // {/* <Text>hello babai   </Text> */}
-         <View style={{width:width,height:height}}>
-         <View style={{width:'100%',height:'55.58%'}}>
-             <Image source={tanpuraImg} style={{width:'100%',height:'100%'}}></Image>
-         </View>
-           <View style={{width:'100%',height:'45%',marginTop:-30,backgroundColor:'white',borderTopLeftRadius:30,borderTopRightRadius:30}}>
-           <View style={{width:'79%',height:'85%',marginLeft:'9%',marginTop:'10.3%'}}>
-                   {/* <View style={{width:'73%',height:'36%',backgroundColor:'whitesmoke'}}> */}
-                {/* <View style={{flexDirection:'row',fontSize:18}}>
-                    <Text>Pitch Semi</Text>
-                    <View style={{marginLeft:40,fontSize:18,flexDirection:'row'}}>
-                        <TouchableOpacity>
-                             <Text>-</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={{backgroundColor:'gray'}}>
-                            <Text>{width}</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity>
-                             <Text>+</Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-                <View style={{flexDirection:'row',fontSize:18}}>
-                 <Text>Speed</Text>
-                <View style={{marginLeft:40}}>
-                <Slider/>
-                </View>
-
-                </View>
-                <View style={{flexDirection:'row',fontSize:18}}>
-                 <Text>Volume</Text>
-                <View style={{marginLeft:40}}>
-                <Slider/>
-                </View>
-
-                </View>
-
-                   </View> */}
-                   <View style={{ borderColor: "#707070", borderWidth: 1, borderRadius: 10 }}>
+const Tanpura = () => {
+    const [selectedValue, setSelectedValue] = useState("java");
+    const [text, onChangeText] = React.useState("Useless Text");
+    return (
+        <View style={styles.container}>
+            <View style={{ borderColor: "#707070", borderWidth: 1, borderRadius: 10 }}>
                 <Picker
-                    selectedValue={this.state.first}
-                    style={{ height: 40, width: '100%' }}
-                    onValueChange={(itemValue, itemIndex) => this.setState({first:itemValue})}
+                    selectedValue={selectedValue}
+                    style={{ height: 46, width: 330 }}
+                    onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
                 >
                     <Picker.Item label="Sa" value="Sa" />
                     <Picker.Item label="Re komal" value="Re komal" />
@@ -79,9 +30,9 @@ class Tanpura extends React.Component {
             </View>
             <View style={{ borderColor: "#707070", borderWidth: 1, borderRadius: 10, marginTop: 15 }}>
                 <Picker
-                    selectedValue={this.state.second}
-                    style={{ height: 40, width: '100%' }}
-                    onValueChange={(itemValue, itemIndex) => this.setState({second:itemValue})}
+                    selectedValue={selectedValue}
+                    style={{ height: 46, width: 330 }}
+                    onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
                 >
                     <Picker.Item label="A" value="A" />
                     <Picker.Item label="A#" value="A#" />
@@ -111,8 +62,8 @@ class Tanpura extends React.Component {
                         style={{ width: 180, height: 40 ,left:27}}
                         minimumValue={0}
                         maximumValue={1}
-                        // minimumTrackTintColor="black"
-                        maximumTrackTintColor='gray'
+                        minimumTrackTintColor="#FFFFFF"
+                        maximumTrackTintColor="#000000"
                     />
                 </View>
                 <View style={{ justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }}>
@@ -122,27 +73,32 @@ class Tanpura extends React.Component {
                         style={{ width: 180, height: 40,left:23 }}
                         minimumValue={0}
                         maximumValue={1}
-                        // minimumTrackTintColor="green"
-                        maximumTrackTintColor="gray"
+                        minimumTrackTintColor="#FFFFFF"
+                        maximumTrackTintColor="#000000"
                     />
                 </View>
                 <View style={{ borderWidth: 1, height: 40, width: 330, borderRadius: 10, borderColor: '#707070', backgroundColor: '#292629', justifyContent: 'center' }}>
                     <TouchableOpacity
 
-                        // onChangeText={onChangeText}
+                        onChangeText={onChangeText}
                         style={{ alignItems: 'center' }}
                     >
                         <Text style={{ color: '#FFFFFF', alignItems: 'center' }}>Play</Text>
                     </TouchableOpacity>
                 </View>
             </View>
-           </View>
-           </View>
-         </View>
-
-            // </ScrollView>
-        );
-    }
+        </View>
+    );
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        paddingTop: 40,
+        alignItems: "center"
+        // marginTop:20
+    }
+});
+
 
 export default Tanpura;
