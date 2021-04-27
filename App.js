@@ -17,20 +17,19 @@ import { AppRegistry } from 'react-native';
 // import Drawernavi from './Navigations/TopNav'
 // // import TopNav from './Navigations/TopNav'
 // import StackNav from './TopNavs/stack'
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-import Sample from './sample'
-import SwitchNav from './Authentication/Switch'
-import Drawernavi from './Navigations/TopNav';
-import auth from '@react-native-firebase/auth';
-import { NavigationContainer } from '@react-navigation/native';
-import Tanpura from './Tanpura'
-
+// import {
+//   Header,
+//   LearnMoreLinks,
+//   Colors,
+//   DebugInstructions,
+//   ReloadInstructions,
+// } from 'react-native/Libraries/NewAppScreen';
+// import Sample from './sample'
+// import SwitchNav from './Authentication/Switch'
+// import Drawernavi from './Navigations/TopNav';
+// import auth from '@react-native-firebase/auth';
+// import { NavigationContainer } from '@react-navigation/native';
+import Tanpura from './floating/tanpura'
 // import Stack100 from './StackTesting/Stack'
 // import Bsharpimage from './images/Bsharpimage';
 // import LandingPage22 from './screens/LandingPage22';
@@ -59,13 +58,27 @@ class App extends React.Component {
   //       this.state.x=0;
   //       this.setState({x:this.state.x})
   //     console.log("no  user is there and i am from smaple .js bro")
-
+  
   //     }
   //   })
   // }
-  render(
+  render()
+  {
+     return(
+       <Tanpura/>
+     )
+    // if(this.state.x==1){
+    //   return(<NavigationContainer>
+    //     <Drawernavi/>
 
-  ) {
+    //   </NavigationContainer>
+    //   )
+    // }
+    // else{
+    //   return(<SwitchNav/>)
+    // }
+
+  
     // if (this.state.x == 1) {
     //   return (<NavigationContainer>
     //     <Drawernavi />
@@ -76,9 +89,9 @@ class App extends React.Component {
     // else {
     //   return (<SwitchNav />)
     // }
-    return(
-    <Tanpura />
-    )
+    // return(
+    // <Tanpura />
+    // )
   }
 
 

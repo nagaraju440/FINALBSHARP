@@ -53,7 +53,6 @@ import { Drawer } from 'native-base';
 
   // Create a Firebase credential with the AccessToken
   const facebookCredential = auth.FacebookAuthProvider.credential(data.accessToken);
-
   // Sign-in the user with the credential
   return auth().signInWithCredential(facebookCredential);
 }

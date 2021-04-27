@@ -13,7 +13,8 @@ import SwipeButton from 'rn-swipe-button';
 import logo from "../images/bsharpLogo.png"
 
 const Splash = (props) => {
-  return (              
+  return (     
+    // <ScrollView>         
                     <View style={styles.container}>
                     
                     <View style={styles.header}>
@@ -62,6 +63,7 @@ const Splash = (props) => {
         </View>
         </View>   
         </View>  
+
                    ) }
           
           

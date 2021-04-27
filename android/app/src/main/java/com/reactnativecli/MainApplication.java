@@ -4,6 +4,8 @@ import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+// import com.BV.LinearGradient.LinearGradientPackage;
+import com.BV.LinearGradient.LinearGradientPackage; 
 import com.reactnativecommunity.slider.ReactSliderPackage;
 import com.horcrux.svg.SvgPackage;
 // import com.horcrux.svg.SvgPackage;
@@ -13,7 +15,7 @@ import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
-
+// import com.razorpay.rn.RazorpayPackage;
 import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
 import java.lang.reflect.InvocationTargetException;
@@ -25,6 +27,10 @@ import com.facebook.react.ReactPackage;
 import io.invertase.firebase.app.ReactNativeFirebaseAppPackage;
 import io.invertase.firebase.auth.ReactNativeFirebaseAuthPackage;
 import com.th3rdwave.safeareacontext.SafeAreaContextPackage;
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
+import com.facebook.reactnative.androidsdk.FBSDKPackage;
+import com.facebook.CallbackManager;
 // import io.invertase.firebase.auth.RNFirebaseAuthPackage; 
 // import io.invertase.firebase.modules.app.ReactNativeFirebaseAppPackage;
 
@@ -40,6 +46,7 @@ public class MainApplication extends Application implements ReactApplication {
 
         @Override
         protected List<ReactPackage> getPackages() {
+          
           @SuppressWarnings("UnnecessaryLocalVariable")
           List<ReactPackage> packages = new PackageList(this).getPackages();
           // packages.add(new SvgPackage());
@@ -49,9 +56,11 @@ public class MainApplication extends Application implements ReactApplication {
           
             Arrays.<ReactPackage>asList(
             new MainReactPackage(),
+            // new LinearGradientPackage(),
+            new LinearGradientPackage(),
             new ReactSliderPackage(),
             new SvgPackage(),
-           
+            new FBSDKPackage(),
             // new SvgPackage(),
             new ReanimatedPackage(),
             new RNGestureHandlerPackage(),
@@ -75,6 +84,7 @@ public class MainApplication extends Application implements ReactApplication {
   public ReactNativeHost getReactNativeHost() {
     return mReactNativeHost;
   }
+  
 
   @Override
   public void onCreate() {
@@ -84,7 +94,7 @@ public class MainApplication extends Application implements ReactApplication {
   }
 
   /**
-   * Loads Flipper in React Native templates. Call this in the onCreate method with something like
+   * Loads Flipper in React Native templates.    this in the onCreate method with something like
    * initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
    *
    * @param context

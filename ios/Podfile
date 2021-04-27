@@ -16,7 +16,7 @@ target 'reactnativecli' do
 
   pod 'RNSVG', :path => '../node_modules/react-native-svg'
 
-  pod 'react-native-slider', :path => '../node_modules/@react-native-community/slider'
+  pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
 
   target 'reactnativecliTests' do
     inherit! :complete
