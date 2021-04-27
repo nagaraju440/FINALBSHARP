@@ -31,12 +31,14 @@ var x = 0;
 
 // var y=LoginManager.getInstance()
 async function onFacebookButtonPress() {
+  console.log(LoginManager.logInWithPermissions,"here also ima wrote this")
+
   // LoginManager.setLoginBehavior(WEB_ONLY);
 
   // Attempt login with permissions
   // console.log(LoginManager.logInWithPermissions,"this is the reason bro");
-  LoginManager.logOut();
-  console.log(LoginManager.getDefaultAudience(), LoginManager.logOut())
+  // LoginManager.logOut();
+  // console.log(LoginManager.getDefaultAudience(), LoginManager.logOut())
   // y.logOut();
 
 
@@ -101,6 +103,9 @@ class Login extends React.Component {
       x: 0,
       l: 0,
     };
+  }
+  componentDidMount=()=>{
+    console.log(LoginManager.logInWithPermissions)
   }
   login = () => {
     this.setState({ l: 1 })

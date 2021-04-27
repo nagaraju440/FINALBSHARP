@@ -4,6 +4,8 @@ import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+// import com.BV.LinearGradient.LinearGradientPackage;
+import com.BV.LinearGradient.LinearGradientPackage; 
 import com.horcrux.svg.SvgPackage;
 // import com.horcrux.svg.SvgPackage;
 // import com.horcrux.svg.RNSvgPackage;
@@ -24,6 +26,10 @@ import com.facebook.react.ReactPackage;
 import io.invertase.firebase.app.ReactNativeFirebaseAppPackage;
 import io.invertase.firebase.auth.ReactNativeFirebaseAuthPackage;
 import com.th3rdwave.safeareacontext.SafeAreaContextPackage;
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
+import com.facebook.reactnative.androidsdk.FBSDKPackage;
+import com.facebook.CallbackManager;
 // import io.invertase.firebase.auth.RNFirebaseAuthPackage; 
 // import io.invertase.firebase.modules.app.ReactNativeFirebaseAppPackage;
 
@@ -49,8 +55,10 @@ public class MainApplication extends Application implements ReactApplication {
           
             Arrays.<ReactPackage>asList(
             new MainReactPackage(),
+            // new LinearGradientPackage(),
+            new LinearGradientPackage(),
             new SvgPackage(),
-           
+            new FBSDKPackage(),
             // new SvgPackage(),
             new ReanimatedPackage(),
             new RNGestureHandlerPackage(),
@@ -84,7 +92,7 @@ public class MainApplication extends Application implements ReactApplication {
   }
 
   /**
-   * Loads Flipper in React Native templates. Call this in the onCreate method with something like
+   * Loads Flipper in React Native templates.    this in the onCreate method with something like
    * initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
    *
    * @param context

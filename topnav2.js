@@ -177,41 +177,40 @@ students.
             </View>
         )
     }
+          
+      //   <ScrollView>
+      //     {/* <StckNav */}
 
-        <ScrollView>
-          {/* <StckNav */}
+      //     <View style={styles.TopNav}>
+      //       <Image source={Piano} style={styles.Image} />
+      //       <Text style={styles.heading1}>Full Course Mastering Keyboard</Text>
+      //       <Text style={styles.text1}>
+      //         We are the best Carnatic Classical Music Academy in Hyderabad,
+      //         specialised in both online music classes and offline music
+      //         classes, established in the year 1998 with an aim to spread the
+      //         knowledge of BS#ARP MUSIC worldwide. We provide online music
+      //         classes for kids and all age group of students.
+      //       </Text>
 
-          <View style={styles.TopNav}>
-            <Image source={Piano} style={styles.Image} />
-            <Text style={styles.heading1}>Full Course Mastering Keyboard</Text>
-            <Text style={styles.text1}>
-              We are the best Carnatic Classical Music Academy in Hyderabad,
-              specialised in both online music classes and offline music
-              classes, established in the year 1998 with an aim to spread the
-              knowledge of BS#ARP MUSIC worldwide. We provide online music
-              classes for kids and all age group of students.
-            </Text>
-
-             <View 
-             style={{marginLeft:'6.5%'}}
-             >
-                <TouchableOpacity 
-                onPress={()=>{
-                  this.props.navigation.openDrawer()
-                }}
-                >
-                <Menu/>
-                </TouchableOpacity>
-              </View>
-            </View>
-      </ScrollView>
-      </View>
-    );
+      //        <View 
+      //        style={{marginLeft:'6.5%'}}
+      //        >
+      //           <TouchableOpacity 
+      //           onPress={()=>{
+      //             this.props.navigation.openDrawer()
+      //           }}
+      //           >
+      //           <Menu/>
+      //           </TouchableOpacity>
+      //         </View>
+      //       </View>
+      // </ScrollView>
+      // </View>
+//     );
+//   }
+// }
   }
-}
-
 const styles = StyleSheet.create({
-<<<<<<< HEAD
     container1: {
         // marginTop: 50,
         height: 944,
@@ -261,56 +260,6 @@ const styles = StyleSheet.create({
       marginTop:25
       
       },
-=======
-  container1: {
-    // marginTop: 50,
-    height: 944,
-    width: '100%',
-    // marginTop:45,
-  },
-  TopNav: {
-    // height: 57,
-    width: '87%',
-    color: 'blue',
-    // padding: 25,
-    // marginTop:85,
-    marginLeft: 25,
-  },
-  Image: {
-    height: 189,
-    width: '100%',
-    borderRadius: 15,
-    marginTop: 30,
-  },
-  heading1: {
-    marginTop: 35,
-    textAlign: 'center',
-    fontFamily: 'Bold',
-    fontSize: 16,
-    // marginLeft: 50
-  },
-  text1: {
-    marginTop: 17,
-    fontSize: 12,
-    // textAlign: 'center',
-    fontFamily: 'poppins',
-    // letterSpacing: 0.5
-    lineHeight: 20,
-    // marginRight: 91
-  },
-  registerBtn: {
-    color: '#fff',
-    fontSize: 16,
-    fontFamily: 'Poppins',
-    height: 48,
-    width: '100%',
-    backgroundColor: '#2C57EF',
-    borderRadius: 15,
-    textAlign: 'center',
-    textAlignVertical: 'center',
-    marginTop: 25,
-  },
->>>>>>> 1f764b9503190db1b372646efe397cbde28a1008
 });
 
 export default Courses;
