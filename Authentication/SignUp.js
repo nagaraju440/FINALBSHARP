@@ -38,7 +38,7 @@ class Signupp extends React.Component {
     };
   }
   signupbuttonclicking = () => {
-    this.setState({ l: 1 });
+    // this.setState({l:1});
     console.log("hiiii", this.state.email, this.state.password)
     auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
       .then(() => {
@@ -138,14 +138,7 @@ class Signupp extends React.Component {
                 this.props.navigation.navigate('Login');
 
               }}>
-              {
-                this.state.l === 0 ? <View>
-                  <Text style={styles.ButtonText}>SignUp</Text>
-                </View> : <View style={{ flexDirection: 'row' }}>
-                  <ActivityIndicator color={'black'} />
-                  <Text style={styles.ButtonText}>Signing In</Text>
-                </View>
-              }
+              <Text style={styles.ButtonText}>Signup</Text>
             </TouchableOpacity>
           </View>
 

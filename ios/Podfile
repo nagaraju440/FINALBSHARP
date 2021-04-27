@@ -16,6 +16,8 @@ target 'reactnativecli' do
 
   pod 'RNSVG', :path => '../node_modules/react-native-svg'
 
+  pod 'react-native-slider', :path => '../node_modules/@react-native-community/slider'
+
   target 'reactnativecliTests' do
     inherit! :complete
     # Pods for testing

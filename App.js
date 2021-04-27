@@ -29,6 +29,7 @@ import SwitchNav from './Authentication/Switch'
 import Drawernavi from './Navigations/TopNav';
 import auth from '@react-native-firebase/auth';
 import { NavigationContainer } from '@react-navigation/native';
+import Tanpura from './Tanpura'
 
 // import Stack100 from './StackTesting/Stack'
 // import Bsharpimage from './images/Bsharpimage';
@@ -40,68 +41,72 @@ import { NavigationContainer } from '@react-navigation/native';
 // import Signupp from './Splashscreens/Signup';
 // import Splash from './Splashscreens/SplashScreen';
 
-class   App extends React.Component {
-  constructor(props){
+class App extends React.Component {
+  constructor(props) {
     super(props);
     this.state = {
-        x:0,
+      x: 0,
     }
   }
-  componentDidMount=()=>{
-    auth().onAuthStateChanged((user) => {
-      if (user) {
-      //   setAuthenticated(true);
-      console.log("a user is there",auth().currentUser.email ,"and i am from sample.js bro")
-      this.state.x=1;
-      this.setState({x:this.state.x})
-      } else {
-        this.state.x=0;
-        this.setState({x:this.state.x})
-      console.log("no  user is there and i am from smaple .js bro")
-  
-      }
-    })
-  }
+  // componentDidMount=()=>{
+  //   auth().onAuthStateChanged((user) => {
+  //     if (user) {
+  //     //   setAuthenticated(true);
+  //     console.log("a user is there",auth().currentUser.email ,"and i am from sample.js bro")
+  //     this.state.x=1;
+  //     this.setState({x:this.state.x})
+  //     } else {
+  //       this.state.x=0;
+  //       this.setState({x:this.state.x})
+  //     console.log("no  user is there and i am from smaple .js bro")
+
+  //     }
+  //   })
+  // }
   render(
-    
-  )
-  {
-    if(this.state.x==1){
-      return(<NavigationContainer>
-        <Drawernavi/>
 
-      </NavigationContainer>
-      )
-    }
-    else{
-      return(<SwitchNav/>)
-    }
-
-  }
-    // ----------------port-8081------------------
-    // if(x==1){
-    //   return(<NavigationContainer>
-    //     <Drawernavi/>
+  ) {
+    // if (this.state.x == 1) {
+    //   return (<NavigationContainer>
+    //     <Drawernavi />
 
     //   </NavigationContainer>
     //   )
     // }
-    // else{
-    //   return(<SwitchNav/>)
+    // else {
+    //   return (<SwitchNav />)
     // }
-    // return(
-// ---------------------------Adding drawer nav--------------------
-        // <Drawernavi />
-        // <Sample/>
-        // <LandingPage22/>
-        // <SwitchNav/>
-        // <Stack100/>
-        // <Splash />
-        // <Login />
-        // <Signupp/>
-        // <StackNav/>
-        // <TopNav/>
-    // )
+    return(
+    <Tanpura />
+    )
+  }
+
+
+
+  // ----------------port-8081------------------
+  // if(x==1){
+  //   return(<NavigationContainer>
+  //     <Drawernavi/>
+
+  //   </NavigationContainer>
+  //   )
+  // }
+  // else{
+  //   return(<SwitchNav/>)
+  // }
+  // return(
+  // ---------------------------Adding drawer nav--------------------
+  // <Drawernavi />
+  // <Sample/>
+  // <LandingPage22/>
+  // <SwitchNav/>
+  // <Stack100/>
+  // <Splash />
+  // <Login />
+  // <Signupp/>
+  // <StackNav/>
+  // <TopNav/>
+  // )
 }
 
 export default App;

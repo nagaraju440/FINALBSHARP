@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import com.reactnativecommunity.slider.ReactSliderPackage;
 import com.horcrux.svg.SvgPackage;
 // import com.horcrux.svg.SvgPackage;
 // import com.horcrux.svg.RNSvgPackage;
@@ -48,6 +49,7 @@ public class MainApplication extends Application implements ReactApplication {
           
             Arrays.<ReactPackage>asList(
             new MainReactPackage(),
+            new ReactSliderPackage(),
             new SvgPackage(),
            
             // new SvgPackage(),
