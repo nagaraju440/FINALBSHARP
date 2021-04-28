@@ -139,7 +139,7 @@ class Login extends React.Component {
 
         })
         .catch(error => {
-          alert(error.code)
+          alert(error.code) 
           this.setState({ l: 0 })
           // if (error.code === 'auth/invalid-email') {
           //   console.log('That email address is invalid!');
