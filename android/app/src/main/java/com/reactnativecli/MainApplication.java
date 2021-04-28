@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import com.zmxv.RNSound.RNSoundPackage;
 // import com.BV.LinearGradient.LinearGradientPackage;
 import com.BV.LinearGradient.LinearGradientPackage; 
 import com.reactnativecommunity.slider.ReactSliderPackage;
@@ -56,6 +57,7 @@ public class MainApplication extends Application implements ReactApplication {
           
             Arrays.<ReactPackage>asList(
             new MainReactPackage(),
+            new RNSoundPackage(),
             // new LinearGradientPackage(),
             new LinearGradientPackage(),
             new ReactSliderPackage(),

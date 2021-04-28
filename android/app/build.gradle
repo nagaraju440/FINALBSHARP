@@ -183,6 +183,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation(project(':react-native-sound'))
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
   implementation platform('com.google.firebase:firebase-bom:27.0.0')

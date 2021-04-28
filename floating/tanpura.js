@@ -3,8 +3,10 @@ import { View, Text,ScrollView,Image,Dimensions ,TouchableOpacity ,Picker,
 Button } from 'react-native';
 import Slider from '@react-native-community/slider';
 // import { Slider } from 'react-native-elements/dist/slider/Slider';
-
 import tanpuraImg from '../images/tanpuraImage.png'
+// import Sound from 'react-native-sound'
+var Sound = require('react-native-sound');
+Sound.setCategory('Playback');
 width=Dimensions.get('window').width
 height=Dimensions.get('window').height
 console.log(width,height,"thsea re the details")
@@ -16,6 +18,27 @@ class Tanpura extends React.Component {
           second:''
          };
     }
+    componentDidMount=()=>{
+        var whoosh = new Sound('tanpura.mp3', Sound.MAIN_BUNDLE,(error) => {
+            if (error) {
+              console.log('failed to load the sound', error);
+              return;
+            }
+            // loaded successfully
+            console.log('duration in seconds: ' + whoosh.getDuration() + 'number of channels: ' + whoosh.getNumberOfChannels());
+            whoosh.play((success) => {
+                if (success) {
+                  console.log('successfully finished playing');
+                } else {
+                  console.log('playback failed due to audio decoding errors');
+                }
+              });
+        })
+
+       
+        //   whoosh.setVolume(0.5);
+        // });
+    }
     render() {
         return (
             // <ScrollView >
@@ -26,37 +49,6 @@ class Tanpura extends React.Component {
          </View>
            <View style={{width:'100%',height:'45%',marginTop:-30,backgroundColor:'white',borderTopLeftRadius:30,borderTopRightRadius:30}}>
            <View style={{width:'79%',height:'85%',marginLeft:'9%',marginTop:'10.3%'}}>
-                   {/* <View style={{width:'73%',height:'36%',backgroundColor:'whitesmoke'}}> */}
-                {/* <View style={{flexDirection:'row',fontSize:18}}>
-                    <Text>Pitch Semi</Text>
-                    <View style={{marginLeft:40,fontSize:18,flexDirection:'row'}}>
-                        <TouchableOpacity>
-                             <Text>-</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={{backgroundColor:'gray'}}>
-                            <Text>{width}</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity>
-                             <Text>+</Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-                <View style={{flexDirection:'row',fontSize:18}}>
-                 <Text>Speed</Text>
-                <View style={{marginLeft:40}}>
-                <Slider/>
-                </View>
-
-                </View>
-                <View style={{flexDirection:'row',fontSize:18}}>
-                 <Text>Volume</Text>
-                <View style={{marginLeft:40}}>
-                <Slider/>
-                </View>
-
-                </View>
-
-                   </View> */}
                    <View style={{ borderColor: "#707070", borderWidth: 1, borderRadius: 10 }}>
                 <Picker
                     selectedValue={this.state.first}
@@ -110,7 +102,8 @@ class Tanpura extends React.Component {
                     <Slider
                         style={{ width: 180, height: 40 ,left:27}}
                         minimumValue={0}
-                        maximumValue={1}
+                        maximumValue={100}
+                        onValueChange={(x)=>{console.log(x)}}
                         // minimumTrackTintColor="black"
                         maximumTrackTintColor='gray'
                     />
@@ -126,7 +119,7 @@ class Tanpura extends React.Component {
                         maximumTrackTintColor="gray"
                     />
                 </View>
-                <View style={{ borderWidth: 1, height: 40, width: 330, borderRadius: 10, borderColor: '#707070', backgroundColor: '#292629', justifyContent: 'center' }}>
+                <View style={{ borderWidth: 1, height: 40, width: '100%', borderRadius: 10, borderColor: '#707070', backgroundColor: '#292629', justifyContent: 'center' }}>
                     <TouchableOpacity
 
                         // onChangeText={onChangeText}
@@ -139,8 +132,6 @@ class Tanpura extends React.Component {
            </View>
            </View>
          </View>
-
-            // </ScrollView>
         );
     }
 }
