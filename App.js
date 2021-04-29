@@ -29,6 +29,7 @@ import {
 import Login from './Splashscreens/login';
 import Signupp from './Splashscreens/Signup';
 import Splash from './Splashscreens/SplashScreen';
+import FloatingActionRightScreen from './screens/float';
 function App(){
     // ----------------port-1111------------------
     return(
@@ -37,7 +38,8 @@ function App(){
         // <Sample/>
         // <Stack100/>
         // <Splash />
-        <Login />
+        <FloatingActionRightScreen />
+        // <Login />
         // <Signupp/>
         // <StackNav/>
         // <TopNav/>
