@@ -9,38 +9,35 @@ class FloatingActionRightScreen extends PureComponent {
 
   render() {
     const actions = [
-      {
-        text: "Accessibility",
-        icon: require("../IMAGES/Tom.jpg"),
-        name: "button 1",
-        position: 2
-      },
-      {
-        text: "Language",
-        icon: require("../IMAGES/Tom.jpg"),
-        name: "button 2",
-        position: 1
-      },
-      {
-        text: "Location",
-        icon: require("../IMAGES/Tom.jpg"),
-        name: "button 3",
-        position: 3
-      },
-    //   {
-    //     text: "Video",
-    //     icon: require("../images/ic_videocam_white.png"),
-    //     name: "bt_videocam",
-    //     position: 4
-    //   }
-    ];
+        {
+         color: "#25D366",
+          icon: require("../IMAGES/M.png"),
+          name: "M",
+          position: 3,
+        },
+        {
+         color: "#0084FF",
+          icon: require("../IMAGES/T.png"),
+          name: "T",
+          position: 2,
+        },
+        {
+          color: "#FF6D18",
+         
+          icon: require("../IMAGES/G.png"),
+          name: "G",
+          position: 1,
+        },
+
+      ];
 
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.container}>
           <FloatingAction
+          showBackground={false}
             actions={actions}
-            actionsPaddingTopBottom={18}
+            actionsPaddingTopBottom={10}
             onPressItem={name => {
               Alert.alert("Icon pressed", `the icon ${name} was pressed`);
             }}
@@ -54,7 +51,7 @@ class FloatingActionRightScreen extends PureComponent {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff"
+    // backgroundColor: "white"
   }
 });
 
