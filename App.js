@@ -29,6 +29,8 @@ import Drawernavi from './Navigations/TopNav';
 import auth from '@react-native-firebase/auth';
 import {NavigationContainer} from '@react-navigation/native';
 import RunMetro from './metronome/RunMetro';
+import { Value } from 'react-native-reanimated';
+import MetroApp from "./react-native-metronome/example/App"
 
 // import Stack100 from './StackTesting/Stack'
 // import Bsharpimage from './images/Bsharpimage';
@@ -66,8 +68,13 @@ class App extends React.Component {
     });
   };
   render() {
-    return <RunMetro />;
+    // return <RunMetro />;
+    return <MetroApp/>
+    // return (
+    //   <View><Text>hello there</Text></View>
 
+    // ) 
+    
     // {
     //   if(this.state.x==1){
     //     return(<NavigationContainer>
