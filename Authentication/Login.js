@@ -21,24 +21,27 @@ import {
   FilledTextField,
   OutlinedTextField,
 } from 'react-native-material-textfield';
-import {initialWindowMetrics} from 'react-native-safe-area-context';
+import { initialWindowMetrics } from 'react-native-safe-area-context';
 import auth from '@react-native-firebase/auth';
-import { LoginManager, AccessToken,LoginButton } from 'react-native-fbsdk';
+import { LoginManager, AccessToken, LoginButton } from 'react-native-fbsdk';
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
 
 
-var x=0;
+var x = 0;
 
 // var y=LoginManager.getInstance()
- async function onFacebookButtonPress() {
+async function onFacebookButtonPress() {
+  console.log(LoginManager.logInWithPermissions,"here also ima wrote this")
+
   // LoginManager.setLoginBehavior(WEB_ONLY);
 
   // Attempt login with permissions
   // console.log(LoginManager.logInWithPermissions,"this is the reason bro");
-   LoginManager.logOut();
-   console.log(LoginManager.getDefaultAudience(),LoginManager.logOut())
+  // LoginManager.logOut();
+  // console.log(LoginManager.getDefaultAudience(), LoginManager.logOut())
   // y.logOut();
- 
-  
+
+
   const result = await LoginManager.logInWithPermissions(['public_profile', 'email']);
 
   if (result.isCancelled) {
@@ -61,6 +64,34 @@ var x=0;
   return auth().signInWithCredential(facebookCredential);
 }
 
+/*************************************Google Login ************************/
+
+GoogleSignin.configure({
+  webClientId: '251203130049-bfofh8n0mvo3m2r1dmfl00p3329p0tjd.apps.googleusercontent.com',
+});
+
+async function onGoogleButtonPress() {
+  // Get the users ID token
+  const { idToken } = await GoogleSignin.signIn();
+
+  // Create a Google credential with the token
+  const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+
+  // Sign-in the user with the credential
+  return auth().signInWithCredential(googleCredential);
+}
+async function signOut() {
+  try {
+    await GoogleSignin.revokeAccess();
+    await GoogleSignin.signOut();
+    auth()
+      .signOut()
+      .then(() => alert('Your are signed out!'));
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -73,48 +104,53 @@ class Login extends React.Component {
       l: 0,
     };
   }
-  login=()=>{  
-    this.setState({l:1})
-    console.log("hiiii", this.state.email,this.state.password)  
-      if(this.state.email==='' || this.state.password===''){
-          console.log("provide")
-          alert("please provide email or password")
-          setTimeout(()=>{
-              this.setState({l:0})
-          },1000)
+  componentDidMount=()=>{
+    console.log(LoginManager.logInWithPermissions)
+  }
+  login = () => {
+    this.setState({ l: 1 })
+    console.log("hiiii", this.state.email, this.state.password)
+    if (this.state.email === '' || this.state.password === '') {
+      console.log("provide")
+      alert("please provide email or password")
+      setTimeout(() => {
+        this.setState({ l: 0 })
+      }, 1000)
 
-      }else{
-        auth().signInWithEmailAndPassword(this.state.email,this.state.password)
-        .then(()=>{
+    } else {
+      auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+        .then(() => {
           console.log("sucsessfully logged")
           console.log("does not navigatin hehehhe")
           auth().onAuthStateChanged((user) => {
             if (user) {
-            //   setAuthenticated(true);
-            this.state.x=1;
-            this.setState({x:this.state.x,l:0})
-            console.log("a user is there",auth().currentUser.email ,"and this is from login bro and x is",this.state.x)
+              //   setAuthenticated(true);
+              this.state.x = 1;
+              this.setState({ x: this.state.x, l: 0 })
+              console.log("a user is there", auth().currentUser.email, "and this is from login bro and x is", this.state.x)
 
             } else {
               // this.state.x=0;
               // this.setState({x:this.state.x})
-            console.log("no  user is there and fro login ",this.state.x,"is x")
-          
+              console.log("no  user is there and fro login ", this.state.x, "is x")
+
             }
           })
-             
+
         })
         .catch(error => {
-          alert(error.code)
-          this.setState({l:0})
+          alert(error.code) 
+          this.setState({ l: 0 })
           // if (error.code === 'auth/invalid-email') {
           //   console.log('That email address is invalid!');
           //   alert(error.code)
           // }
         })
-      }
+    }
   }
-  
+
+
+
 
   render() {
     return (
@@ -126,7 +162,7 @@ class Login extends React.Component {
           </View>
         </View>
         <View style={styles.footer}>
-          <View style={{marginTop: 23}}>
+          <View style={{ marginTop: 23 }}>
             <OutlinedTextField
               label="Username"
               keyboardType="default"
@@ -137,15 +173,15 @@ class Login extends React.Component {
               }}
               // onChangeText={(email) => this.setState({email})}
               value={this.state.email}
-              containerStyle={{height: 46, borderRadius: 15}}
-              inputContainerStyle={{height: 46}}
+              containerStyle={{ height: 46, borderRadius: 15 }}
+              inputContainerStyle={{ height: 46 }}
               baseColor="black"
               onChangeText={(emailvalue) => {
-                this.setState({email: emailvalue});
+                this.setState({ email: emailvalue });
               }}
             />
           </View>
-          <View style={{marginTop: 23}}>
+          <View style={{ marginTop: 23 }}>
             <OutlinedTextField
               label="Password"
               keyboardType="default"
@@ -156,30 +192,38 @@ class Login extends React.Component {
               }}
               // onChangeText={(password) => this.setState({password})}
               value={this.state.password}
-              containerStyle={{height: 46, borderRadius: 15}}
-              inputContainerStyle={{height: 46}}
+              containerStyle={{ height: 46, borderRadius: 15 }}
+              inputContainerStyle={{ height: 46 }}
               secureTextEntry={true}
               baseColor="black"
               onChangeText={(passvalue) => {
-                this.setState({password: passvalue});
+                this.setState({ password: passvalue });
               }}
             />
           </View>
 
-          <View style={{paddingLeft: 84}}>
+          <View style={{ paddingLeft: 84 }}>
             <TouchableOpacity style={styles.forget}>
               <Text style={styles.ForgetText}>Forgot Password?</Text>
             </TouchableOpacity>
           </View>
 
-          <View style={{paddingLeft: 45}}>
+          <View style={{ paddingLeft: 45 }}>
             <TouchableOpacity
               style={styles.button}
               onPress={() => {
                 console.log('about page will be displayed');
                 this.login()
               }}>
-              <Text style={styles.ButtonText}>Login</Text>
+
+              {
+                this.state.l === 0 ? <View>
+                  <Text style={styles.ButtonText}>Login</Text>
+                </View> : <View style={{ flexDirection: 'row' }}>
+                  <ActivityIndicator color={'black'} />
+                  <Text style={styles.ButtonText}>Logging In</Text>
+                </View>
+              }
             </TouchableOpacity>
           </View>
 
@@ -202,9 +246,11 @@ class Login extends React.Component {
               width: 250,
               height: 53,
             }}>
-            <TouchableOpacity style={styles.google}>
+            <TouchableOpacity style={styles.google}
+              onPress={() => onGoogleButtonPress().then(() => console.log('Signed in with Google!'))}
+            >
               <Image source={require('../images/google.png')} />
-              <Text style={{fontSize: 16, color: 'white', fontWeight: 'bold'}}>
+              <Text style={{ fontSize: 16, color: 'white', fontWeight: 'bold' }}>
                 Login with Google
               </Text>
             </TouchableOpacity>
@@ -218,25 +264,25 @@ class Login extends React.Component {
               height: 53,
             }}>
             <TouchableOpacity style={styles.fb}
-            onPress={()=>{
-              onFacebookButtonPress().then(() => console.log('Signed in with Facebook!'))
-            }}>
+              onPress={() => {
+                onFacebookButtonPress().then(() => console.log('Signed in with Facebook!'))
+              }}>
               <Image source={require('../images/Facebook.png')} />
-              <Text style={{fontSize: 16, color: 'white', fontWeight: 'bold'}}>
+              <Text style={{ fontSize: 16, color: 'white', fontWeight: 'bold' }}>
                 Login with Facebook
               </Text>
             </TouchableOpacity>
           </View>
 
-          <View style={{flexDirection: 'row', paddingLeft: 56, marginTop: 25}}>
-            <Text style={{fontWeight: 'bold', color: '#858192'}}>
+          <View style={{ flexDirection: 'row', paddingLeft: 56, marginTop: 25 }}>
+            <Text style={{ fontWeight: 'bold', color: '#858192' }}>
               Don't you have any Account?
             </Text>
             <TouchableOpacity
               onPress={() => {
                 this.props.navigation.navigate('SignUp');
               }}>
-              <Text style={{fontWeight: 'bold', color: '#858192'}}>
+              <Text style={{ fontWeight: 'bold', color: '#858192' }}>
                 {' '}
                 Signup
               </Text>

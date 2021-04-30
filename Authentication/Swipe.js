@@ -14,12 +14,24 @@ import SwipeButton from 'rn-swipe-button';
 import logo from '../images/bsharpLogo.png';
 
 const Splash = (props) => {
+<<<<<<< HEAD
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         {/* <Image source ={require ('../images/bsharp.jpg')} style={styles.logo} /> */}
         <Image source={logo} style={styles.logo} />
       </View>
+=======
+  return (     
+    // <ScrollView>         
+                    <View style={styles.container}>
+                    
+                    <View style={styles.header}>
+                      
+                        {/* <Image source ={require ('../images/bsharp.jpg')} style={styles.logo} /> */}
+                        <Image source ={logo} style={styles.logo} />
+                    </View>
+>>>>>>> 0515b349dedae14aef790bc4dba150d0aff37b12
 
       <View style={styles.footer}>
         <Text style={styles.titleStyle}>B#SHARP</Text>
@@ -51,6 +63,7 @@ const Splash = (props) => {
             railBorderColor="#bbeaff"
           />
         </View>
+<<<<<<< HEAD
       </View>
     </View>
   );
@@ -77,6 +90,50 @@ const styles = StyleSheet.create({
     paddingVertical: 40,
     marginLeft: 18,
   },
+=======
+        </View>   
+        </View>  
+
+                   ) }
+          
+          
+          
+          
+          
+         
+          
+          
+          const styles = StyleSheet.create({
+            container: {
+              flex: 1, 
+              backgroundColor: '#FFFFFF',
+            },
+            header: {
+                flex: 2,
+                justifyContent: 'center',
+                alignItems: 'center',
+                paddingBottom:0,
+            },
+            footer: {
+              flex:1,
+              width:"90%",
+              backgroundColor: '#EBF2FF',
+              borderTopLeftRadius: 30,
+              borderTopRightRadius: 30,
+              paddingHorizontal: 10,
+              paddingVertical: 40,
+              marginLeft:18,
+            },
+    
+            logo: {
+              height: 320,
+              width: 360,
+              paddingBottom:50,
+              
+            
+             
+            },
+>>>>>>> 0515b349dedae14aef790bc4dba150d0aff37b12
 
   logo: {
     height: 320,

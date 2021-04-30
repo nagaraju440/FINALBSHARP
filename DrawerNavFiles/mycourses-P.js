@@ -11,7 +11,7 @@ import {
     ScrollView
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import { G } from 'react-native-svg';
+// import { G } from 'react-native-svg';
 import Guitar from '../Icons/GuitarGradient'
 import Piano from '../Icons/PianoGradient'
 import Menu from '../Icons/Menu'
@@ -81,7 +81,7 @@ class MyCourses extends React.Component {
                                 </Text>
                                 <Text style={styles.textColor}>
                                     7:00pm to 8:30pm{'\n'} {'\n'}
-                                </Text >
+                                </Text>
                             </View>
 
                             <Text style={styles.textColor}>
@@ -114,7 +114,7 @@ class MyCourses extends React.Component {
                                 </Text>
                                     <Text style={styles.textColor}>
                                         7:00pm to 8:30pm{'\n'} {'\n'}
-                                    </Text >
+                                    </Text>
                                 </View>
 
                                 <Text style={styles.textColor}>

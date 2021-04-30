@@ -11,6 +11,8 @@ import {
 import Metronome from "react-native-metronome";
 import Slider from 'react-native-slider';
 import MetroApp from "../node_modules/react-native-metronome/example/App"
+var Sound = require('react-native-sound');
+Sound.setCategory('Playback');
 class MetronomeApp extends React.Component {
   constructor() {
     super();
