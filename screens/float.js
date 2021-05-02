@@ -39,7 +39,15 @@ class FloatingActionRightScreen extends PureComponent {
             actions={actions}
             actionsPaddingTopBottom={10}
             onPressItem={name => {
-              Alert.alert("Icon pressed", `the icon ${name} was pressed`);
+              if (name == 'M') {
+                this.props.navigation.navigate('Metronome')
+              } if (name == 'T') {
+                this.props.navigation.navigate('Tanpura')
+              }
+              if (name == 'G') {
+                this.props.navigation.navigate('Guitar')
+              }
+            
             }}
           />
         </View>
