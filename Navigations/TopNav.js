@@ -15,6 +15,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer ,useRoute} from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import Courses from '../topnav2';
+import Floatstack from '../screens/Floatstack'
 import Menu from '../Icons/Menu'
 import Notification from '../Icons/Notification';
 import User from '../Icons/User'
@@ -37,7 +38,9 @@ import TopNav2 from '../TopNavs/TopNav2'
 import TopNav3 from '../TopNavs/TopNav3'
 import TopNav4 from '../TopNavs/TopNav4'
 import TopNav5 from '../TopNavs/TopNav5'
-import TopNav6 from '../TopNavs/TopNav6'
+import TopNav6 from '../TopNavs/TopNav6';
+
+
 const Stack = new createStackNavigator();
 const Drawer = createDrawerNavigator();
 function Drawernavi(route,navigation){
@@ -78,7 +81,7 @@ function Drawernavi(route,navigation){
             <PaymentsIcon/>
             )
             }}/>
-            <Drawer.Screen name="About" component={TopNav4}
+            <Drawer.Screen name="About" component={Floatstack}
             options={{
             drawerIcon: ({focused, size}) => (
             <AboutIcon/>

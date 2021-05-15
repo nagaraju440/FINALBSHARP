@@ -48,8 +48,8 @@ const TopNav4=({ navigation })=> {
                          component={About}
                          options={{headerShown: false}}
                         />
-                        <Stack.Screen name="NotificationPage" component={NotificationPage} />
-                        <Stack.Screen name="UserPage" component={UserPage} />
+                        {/* <Stack.Screen name="NotificationPage" component={NotificationPage} />
+                        <Stack.Screen name="UserPage" component={UserPage} /> */}
                     </Stack.Navigator>
                     // {/* </NavigationContainer> */}
     )

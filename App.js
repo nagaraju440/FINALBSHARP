@@ -26,11 +26,13 @@ import {
 // import Sample from './sample'
 // // import Stack100 from './StackTesting/Stack'
 // import Bsharpimage from './images/Bsharpimage';
-import Login from './Splashscreens/login';
-import Signupp from './Splashscreens/Signup';
-import Splash from './Splashscreens/SplashScreen';
-import FloatingActionRightScreen from './screens/float';
+// import Login from './Splashscreens/login';
+// import Signupp from './Splashscreens/Signup';
+// import Splash from './Splashscreens/SplashScreen';
+// import FloatingActionRightScreen from './screens/float';
 import Floatstack from './screens/Floatstack'
+import Drawernavi from './Navigations/TopNav';
+import { NavigationContainer } from '@react-navigation/native';
 function App(){
     // ----------------port-1111------------------
     return(
@@ -39,7 +41,10 @@ function App(){
         // <Sample/>
         // <Stack100/>
         // <Splash />
-        <Floatstack />
+        <NavigationContainer>
+         <Drawernavi />
+        </NavigationContainer>
+        // <Floatstack />
         // <FloatingActionRightScreen />
         // <Login />
         // <Signupp/>

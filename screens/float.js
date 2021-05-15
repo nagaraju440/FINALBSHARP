@@ -1,30 +1,34 @@
 import React, { PureComponent } from "react";
 import { View, SafeAreaView, StyleSheet, Alert } from "react-native";
 import { FloatingAction } from "react-native-floating-action"; // eslint-disable-line import/no-unresolved
-
+import Courses from '../topnav2';
+// import Aboutpage from '../Aboutpage';
+import Drawernavi from '../Navigations/TopNav'
+import Aboutpage from '../DrawerNavFiles/About'
+import TopNav4 from '../TopNavs/TopNav4';
 class FloatingActionRightScreen extends PureComponent {
-  static navigationOptions = {
-    title: "Action disabled"
-  };
+  // static navigationOptions = {
+  //   title: "Action disabled"
+  // };
 
   render() {
     const actions = [
         {
          color: "#25D366",
-          icon: require("../IMAGES/M.png"),
+          icon: require("../images/M.png"),
           name: "M",
           position: 3,
         },
         {
          color: "#0084FF",
-          icon: require("../IMAGES/T.png"),
+          icon: require("../images/T.png"),
           name: "T",
           position: 2,
         },
         {
           color: "#FF6D18",
          
-          icon: require("../IMAGES/G.png"),
+          icon: require("../images/G.png"),
           name: "G",
           position: 1,
         },
@@ -32,10 +36,12 @@ class FloatingActionRightScreen extends PureComponent {
       ];
 
     return (
-      <SafeAreaView style={styles.container}>
-        <View style={styles.container}>
+      <SafeAreaView style={{flex:1}}>
+        <TopNav4/>
+
+      
           <FloatingAction
-          showBackground={false}
+          showBackground={true}
             actions={actions}
             actionsPaddingTopBottom={10}
             onPressItem={name => {
@@ -50,7 +56,7 @@ class FloatingActionRightScreen extends PureComponent {
             
             }}
           />
-        </View>
+       
       </SafeAreaView>
     );
   }
@@ -59,6 +65,7 @@ class FloatingActionRightScreen extends PureComponent {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop:-50
     // backgroundColor: "white"
   }
 });
