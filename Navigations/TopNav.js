@@ -59,7 +59,7 @@ function Drawernavi(route,navigation){
              
             >
          {/* --------------------------------creating Drawer Screens---------------------------------- */}
-            <Drawer.Screen name="Dashboard" component={TopNav1}
+            <Drawer.Screen name="Dashboard" component={About}
            
              options={{
                 headerShown: false,
@@ -68,31 +68,31 @@ function Drawernavi(route,navigation){
              
             )
             }}/>
-            <Drawer.Screen name="MyCourses" component={TopNav2}
+            <Drawer.Screen name="MyCourses" component={MyCourses}
             options={{
             drawerIcon: ({focused, size}) => (
             <MyCourseIcon/>
             )
             }}/>
-            <Drawer.Screen name="Payments" component={TopNav3}
+            <Drawer.Screen name="Payments" component={Payments}
             options={{
             drawerIcon: ({focused, size}) => (
             <PaymentsIcon/>
             )
             }}/>
-            <Drawer.Screen name="About" component={TopNav4}
+            <Drawer.Screen name="About" component={About}
             options={{
             drawerIcon: ({focused, size}) => (
             <AboutIcon/>
             )
             }}/>
-            <Drawer.Screen name="HelpNSupport" component={TopNav5}
+            <Drawer.Screen name="HelpNSupport" component={HelpNSupport}
             options={{
             drawerIcon: ({focused, size}) => (
             <HelpNSupportIcon/>
             )
             }}/>
-            <Drawer.Screen name="Settings" component={Floatstack}
+            <Drawer.Screen name="Settings" component={Settings}
             options={{
             drawerIcon: ({focused, size}) => (
             <SettingsIcon/>

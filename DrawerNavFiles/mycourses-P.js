@@ -40,7 +40,7 @@ class MyCourses extends React.Component {
            <View style={{marginLeft:'44.9%'}}>
                <TouchableOpacity
                onPress={()=>{
-                    this.props.navigation.navigate('NotificationPage')
+                    // this.props.navigation.navigate('NotificationPage')
                 }}
                >
                <Notification/>
@@ -49,7 +49,7 @@ class MyCourses extends React.Component {
            <View style={{marginLeft:'3.5%'}}>
               <TouchableOpacity
               onPress={()=>{
-                    this.props.navigation.navigate('UserPage')
+                    // this.props.navigation.navigate('UserPage')
                 }}>
               <User/>
               </TouchableOpacity>

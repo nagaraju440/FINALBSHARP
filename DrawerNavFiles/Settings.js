@@ -34,7 +34,7 @@ import User from '../Icons/User'
            <View style={{marginLeft:'44.9%'}}>
                <TouchableOpacity
                onPress={()=>{
-                   navigation.navigate('NotificationPage')
+                //    navigation.navigate('NotificationPage')
                 }}
                >
                <Notification/>
@@ -43,7 +43,7 @@ import User from '../Icons/User'
            <View style={{marginLeft:'3.5%'}}>
               <TouchableOpacity 
                onPress={()=>{
-                   navigation.navigate('UserPage')
+                //    navigation.navigate('UserPage')
                 }}
               >
               <User/>

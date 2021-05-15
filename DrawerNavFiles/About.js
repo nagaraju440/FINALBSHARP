@@ -70,7 +70,7 @@ class Aboutpage extends React.Component{
             <View style={{marginLeft: '44.9%'}}>
               <TouchableOpacity
               onPress={()=>{
-                this.props.navigation.navigate('UserPage')
+                // this.props.navigation.navigate('UserPage')
                 }}>
                 <Notification />
               </TouchableOpacity>
@@ -78,7 +78,7 @@ class Aboutpage extends React.Component{
             <View style={{marginLeft: '3.5%'}}>
               <TouchableOpacity
                 onPress={() => {
-                  navigation.navigate('UserPage');
+                  // navigation.navigate('UserPage');
                 }}>
                 <User />
               </TouchableOpacity>
