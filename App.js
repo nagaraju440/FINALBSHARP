@@ -13,7 +13,7 @@ import {
 import { AppRegistry } from 'react-native';
 // import 'react-native-gesture-handler';
 // import 'react-native-gesture-handler';
-// import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 // import Drawernavi from './Navigations/TopNav'
 // // import TopNav from './Navigations/TopNav'
 // import StackNav from './TopNavs/stack'
@@ -27,7 +27,7 @@ import { AppRegistry } from 'react-native';
 // import Sample from './sample'
 import SwitchNav from './Authentication/Switch'
 import Drawernavi from './Navigations/TopNav';
-// import auth from '@react-native-firebase/auth';
+import auth from '@react-native-firebase/auth';
 // import { NavigationContainer } from '@react-navigation/native';
 // import Tanpura from './floating/tanpura'
 // import Stack100 from './StackTesting/Stack'
@@ -39,7 +39,9 @@ import Drawernavi from './Navigations/TopNav';
 // import Login from './Splashscreens/login';
 // import Signupp from './Splashscreens/Signup';
 // import Splash from './Splashscreens/SplashScreen';
-
+// import FloatingActionRightScreen from './screens/float';
+import Floatstack from './screens/Floatstack'
+import Metro from './floating/metro'
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -65,7 +67,7 @@ class App extends React.Component {
   render()
   {
     //  return(
-    //    <Tanpura/>
+    //    <Metro/>
     //  )
     if(this.state.x==1){
       return(<NavigationContainer>
@@ -79,16 +81,16 @@ class App extends React.Component {
     }
 
   
-    // if (this.state.x == 1) {
-    //   return (<NavigationContainer>
-    //     <Drawernavi />
+    if (this.state.x == 1) {
+      return (<NavigationContainer>
+        <Drawernavi />
 
-    //   </NavigationContainer>
-    //   )
-    // }
-    // else {
-    //   return (<SwitchNav />)
-    // }
+      </NavigationContainer>
+      )
+    }
+    else {
+      return (<SwitchNav />)
+    }
     // return(
     // <Tanpura />
     // )

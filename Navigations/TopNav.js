@@ -32,6 +32,8 @@ import UserPage from './UserPage'
 import DrawerContent from './DrawerContent';
 import Settings from '../DrawerNavFiles/Settings'
 import DashBoardIcon from '../Icons/DashBoardIcon';
+import Floatstack from '../screens/float'
+
 import TopNav1 from '../TopNavs/TopNav1'
 import TopNav2 from '../TopNavs/TopNav2'
 import TopNav3 from '../TopNavs/TopNav3'
@@ -90,7 +92,7 @@ function Drawernavi(route,navigation){
             <HelpNSupportIcon/>
             )
             }}/>
-            <Drawer.Screen name="Settings" component={TopNav6}
+            <Drawer.Screen name="Settings" component={Floatstack}
             options={{
             drawerIcon: ({focused, size}) => (
             <SettingsIcon/>
