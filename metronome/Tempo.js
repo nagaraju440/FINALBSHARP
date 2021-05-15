@@ -8,47 +8,32 @@ import {
   Text,
   SafeAreaView,
 } from 'react-native';
-import Metronome from "react-native-metronome";
 import Slider from 'react-native-slider';
-import MetroApp from "../node_modules/react-native-metronome/example/App"
-var Sound = require('react-native-sound');
-Sound.setCategory('Playback');
-class MetronomeApp extends React.Component {
-  constructor() {
-    super();
+
+export default class RunMetro extends Component {
+  constructor(props) {
+    super(props);
+
     this.state = {
-      value: 50,
+      value: 5,
     };
   }
-  play = () => {
-    Metronome.play(this.state.value);
-    console.log("started");
-  };
-  DecreaseTempo = () => {
-    if (this.state.value > 0) {
-      this.setState({
-        value: this.state.value - 1,
-      });
-    }
-    console.log('bye');
-  };
-  IncreaseTempo = () => {
+  increaseTempo = () => {
+    console.log('incrememntTemo is called');
     if (this.state.value < 1000) {
       this.setState({
         value: this.state.value + 1,
       });
     }
-
-    console.log('hii');
   };
-  handleSliderChange = (value) => {
-    this.setState({
-      value: parseInt(value),
-    });
-    console.log(this.state.value);
-  };
-  nextSound = () => {
-    metronome.nextSound();
+  //decrease the temo function
+  decreaseTempo = () => {
+    console.log('decreaseTempo is called');
+    if (this.state.value > 0) {
+      this.setState({
+        value: this.state.value - 1,
+      });
+    }
   };
   render() {
     return (
@@ -66,10 +51,10 @@ class MetronomeApp extends React.Component {
           </View>
 
           <View style={styles.buttons}>
-            <TouchableOpacity onPress={this.DecreaseTempo}>
+            <TouchableOpacity onPress={this.decreaseTempo}>
               <Text style={styles.btn}>--</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={this.IncreaseTempo}>
+            <TouchableOpacity onPress={this.increaseTempo}>
               <Text style={styles.btn}>+</Text>
             </TouchableOpacity>
           </View>
@@ -82,14 +67,14 @@ class MetronomeApp extends React.Component {
           </View>
           <View>
             <Slider
-              maximumTrackTintColor="#ffffff"
-              minimumTrackTintColor="#ffffff"
+              maximumTrackTintColor="white"
+              minimumTrackTintColor="white"
               thumbTintColor="#00D092"
               value={this.state.value}
-              maximumValue={1000}
+              maximumValue={100}
               minimumValue={0}
-              step={10}
-              onvalueChange={this.handleSliderChange}
+              onValueChange={(value) => this.setState({value})}
+              step={5}
               style={{marginLeft: 85, marginTop: -30}}
             />
           </View>
@@ -97,16 +82,12 @@ class MetronomeApp extends React.Component {
         {/****************************** * nextbutton section ******************************** */}
         <View>
           <TouchableOpacity
-            onPress={()=>
-              this.nextSound}
-            
             style={{
               borderRadius: 10,
               backgroundColor: '#396DE5',
               width: 220,
               height: 65,
               fontWeight: '500',
-              // marginLeft:"15%",
               marginTop: 30,
               justifyContent: 'center',
               alignContent: 'center',
@@ -132,14 +113,11 @@ class MetronomeApp extends React.Component {
             maximumTrackTintColor="white"
             minimumTrackTintColor="white"
             thumbTintColor="#00D092"
-            // value={this.state.value}
-            maximumvalue={100}
-            minimumvalue={0}
+            maximumValue={100}
+            minimumValue={0}
             step={0}
-            // onvalueChange={this.handleSliderChange}
             style={{marginLeft: 85, marginTop: -30}}
           />
-          {/* <Text>{this.state.value}</Text> */}
         </View>
         {/************************************* * start and stop section **************************************** */}
 
@@ -160,9 +138,6 @@ class MetronomeApp extends React.Component {
               borderRadius: 15,
               justifyContent: 'center',
               alignItems: 'center',
-
-              // marginTop: 70,
-              // marginLeft: 30,
             }}>
             <Text
               style={{
@@ -187,9 +162,7 @@ class MetronomeApp extends React.Component {
 
               // marginTop: -110,
               // marginLeft: 175,
-            }}
-            onPress={this.play}
-            >
+            }}>
             <Text
               style={{
                 fontSize: 16,
@@ -205,7 +178,6 @@ class MetronomeApp extends React.Component {
     );
   }
 }
-export default MetronomeApp;
 const styles = StyleSheet.create({
   metronomeBg: {
     backgroundColor: '#EEEEEE',

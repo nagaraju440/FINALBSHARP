@@ -11,6 +11,7 @@ import {
   Br,
 } from 'react-native';
 import { AppRegistry } from 'react-native';
+import RunSheet from './bottomSheet/RunSheet';
 // import 'react-native-gesture-handler';
 // import 'react-native-gesture-handler';
 // import { NavigationContainer } from '@react-navigation/native';
@@ -30,6 +31,7 @@ import { AppRegistry } from 'react-native';
 // import auth from '@react-native-firebase/auth';
 // import { NavigationContainer } from '@react-navigation/native';
 import Tanpura from './floating/tanpura'
+import RunMetro from './metronome/RunMetro';
 // import Stack100 from './StackTesting/Stack'
 // import Bsharpimage from './images/Bsharpimage';
 // import LandingPage22 from './screens/LandingPage22';
@@ -65,8 +67,10 @@ class App extends React.Component {
   render()
   {
      return(
-       <Tanpura/>
-     )
+      //  <Tanpura/>
+      // <RunMetro/>
+     <RunSheet/>
+           )
     // if(this.state.x==1){
     //   return(<NavigationContainer>
     //     <Drawernavi/>
