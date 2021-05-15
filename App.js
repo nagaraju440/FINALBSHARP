@@ -51,6 +51,7 @@ class App extends React.Component {
   }
   componentDidMount=()=>{
     auth().onAuthStateChanged((user) => {
+      // auth().signOut()
       if (user) {
       //   setAuthenticated(true);
       console.log("a user is there",auth().currentUser.email ,"and i am from sample.js bro")
@@ -66,6 +67,7 @@ class App extends React.Component {
   }
   render()
   {
+    
     //  return(
     //    <Metro/>
     //  )
