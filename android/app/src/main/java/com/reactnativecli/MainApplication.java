@@ -3,8 +3,10 @@ package com.reactnativecli;
 import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
-import com.facebook.react.ReactApplication;
+import com.facebook.react.ReactApplication; 
+// import com.reatnativecli.RNMetronomePackage;
 import com.zmxv.RNSound.RNSoundPackage;
+import com.reactnativecli.HelloWorldPackage;
 // import com.BV.LinearGradient.LinearGradientPackage;
 import com.BV.LinearGradient.LinearGradientPackage; 
 import com.reactnativecommunity.slider.ReactSliderPackage;
@@ -14,6 +16,7 @@ import com.horcrux.svg.SvgPackage;
 import com.swmansion.reanimated.ReanimatedPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
+// import com.metronome.RNMetronomePackage;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 // import com.razorpay.rn.RazorpayPackage;
@@ -57,13 +60,16 @@ public class MainApplication extends Application implements ReactApplication {
           
             Arrays.<ReactPackage>asList(
             new MainReactPackage(),
+            // new RNMetronomePackage(),
             new RNSoundPackage(),
             // new LinearGradientPackage(),
             new LinearGradientPackage(),
             new ReactSliderPackage(),
             new SvgPackage(),
+            // new RNMetronomePackage(),
             new FBSDKPackage(),
             // new SvgPackage(),
+            new HelloWorldPackage(),
             new ReanimatedPackage(),
             new RNGestureHandlerPackage(),
             new RNGoogleSigninPackage() ,

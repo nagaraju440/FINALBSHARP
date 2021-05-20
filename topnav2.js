@@ -40,12 +40,38 @@ import Svg, {
     Mask,
   } from 'react-native-svg';
 import Piano from './images/pianoimage.jpg'
-import StackNav from './TopNavs/stack'
+import StackNav from './TopNavs/Stack'
 import Menu from './Icons/Menu'
 import Notification from './Icons/Notification';
 import User from './Icons/User'
+import { FloatingAction } from "react-native-floating-action"; // eslint-disable-line import/no-unresolved
+
 import auth from '@react-native-firebase/auth';
 import { NavigationActions } from 'react-navigation'
+import Floatstack from './screens/float'
+const actions = [
+  {
+   color: "#25D366",
+    icon: require("./images/M.png"),
+    name: "M",
+    position: 3,
+  },
+  {
+   color: "#0084FF",
+    icon: require("./images/T.png"),
+    name: "T",
+    position: 2,
+  },
+  {
+    color: "#FF6D18",
+   
+    icon: require("./images/G.png"),
+    name: "G",
+    position: 1,
+  },
+
+];
+
 class Courses extends React.Component {
   // componentDidMount=()=>{
   //   auth()
@@ -86,6 +112,7 @@ class Courses extends React.Component {
                     this.props.navigation.navigate('NotificationPage')
                 }}
                >
+
                <Notification/>
                </TouchableOpacity>
            </View>
@@ -127,6 +154,8 @@ students.
         inputContainerStyle={{height:46,borderRadius:15}}
         baseColor="black"
       />  
+
+
        </View>
        <View style={{marginTop:22}}>
                  <OutlinedTextField
@@ -137,6 +166,7 @@ students.
         inputContainerStyle={{height:46,borderRadius:15}}
         baseColor="black"
       />
+
        </View>
        <View style={{marginTop:22}}>
                  <OutlinedTextField
@@ -167,10 +197,12 @@ students.
         inputContainerStyle={{height:46,borderRadius:15}}
         baseColor="black"
       /> 
+
         </View> 
         <View  >
          <TouchableOpacity onPress={this.click}><Text style={styles.registerBtn}>Register</Text></TouchableOpacity>
          </View>
+         
                 </View>
                 </View>
             </ScrollView>

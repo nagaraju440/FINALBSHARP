@@ -23,7 +23,7 @@ import {
 } from 'react-native-material-textfield';
 import { initialWindowMetrics } from 'react-native-safe-area-context';
 import auth from '@react-native-firebase/auth';
-
+import database from '@react-native-firebase/database';
 
 class Signupp extends React.Component {
   constructor(props) {
@@ -38,13 +38,17 @@ class Signupp extends React.Component {
     };
   }
   signupbuttonclicking = () => {
+    console.log("trying to sign up")
     // this.setState({l:1});
     console.log("hiiii", this.state.email, this.state.password)
     auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
       .then(() => {
         console.log('User account created & signed in!');
         alert("User account created and please log in")
-        this.props.navigation.navigate('Login')
+        // console.log("here akso we get uid bro",auth())
+        // var x=auth()
+        // console.log("okkk x is",x.uid)
+        // this.props.navigation.navigate('Login')
       })
       .catch(error => {
         if (error.code === 'auth/email-already-in-use') {

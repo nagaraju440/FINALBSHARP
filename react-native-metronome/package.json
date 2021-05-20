@@ -1,54 +1,23 @@
 {
-  "_from": "git://github.com/kotlyar562/react-native-metronome.git",
-  "_id": "react-native-metronome@1.0.0",
-  "_inBundle": false,
-  "_integrity": "",
-  "_location": "/react-native-metronome",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "git",
-    "raw": "react-native-metronome@git://github.com/kotlyar562/react-native-metronome.git",
-    "name": "react-native-metronome",
-    "escapedName": "react-native-metronome",
-    "rawSpec": "git://github.com/kotlyar562/react-native-metronome.git",
-    "saveSpec": "git://github.com/kotlyar562/react-native-metronome.git",
-    "fetchSpec": "git://github.com/kotlyar562/react-native-metronome.git",
-    "gitCommittish": null
-  },
-  "_requiredBy": [
-    "/"
-  ],
-  "_resolved": "git://github.com/kotlyar562/react-native-metronome.git#1c86d5af99bacf40136e6e169e760c90387f520b",
-  "_spec": "react-native-metronome@git://github.com/kotlyar562/react-native-metronome.git",
-  "_where": "C:\\Users\\sunil\\Desktop\\projects\\metronome\\react-native-metronome\\example",
-  "author": {
-    "name": "Kotlyar Andrey",
-    "email": "kotlyar562@gmail.com"
-  },
-  "bugs": {
-    "url": "https://github.com/kotlyar562/react-native-metronome/issues"
-  },
-  "bundleDependencies": false,
-  "deprecated": false,
-  "description": "Simple RN metronome",
-  "homepage": "https://github.com/kotlyar562/react-native-metronome#readme",
-  "keywords": [
-    "react-native",
-    "react-component",
-    "metronome"
-  ],
-  "license": "MIT",
-  "main": "index.js",
   "name": "react-native-metronome",
-  "peerDependencies": {
-    "react-native": "^0.55"
+  "version": "1.0.0",
+  "description": "Simple RN metronome",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kotlyar562/react-native-metronome.git"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "version": "1.0.0"
+  "keywords": [
+    "react-native",
+    "react-component",
+    "metronome"
+  ],
+  "author": "Kotlyar Andrey <kotlyar562@gmail.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "react-native": "^0.55"
+  }
 }

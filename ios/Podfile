@@ -20,6 +20,8 @@ target 'reactnativecli' do
 
   pod 'RNSound', :path => '../node_modules/react-native-sound'
 
+  pod 'RNMetronome', :path => '../node_modules/react-native-metronome'
+
   target 'reactnativecliTests' do
     inherit! :complete
     # Pods for testing

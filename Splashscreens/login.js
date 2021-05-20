@@ -18,7 +18,7 @@ OutlinedTextField,
 } from 'react-native-material-textfield';
 import { initialWindowMetrics } from 'react-native-safe-area-context';
 
-
+// console.log("hiiiii")
 class Login extends React.Component {
     constructor(props){
       super(props);

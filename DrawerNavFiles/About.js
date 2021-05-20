@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {
   AppRegistry,
   StyleSheet,
@@ -20,71 +21,28 @@ import image6 from '../drawable-xxxhdpi/image6.png';
 import image7 from '../drawable-xxxhdpi/image7.png';
 import Menu from '../Icons/Menu';
 import Notification from '../Icons/Notification';
-import User from '../Icons/User'
-import Courosal from '../corosal/courosal'
-import Courosel2 from '../corosal/courosel2'
-class Aboutpage extends React.Component{
+import User from '../Icons/User';
+import Courosal from '../corosal/courosal';
+import Courosel2 from '../corosal/courosel2';
+import StackNav from '../TopNavs/Stack';
+class Aboutpage extends React.Component {
   // constructor(props){
   //   super(props);
   //   this.state={
 
   //   }
   // }
-  click=()=>{
-    console.log("hiii")
-  }
+  click = () => {
+    console.log('hiii');
+  };
   click = () => {
     console.log('hiii');
   };
   render() {
     return (
-      <View style={{backgroundColor: 'white'}}>
-        <View>
-          <View
-            style={{
-              width: '100%',
-              height: 57,
-              flexDirection: 'row',
-              alignItems: 'center',
-              borderWidth: 0.0,
-              elevation: 1,
-            }}>
-            <View style={{marginLeft: '6.5%'}}>
-              <TouchableOpacity
-                onPress={() => {
-                  this.props.navigation.openDrawer();
-                }}>
-                <Menu />
-              </TouchableOpacity>
-            </View>
-            <View style={{marginLeft: '5.5%'}}>
-              <Text
-                style={{
-                  fontSize: 18,
-                  fontWeight: 'bold',
-                  fontFamily: 'Poppins',
-                }}>
-                BS#arp
-              </Text>
-            </View>
-            <View style={{marginLeft: '44.9%'}}>
-              <TouchableOpacity
-              onPress={()=>{
-                this.props.navigation.navigate('UserPage')
-                }}>
-                <Notification />
-              </TouchableOpacity>
-            </View>
-            <View style={{marginLeft: '3.5%'}}>
-              <TouchableOpacity
-                onPress={() => {
-                  navigation.navigate('UserPage');
-                }}>
-                <User />
-              </TouchableOpacity>
-            </View>
-          </View>
-        </View>
+      <View style={{backgroundColor:'white'}}>
+        {/* <StackNav /> */}
+        <StackNav/>
         <ScrollView>
           <View style={styles.outerbox}>
             <View style={styles.imagestyle}>
@@ -399,7 +357,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   flex: {
-    marginTop: 10,
+    marginTop: 18,
     display: 'flex',
     flexDirection: 'row',
     marginLeft: 15,
@@ -446,7 +404,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins',
     height: 28,
     width: 82,
-    backgroundColor: '#292929',
+    backgroundColor:'#2C57EF',
     borderRadius: 6,
     textAlign: 'center',
     textAlignVertical: 'center',

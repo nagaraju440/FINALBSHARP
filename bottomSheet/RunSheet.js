@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
 import {Text, View} from 'react-native';
-import Sheet1 from './RawBottomSheet';
+import Sheet from './Sheet';
+// import Sheet1 from './Sheet';
 export class RunSheet extends Component {
   render() {
     return (
-       <Sheet1/>
+      //  <Sheet1/>
+      <Sheet/>
     );
   }
 }
