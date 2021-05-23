@@ -59,8 +59,7 @@ function Drawernavi(route,navigation){
              
             >
          {/* --------------------------------creating Drawer Screens---------------------------------- */}
-            <Drawer.Screen name="Dashboard" component={About}
-           
+            <Drawer.Screen name="Dashboard" component={Floatstack}
              options={{
                 headerShown: false,
              drawerIcon: ({focused, size}) => (

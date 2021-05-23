@@ -40,6 +40,7 @@ import auth from '@react-native-firebase/auth';
 // import Signupp from './Splashscreens/Signup';
 // import Splash from './Splashscreens/SplashScreen';
 // import FloatingActionRightScreen from './screens/float';
+// import Floatstack from './screens/'
 import Floatstack from './screens/Floatstack'
 import Metro from './floating/metro'
 class App extends React.Component {
@@ -68,9 +69,7 @@ class App extends React.Component {
   render()
   {
     
-    //  return(
-    //    <Metro/>
-    //  )
+     
     if(this.state.x==1){
       return(<NavigationContainer>
         <Drawernavi/>
@@ -82,20 +81,14 @@ class App extends React.Component {
       return(<SwitchNav/>)
     }
 
-  
-    if (this.state.x == 1) {
-      return (<NavigationContainer>
-        <Drawernavi />
-
-      </NavigationContainer>
-      )
-    }
-    else {
-      return (<SwitchNav />)
-    }
-    // return(
+//   return(
+//     <NavigationContainer>
+//     <Floatstack/>
+// </NavigationContainer>
+//   )
+    {/* // return(
     // <Tanpura />
-    // )
+    // ) */}
   }
 
 

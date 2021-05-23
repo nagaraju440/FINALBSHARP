@@ -1,16 +1,22 @@
 import React, { PureComponent } from "react";
-import { View, SafeAreaView, StyleSheet, Alert ,Text} from "react-native";
+import { View, SafeAreaView, StyleSheet, Alert } from "react-native";
 import { FloatingAction } from "react-native-floating-action"; // eslint-disable-line import/no-unresolved
-
+import Courses from '../topnav2';
+// import Aboutpage from '../Aboutpage';
+import Drawernavi from '../Navigations/TopNav'
+import Aboutpage from '../DrawerNavFiles/About'
+import TopNav4 from '../TopNavs/TopNav4';
 class FloatingActionRightScreen extends PureComponent {
+  // static navigationOptions = {
+  //   title: "Action disabled"
+  // };
   constructor(props){
-    super(props)
+    super(props);
   }
-  static navigationOptions = {
-    title: "Action disabled"
-  };
 
   render() {
+          console.log(this.props.navigation.navigate,"from float stack")
+    
     const actions = [
         {
          color: "#25D366",
@@ -35,13 +41,12 @@ class FloatingActionRightScreen extends PureComponent {
       ];
 
     return (
-      <SafeAreaView style={styles.container}>
-      <View>
-        <Text>hloooo</Text>
-      </View>
-        <View style={styles.container}>
+      <SafeAreaView style={{flex:1}}>
+        <TopNav4/>
+
+      
           <FloatingAction
-          showBackground={false}
+          showBackground={true}
             actions={actions}
             actionsPaddingTopBottom={10}
             onPressItem={name => {
@@ -56,7 +61,7 @@ class FloatingActionRightScreen extends PureComponent {
             
             }}
           />
-        </View>
+       
       </SafeAreaView>
     );
   }
@@ -65,6 +70,7 @@ class FloatingActionRightScreen extends PureComponent {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop:-50
     // backgroundColor: "white"
   }
 });
