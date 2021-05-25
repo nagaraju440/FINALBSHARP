@@ -99,7 +99,10 @@ class Login extends React.Component {
 
 
                     <View  style={{paddingLeft:48,flexDirection:"row", width:250,height:53,}}>
-                    <TouchableOpacity  style={styles.fb}>  
+                    <
+                      
+                      
+                      TouchableOpacity  style={styles.fb}>  
                     <Image source ={require ('../IMAGES/Facebook.png')}  />  
                  <Text style={{fontSize: 16, color: "white",fontWeight:"bold"}}>Login with Facebook</Text>
                     </TouchableOpacity></View> 
