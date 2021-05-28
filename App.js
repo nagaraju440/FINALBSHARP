@@ -55,12 +55,15 @@ class App extends React.Component{
       // <View>
       //   <Text>hiiiiiiiiie  annnnaaaa fghjsdfghj h</Text>
       // </View>
-     <PaperProvider>
-        <NavigationContainer><Stack.Navigator>
-      <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="Upload course" component={Notification} />
-    </Stack.Navigator></NavigationContainer>
-     </PaperProvider>
+    //  <PaperProvider>
+    //     <NavigationContainer><Stack.Navigator>
+    //   <Stack.Screen name="Home" component={Home} />
+    //   <Stack.Screen name="Upload course" component={Notification} />
+    // </Stack.Navigator></NavigationContainer>
+    //  </PaperProvider>
+    <View>
+      <Text>hiiii</Text>
+    </View>
     )
   }
 }
