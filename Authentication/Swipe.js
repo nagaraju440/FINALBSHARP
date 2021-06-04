@@ -10,7 +10,7 @@ import {
   Image,TouchableOpacity
 } from 'react-native';
 import SwipeButton from 'rn-swipe-button';
-import logo from "../images/bsharpLogo.png"
+import logo from '../images/bsharpLogo.png'
 
 const Splash = (props) => {
   return (     
