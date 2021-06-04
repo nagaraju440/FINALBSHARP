@@ -8,12 +8,13 @@ import {
   StatusBar,
   TouchableOpacity,
   Image,
-  Br
+  Br,
 } from 'react-native';
-import { AppRegistry } from 'react-native';
+import {AppRegistry} from 'react-native';
+import RunSheet from './bottomSheet/RunSheet';
 // import 'react-native-gesture-handler';
 // import 'react-native-gesture-handler';
-import { NavigationContainer } from '@react-navigation/native';
+import {NavigationContainer} from '@react-navigation/native';
 // import Drawernavi from './Navigations/TopNav'
 // // import TopNav from './Navigations/TopNav'
 // import StackNav from './TopNavs/stack'
@@ -25,7 +26,7 @@ import { NavigationContainer } from '@react-navigation/native';
 //   ReloadInstructions,
 // } from 'react-native/Libraries/NewAppScreen';
 // import Sample from './sample'
-import SwitchNav from './Authentication/Switch'
+import SwitchNav from './Authentication/Switch';
 import Drawernavi from './Navigations/TopNav';
 import auth from '@react-native-firebase/auth';
 // import { NavigationContainer } from '@react-navigation/native';
@@ -43,26 +44,42 @@ import auth from '@react-native-firebase/auth';
 // import Floatstack from './screens/'
 import Floatstack from './screens/Floatstack'
 import Metro from './floating/metro'
+import database from '@react-native-firebase/database';
+import firebase from "@react-native-firebase/app";
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       x: 0,
-    }
+    };
   }
-  componentDidMount=()=>{
+  componentDidMount = () => {
+    database()
+    .ref('users/123')
+    .once('value')
+    .then(snapshot => {
+      console.log('User data: ', snapshot.val());
+    })
+    .catch(e=>{
+      console.log("no document founf for me",e)
+    })
     auth().onAuthStateChanged((user) => {
       // auth().signOut()
       if (user) {
-      //   setAuthenticated(true);
-      console.log("a user is there",auth().currentUser.email ,"and i am from sample.js bro")
-      this.state.x=1;
-      this.setState({x:this.state.x})
+        //   setAuthenticated(true);
+        // console.log(
+        //   'a user is there',
+        //   auth().currentUser,
+        //   'and i am from sample.js bro',
+        // );
+    
+
+        this.state.x = 1;
+        this.setState({x: this.state.x});
       } else {
-        this.state.x=0;
-        this.setState({x:this.state.x})
-      console.log("no  user is there and i am from smaple .js bro")
-  
+        this.state.x = 0;
+        this.setState({x: this.state.x});
+        console.log('no  user is there and i am from smaple .js bro');
       }
     })
   }
@@ -73,6 +90,7 @@ class App extends React.Component {
     if(this.state.x==1){
       return(<NavigationContainer>
         <Drawernavi/>
+        
 
       </NavigationContainer>
       )
@@ -90,8 +108,6 @@ class App extends React.Component {
     // <Tanpura />
     // ) */}
   }
-
-
 
   // ----------------port-8081------------------
   // if(x==1){
@@ -118,5 +134,4 @@ class App extends React.Component {
   // <TopNav/>
   // )
 }
-
 export default App;

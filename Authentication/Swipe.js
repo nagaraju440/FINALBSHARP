@@ -7,10 +7,11 @@ import {
   Text,
   StatusBar,
   TextInput,
-  Image,TouchableOpacity
+  Image,
+  TouchableOpacity,
 } from 'react-native';
 import SwipeButton from 'rn-swipe-button';
-import logo from "../images/bsharpLogo.png"
+import logo from '../images/bsharpLogo.png';
 
 const Splash = (props) => {
   return (     
@@ -23,43 +24,35 @@ const Splash = (props) => {
                         <Image source ={logo} style={styles.logo} />
                     </View>
 
-                    <View style={styles.footer}>
-                    
+      <View style={styles.footer}>
+        <Text style={styles.titleStyle}>B#SHARP</Text>
+        <Text style={styles.para}>
+          Music is the art of arranging sounds in time to produce a composition
+          through the elements of melody, harmony, rhythm, and timbre.Music It
+          is one of the universal cultural aspects of all human societies.Music
+          General definitions of music. Music is the art of arranging sounds in
+          time to produce a composition through the elements of melody, harmony!
+        </Text>
 
-                      <Text style={styles.titleStyle}>B#SHARP</Text>
-                       <Text style={styles.para}>
-      
-       Music is the art of arranging sounds in time to produce a composition 
-       through the elements of melody, harmony, rhythm, and timbre.Music 
-      It is one of the universal cultural aspects of all human societies.Music
-        General definitions of music. Music is the art of arranging sounds in time to produce a composition 
-       through the elements of melody, harmony!
-         </Text>
-
-
-        <View style={{marginTop:230,position:"absolute",paddingLeft:10}}>
-       <SwipeButton
-          disabled={false}
-          swipeSuccessThreshold={70}
-          height={40}
-          width={300}
-          title="Swipe and Let's go >>"
-          
-          
-         
-          onSwipeSuccess={() => {
-            alert('Submitted Successfully!');
-            console.log("swiped ");
-            props.navigation.navigate("Deside");
-          }}
-          
-          railFillBackgroundColor="#e688a1" 
-          railFillBorderColor="#e688ff" 
-          thumbIconBackgroundColor="#2B57EE"
-          thumbIconBorderColor="#CCDDEE" 
-          railBackgroundColor="white" 
-          railBorderColor="#bbeaff"
-        />
+        <View style={{marginTop: 220, position: 'absolute', paddingLeft: 10}}>
+          <SwipeButton
+            disabled={false}
+            swipeSuccessThreshold={70}
+            height={40}
+            width={300}
+            title="Swipe and Let's go >>"
+            onSwipeSuccess={() => {
+              alert('Submitted Successfully!');
+              console.log('swiped ');
+              props.navigation.navigate('Deside');
+            }}
+            railFillBackgroundColor="#e688a1"
+            railFillBorderColor="#e688ff"
+            thumbIconBackgroundColor="#2B57EE"
+            thumbIconBorderColor="#CCDDEE"
+            railBackgroundColor="white"
+            railBorderColor="#bbeaff"
+          />
         </View>
         </View>   
         </View>  
@@ -104,22 +97,22 @@ const Splash = (props) => {
              
             },
 
-           
-            titleStyle: {
-            fontSize: 22,
-           fontWeight: 'bold',
-           paddingLeft:30
-    
+  logo: {
+    height: 320,
+    width: 360,
+    paddingBottom: 50,
   },
-    para:{
-    fontSize:12,
-    paddingTop:20,
-    paddingLeft:30,
-    paddingBottom:50
 
+  titleStyle: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    paddingLeft: 30,
+  },
+  para: {
+    fontSize: 12,
+    paddingTop: 20,
+    paddingLeft: 30,
+    paddingBottom: 50,
   },
 });
 export default Splash;
-    
-
- 

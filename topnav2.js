@@ -40,7 +40,7 @@ import Svg, {
     Mask,
   } from 'react-native-svg';
 import Piano from './images/pianoimage.jpg'
-import StackNav from './TopNavs/stack'
+// import StackNav from './TopNavs/Stack'
 import Menu from './Icons/Menu'
 import Notification from './Icons/Notification';
 import User from './Icons/User'

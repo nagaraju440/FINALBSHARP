@@ -25,7 +25,7 @@ import { initialWindowMetrics } from 'react-native-safe-area-context';
 import auth from '@react-native-firebase/auth';
 import { LoginManager, AccessToken, LoginButton } from 'react-native-fbsdk';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
-
+import database from '@react-native-firebase/database';
 
 var x = 0;
 
@@ -105,7 +105,7 @@ class Login extends React.Component {
     };
   }
   componentDidMount=()=>{
-    console.log(LoginManager.logInWithPermissions)
+    // console.log(LoginManager.logInWithPermissions)
   }
   login = () => {
     this.setState({ l: 1 })
@@ -148,7 +148,9 @@ class Login extends React.Component {
         })
     }
   }
-
+createFacebookAccount=()=>{
+   
+}
 
 
 
@@ -265,7 +267,9 @@ class Login extends React.Component {
             }}>
             <TouchableOpacity style={styles.fb}
               onPress={() => {
-                onFacebookButtonPress().then(() => console.log('Signed in with Facebook!'))
+                onFacebookButtonPress().then(() => {console.log('Signed in with Facebook!',auth().currentUser,"details are")
+                this.createFacebookAccount();
+                })
               }}>
               <Image source={require('../images/Facebook.png')} />
               <Text style={{ fontSize: 16, color: 'white', fontWeight: 'bold' }}>
