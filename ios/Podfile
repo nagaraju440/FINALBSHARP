@@ -10,6 +10,18 @@ target 'reactnativecli' do
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+
+  pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
+
+  pod 'RNSVG', :path => '../node_modules/react-native-svg'
+
+  pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
+
+  pod 'RNSound', :path => '../node_modules/react-native-sound'
+
+  pod 'RNMetronome', :path => '../node_modules/react-native-metronome'
+
   target 'reactnativecliTests' do
     inherit! :complete
     # Pods for testing

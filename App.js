@@ -1,11 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-import 'react-native-gesture-handler';
 import React from 'react';
 import {
   SafeAreaView,
@@ -14,144 +6,132 @@ import {
   View,
   Text,
   StatusBar,
+  TouchableOpacity,
+  Image,
+  Br,
 } from 'react-native';
-import { Provider as PaperProvider } from 'react-native-paper';
-import { NavigationContainer } from '@react-navigation/native';
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import {AppRegistry} from 'react-native';
+import RunSheet from './bottomSheet/RunSheet';
+// import 'react-native-gesture-handler';
+// import 'react-native-gesture-handler';
+import {NavigationContainer} from '@react-navigation/native';
+// import Drawernavi from './Navigations/TopNav'
+// // import TopNav from './Navigations/TopNav'
+// import StackNav from './TopNavs/stack'
+// import {
+//   Header,
+//   LearnMoreLinks,
+//   Colors,
+//   DebugInstructions,
+//   ReloadInstructions,
+// } from 'react-native/Libraries/NewAppScreen';
+// import Sample from './sample'
+import SwitchNav from './Authentication/Switch';
+import Drawernavi from './Navigations/TopNav';
 import auth from '@react-native-firebase/auth';
-import { createStackNavigator } from '@react-navigation/stack';
-import Home from './Admin/home.js'
-import Notification from './Admin/notification'
-const Stack = createStackNavigator();
-class App extends React.Component{
-  // componentDidMount=()=>{
-  //   auth()
-  // .createUserWithEmailAndPassword('jane123.doe@example.com', 'SuperSecretPassword!')
-  // .then(() => {
-  //   console.log('User account created & signed in!');
-  // })
-  // .catch(error => {
-  //   if (error.code === 'auth/email-already-in-use') {
-  //     console.log('That email address is already in use!');
-  //   }
-
-  //   if (error.code === 'auth/invalid-email') {
-  //     console.log('That email address is invalid!');
-  //   }
-
-  //   console.error(error);
-  // });
-  //   console.log("ram vinay huhuhuhuhuuhu")
-  // }
-  render(){
-    
-    return(
-      // <View>
-      //   <Text>hiiiiiiiiie  annnnaaaa fghjsdfghj h</Text>
-      // </View>
-    //  <PaperProvider>
-    //     <NavigationContainer><Stack.Navigator>
-    //   <Stack.Screen name="Home" component={Home} />
-    //   <Stack.Screen name="Upload course" component={Notification} />
-    // </Stack.Navigator></NavigationContainer>
-    //  </PaperProvider>
-    <View>
-      <Text>hiiii</Text>
-    </View>
-    )
+// import { NavigationContainer } from '@react-navigation/native';
+// import Tanpura from './floating/tanpura'
+// import Stack100 from './StackTesting/Stack'
+// import Bsharpimage from './images/Bsharpimage';
+// import LandingPage22 from './screens/LandingPage22';
+// import Sample from './sample'
+// // import Stack100 from './StackTesting/Stack'
+// import Bsharpimage from './images/Bsharpimage';
+// import Login from './Splashscreens/login';
+// import Signupp from './Splashscreens/Signup';
+// import Splash from './Splashscreens/SplashScreen';
+// import FloatingActionRightScreen from './screens/float';
+// import Floatstack from './screens/'
+import Floatstack from './screens/Floatstack'
+import Metro from './floating/metro'
+import database from '@react-native-firebase/database';
+import firebase from "@react-native-firebase/app";
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      x: 0,
+    };
   }
-}
-// const App: () => React$Node = () => {
-//   return (
-//     <>
-//       <StatusBar barStyle="dark-content" />
-//       <SafeAreaView>
-//         <ScrollView
-//           contentInsetAdjustmentBehavior="automatic"
-//           style={styles.scrollView}>
-//           <Header />
-//           {global.HermesInternal == null ? null : (
-//             <View style={styles.engine}>  
-//               <Text style={styles.footer}>Engine: Hermes</Text>
-//             </View>
-//           )}
-//           <View style={styles.body}>
-//             <View style={styles.sectionContainer}>
-//               <Text style={styles.sectionTitle}>Step One</Text>
-//               <Text style={styles.sectionDescription}>
-//                 Edit <Text style={styles.highlight}>App.js</Text> to change this
-//                 screen and then come back to see your edits.
-//               </Text>
-//             </View>
-//             <View style={styles.sectionContainer}>
-//               <Text style={styles.sectionTitle}>See Your Changes</Text>
-//               <Text style={styles.sectionDescription}>
-//                 <ReloadInstructions />
-//               </Text>
-//             </View>
-//             <View style={styles.sectionContainer}>
-//               <Text style={styles.sectionTitle}>Debug</Text>
-//               <Text style={styles.sectionDescription}>
-//                 <DebugInstructions />
-//               </Text>
-//             </View>
-//             <View style={styles.sectionContainer}>
-//               <Text style={styles.sectionTitle}>Learn More</Text>
-//               <Text style={styles.sectionDescription}>
-//                 Read the docs to discover what to do next:
-//               </Text>
-//             </View>
-//             <LearnMoreLinks />
-//           </View>
-//         </ScrollView>
-//       </SafeAreaView>
-//     </>
-//   );
-// };
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
-});
+  componentDidMount = () => {
+    database()
+    .ref('users/123')
+    .once('value')
+    .then(snapshot => {
+      console.log('User data: ', snapshot.val());
+    })
+    .catch(e=>{
+      console.log("no document founf for me",e)
+    })
+    auth().onAuthStateChanged((user) => {
+      // auth().signOut()
+      if (user) {
+        //   setAuthenticated(true);
+        // console.log(
+        //   'a user is there',
+        //   auth().currentUser,
+        //   'and i am from sample.js bro',
+        // );
+    
 
+        this.state.x = 1;
+        this.setState({x: this.state.x});
+      } else {
+        this.state.x = 0;
+        this.setState({x: this.state.x});
+        console.log('no  user is there and i am from smaple .js bro');
+      }
+    })
+  }
+  render()
+  {
+    
+     
+    if(this.state.x==1){
+      return(<NavigationContainer>
+        <Drawernavi/>
+        
+
+      </NavigationContainer>
+      )
+    }
+    else{
+      return(<SwitchNav/>)
+    }
+
+//   return(
+//     <NavigationContainer>
+//     <Floatstack/>
+// </NavigationContainer>
+//   )
+    {/* // return(
+    // <Tanpura />
+    // ) */}
+  }
+
+  // ----------------port-8081------------------
+  // if(x==1){
+  //   return(<NavigationContainer>
+  //     <Drawernavi/>
+
+  //   </NavigationContainer>
+  //   )
+  // }
+  // else{
+  //   return(<SwitchNav/>)
+  // }
+  // return(
+  // ---------------------------Adding drawer nav--------------------
+  // <Drawernavi />
+  // <Sample/>
+  // <LandingPage22/>
+  // <SwitchNav/>
+  // <Stack100/>
+  // <Splash />
+  // <Login />
+  // <Signupp/>
+  // <StackNav/>
+  // <TopNav/>
+  // )
+}
 export default App;
-// AppRegistry.registerComponent(App, () => Main);
