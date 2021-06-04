@@ -50,42 +50,42 @@ class App extends React.Component {
       x: 0,
     }
   }
-  componentDidMount=()=>{
+  componentDidMount = () => {
     auth().onAuthStateChanged((user) => {
       // auth().signOut()
       if (user) {
-      //   setAuthenticated(true);
-      console.log("a user is there",auth().currentUser.email ,"and i am from sample.js bro")
-      this.state.x=1;
-      this.setState({x:this.state.x})
+        //   setAuthenticated(true);
+        // auth().signOut()
+        console.log("a user is there", auth().currentUser.email, user.uid, "and i am from sample.js bro")
+        this.state.x = 1;
+        this.setState({ x: this.state.x })
       } else {
-        this.state.x=0;
-        this.setState({x:this.state.x})
-      console.log("no  user is there and i am from smaple .js bro")
-  
+        this.state.x = 0;
+        this.setState({ x: this.state.x })
+        console.log("no  user is there and i am from smaple .js bro")
+
       }
     })
   }
-  render()
-  {
-    
-     
-    if(this.state.x==1){
-      return(<NavigationContainer>
-        <Drawernavi/>
+  render() {
+
+
+    if (this.state.x == 1) {
+      return (<NavigationContainer>
+        <Drawernavi />
 
       </NavigationContainer>
       )
     }
-    else{
-      return(<SwitchNav/>)
+    else {
+      return (<SwitchNav />)
     }
 
-//   return(
-//     <NavigationContainer>
-//     <Floatstack/>
-// </NavigationContainer>
-//   )
+    //   return(
+    //     <NavigationContainer>
+    //     <Floatstack/>
+    // </NavigationContainer>
+    //   )
     {/* // return(
     // <Tanpura />
     // ) */}
