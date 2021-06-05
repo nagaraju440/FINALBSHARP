@@ -20,6 +20,7 @@
    // import image7 from './drawable-xxxhdpi/image7.png'
    import image6 from './drawable-xxxhdpi/image6.png'
    import image7 from './drawable-xxxhdpi/image7.png'
+   var firebase = require("firebase");
    class Aboutpage extends React.Component{
      constructor(props){
        super(props);
@@ -31,6 +32,7 @@
        console.log("hiii")
      }
        render(){
+         {console.log("this is firebase",firebase())}
            return(
                <ScrollView >
                    <View style={styles.topnavstyle}>
@@ -48,7 +50,7 @@
    music classes, established in the year  1998   with an   aim   to 
    spread  the  knowledge of BS#ARP MUSIC worldwide. We 
    provide online music classes for kids and all age group of 
-   students.
+   {/* students. */}
                            </Text>  
                            <Text style={styles.text3style}>Talent !!!</Text> 
                            <Text style={styles.text2style}>

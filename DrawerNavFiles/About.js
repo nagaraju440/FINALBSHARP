@@ -25,20 +25,76 @@ import User from '../Icons/User';
 import Courosal from '../corosal/courosal';
 import Courosel2 from '../corosal/courosel2';
 import StackNav from '../TopNavs/stack';
+var firebase = require("firebase");
+var config = {
+  databaseURL: "https://sample-b0875.firebaseio.com/",
+  projectId: "sample-b0875",
+};
+if (!firebase.apps.length) {
+  firebase.initializeApp(config);
+}
 class Aboutpage extends React.Component {
-  // constructor(props){
-  //   super(props);
-  //   this.state={
-
-  //   }
-  // }
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+       getkeys:[],
+       getvalues:[],
+       getvalue2:{}
+    }
+  }
+  
+  componentDidMount=()=>{
+        firebase.database()
+      .ref('/Courses')
+      .once('value')
+     .then(snapshot => {
+       console.log('User data: ', snapshot.val()),
+       this.setState({getkeys:
+        Object.keys(
+          snapshot.val()
+          ),
+          getvalues:
+          Object.values(
+            snapshot.val()
+          )
+        })
+     })
+}
+mapping=()=>{
+  return(
+    <View>
+      <Text>hiiii</Text>
+      {this.state.getkeys.map((i)=>{
+        console.log('hiiii---------------')
+        return(
+          <View>
+            <Text>
+                hiii
+            </Text>
+            </View>
+        )
+      })}
+    </View>
+    
+  )
+}
   click = () => {
     console.log('hiii');
   };
   click = () => {
     console.log('hiii');
   };
+  AssigningDatabase=(i)=>{
+    console.log("database assigned",{i})
+    }
   render() {
+    
+    {console.log("this is firebase keys",
+      this.state.getkeys
+    )
+}
+
     return (
       <View style={{backgroundColor:'white'}}>
         {/* <StackNav /> */}
@@ -80,58 +136,35 @@ class Aboutpage extends React.Component {
                 and and stuff.
               </Text>
             </View>
-            <View style={styles.sunilc}>
+        {this.state.getvalues.map((i)=>{
+        console.log('hiiii---------------')
+        return(
+          <View style={styles.sunilc}>
               <View style={styles.image}>
                 <Image source={Piano} style={styles.piano1}></Image>
               </View>
               <View style={styles.sunilcborderwidth}>
                 <View style={styles.flex}>
                   <Text style={styles.language}>Telugu</Text>
-                  <Text style={styles.courseName}>Guitar Course</Text>
-                  <Text style={styles.courseCost}>₹ 3500</Text>
+                  <Text style={styles.courseName}>{i.name}</Text>
+                  <Text style={styles.courseCost}>₹{i.fees}</Text>
                 </View>
                 <View>
                   <Text style={styles.details}>
-                    Some text to tell about the course. This should ideally be
-                    around 3 to 4 lines but the maximum it can go is upto 6
-                    lines but it should have at least 3 lines. This is the bare
-                    Minimum so added another line to make it 4.
+                   {i.description}
                   </Text>
                 </View>
 
                 <View style={styles.flex}>
-                  <TouchableOpacity onPress={this.click}>
+                  <TouchableOpacity onPress={()=>this.props.navigation.navigate("topnav2")}>
                     <Text style={styles.registerBtn}>Register</Text>
                   </TouchableOpacity>
-                  <Text style={styles.teacherBtn}>Teacher</Text>
+                  <Text style={styles.teacherBtn}>{i.teacher.name}</Text>
                 </View>
               </View>
             </View>
-            <View style={styles.sunilc1}>
-              <View style={styles.image}>
-                <Image source={Piano} style={styles.piano1}></Image>
-              </View>
-              <View style={styles.sunilcborderwidth}>
-                <View style={styles.flex}>
-                  <Text style={styles.language}>Telugu</Text>
-                  <Text style={styles.courseName}>Guitar Course</Text>
-                  <Text style={styles.courseCost}>₹ 3500</Text>
-                </View>
-                <View>
-                  <Text style={styles.details}>
-                    Some text to tell about the course. This should ideally be
-                    around 3 to 4 lines but the maximum it can go is upto 6
-                    lines but it should have at least 3 lines. This is the bare
-                    Minimum so added another line to make it 4.
-                  </Text>
-                </View>
-
-                <View style={styles.flex}>
-                  <Text style={styles.registerBtn}>Register</Text>
-                  <Text style={styles.teacherBtn}>Teacher</Text>
-                </View>
-              </View>
-            </View>
+        )
+      })}
             <Text style={styles.teacherstyle}>Teachers :)</Text>
             <Text style={styles.text2style}>
               Some text to tell about what we teach. Something like Instruments,

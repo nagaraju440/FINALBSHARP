@@ -37,6 +37,8 @@ import Float from '../screens/float';
 import Metronome from '../screens/Metronome'
 import Tanpura from '../screens/Tanpura'
 import Guitar from '../screens/Guitar'
+import Aboutpage from'../DrawerNavFiles/About'
+import topnav2 from '../topnav2'
 const Stack = new createStackNavigator();
 
 const TopNav1 = ({navigation}) => {
@@ -61,7 +63,8 @@ const TopNav1 = ({navigation}) => {
       <Stack.Screen name="Metronome" component={Metronome} />
       <Stack.Screen name="Tanpura" component={Tanpura} />
       <Stack.Screen name="Guitar" component={Guitar} />
-
+      <Stack.Screen name="AboutPage" component={Aboutpage}/>  
+      <Stack.Screen name="topnav2" component={topnav2} options={{headerShown: false}}/>
     </Stack.Navigator>
     // {/* </NavigationContainer> */}
   );
