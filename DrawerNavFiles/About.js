@@ -36,6 +36,9 @@ class Aboutpage extends React.Component{
   click = () => {
     console.log('hiii');
   };
+  componentDidMount=()=>{
+    
+  }
   render() {
     return (
       <View style={{backgroundColor: 'white'}}>

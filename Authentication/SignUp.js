@@ -64,7 +64,7 @@ class Signupp extends React.Component {
       .then(() => {
 
         firebase.database().ref('Users/' + auth().currentUser.uid).set({
-          username: userName,
+          username:this.state.username,
           email: this.state.email,
           password: this.state.password,
           courses: {
