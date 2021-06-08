@@ -43,6 +43,7 @@ import auth from '@react-native-firebase/auth';
 // import FloatingActionRightScreen from './screens/float';
 import Floatstack from './screens/Floatstack';
 import Metro from './floating/metro';
+import ClassPage from './classSection/ClassPage';
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -76,7 +77,11 @@ class App extends React.Component {
     //   // <NavigationContainer>
     //   //   <Floatstack />
     //   // </NavigationContainer>
-    // );
+    //   // <ClassPage/>
+    // )
+
+
+    ///////////////////////////////////   main   //////////////////////////////////////////
     if(this.state.x==1){
       return(<NavigationContainer>
         <Drawernavi/>
@@ -89,19 +94,7 @@ class App extends React.Component {
       return(<SwitchNav/>)
     }
 
-    // if (this.state.x == 1) {
-    //   return (<NavigationContainer>
-    //     <Drawernavi />
-
-    //   </NavigationContainer>
-    //   )adb
-    // }
-    // else {
-    //   return (<SwitchNav />)
-    // }
-    // return(
-    // <Tanpura />
-    // )
+    
   }
 
   // ----------------port-8081------------------

@@ -27,6 +27,7 @@ import { LoginManager, AccessToken, LoginButton } from 'react-native-fbsdk';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 
 
+
 var x = 0;
 
 // var y=LoginManager.getInstance()

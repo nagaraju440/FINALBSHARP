@@ -21,9 +21,10 @@ import {
   FilledTextField,
   OutlinedTextField,
 } from 'react-native-material-textfield';
-import { initialWindowMetrics } from 'react-native-safe-area-context';
+import {initialWindowMetrics} from 'react-native-safe-area-context';
 import auth from '@react-native-firebase/auth';
 import database from '@react-native-firebase/database';
+
 
 class Signupp extends React.Component {
   constructor(props) {
@@ -37,34 +38,46 @@ class Signupp extends React.Component {
       l: 0,
     };
   }
+
+  componentDidMount = ()=>{
+    // database()
+    // .ref('/Users/123')
+    // .set({
+    //   name: 'Ada Lovelace',
+    //   age: 31,
+    // })
+    // .then(() => console.log('Data set.'));
+  }
   signupbuttonclicking = () => {
-    console.log("trying to sign up")
+    console.log('trying to sign up');
     // this.setState({l:1});
-    console.log("hiiii", this.state.email, this.state.password)
-    auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+    console.log('hiiii', this.state.email, this.state.password);
+    auth()
+      .createUserWithEmailAndPassword(this.state.email, this.state.password)
       .then(() => {
+
         console.log('User account created & signed in!');
-        alert("User account created and please log in")
+        alert('User account created and please log in');
         // console.log("here akso we get uid bro",auth())
         // var x=auth()
         // console.log("okkk x is",x.uid)
         // this.props.navigation.navigate('Login')
       })
-      .catch(error => {
+      .catch((error) => {
         if (error.code === 'auth/email-already-in-use') {
           console.log('That email address is already in use!');
-          alert(error.code)
+          alert(error.code);
         }
 
         if (error.code === 'auth/invalid-email') {
           console.log('That email address is invalid!');
-          alert(error.code)
+          alert(error.code);
         }
 
         console.error(error);
       });
     // this.props.navigation.navigate('Aboutpage')
-  }
+  };
   render() {
     return (
       <ScrollView style={styles.container}>
@@ -75,7 +88,7 @@ class Signupp extends React.Component {
           </View>
         </View>
         <View style={styles.footer}>
-          <View style={{ marginTop: 23 }}>
+          <View style={{marginTop: 23}}>
             <OutlinedTextField
               label="Username"
               keyboardType="default"
@@ -86,15 +99,15 @@ class Signupp extends React.Component {
               }}
               // onChangeText={(email) => this.setState({email})}
               value={this.state.email}
-              containerStyle={{ height: 46, borderRadius: 15 }}
-              inputContainerStyle={{ height: 46 }}
+              containerStyle={{height: 46, borderRadius: 15}}
+              inputContainerStyle={{height: 46}}
               baseColor="black"
               onChangeText={(userName) => {
-                this.setState({ userName: userName });
+                this.setState({userName: userName});
               }}
             />
           </View>
-          <View style={{ marginTop: 23 }}>
+          <View style={{marginTop: 23}}>
             <OutlinedTextField
               label="Email"
               keyboardType="default"
@@ -105,15 +118,15 @@ class Signupp extends React.Component {
               }}
               // onChangeText={(email) => this.setState({email})}
               value={this.state.email}
-              containerStyle={{ height: 46, borderRadius: 15 }}
-              inputContainerStyle={{ height: 46 }}
+              containerStyle={{height: 46, borderRadius: 15}}
+              inputContainerStyle={{height: 46}}
               baseColor="black"
               onChangeText={(emailvalue) => {
-                this.setState({ email: emailvalue });
+                this.setState({email: emailvalue});
               }}
             />
           </View>
-          <View style={{ marginTop: 23 }}>
+          <View style={{marginTop: 23}}>
             <OutlinedTextField
               label="Password"
               keyboardType="default"
@@ -124,30 +137,29 @@ class Signupp extends React.Component {
               }}
               // onChangeText={(password) => this.setState({password})}
               value={this.state.password}
-              containerStyle={{ height: 46, borderRadius: 15 }}
-              inputContainerStyle={{ height: 46 }}
+              containerStyle={{height: 46, borderRadius: 15}}
+              inputContainerStyle={{height: 46}}
               secureTextEntry={true}
               baseColor="black"
               onChangeText={(passvalue) => {
-                this.setState({ password: passvalue });
+                this.setState({password: passvalue});
               }}
             />
           </View>
 
-          <View style={{ paddingLeft: 38 }}>
+          <View style={{paddingLeft: 38}}>
             <TouchableOpacity
               style={styles.button}
               onPress={() => {
-                this.signupbuttonclicking()
+                this.signupbuttonclicking();
                 this.props.navigation.navigate('Login');
-
               }}>
               <Text style={styles.ButtonText}>Signup</Text>
             </TouchableOpacity>
           </View>
 
-          <View style={{ flexDirection: 'row', paddingLeft: 56, marginTop: 30 }}>
-            <Text style={{ fontWeight: 'bold', color: '#858192' }}>
+          <View style={{flexDirection: 'row', paddingLeft: 56, marginTop: 30}}>
+            <Text style={{fontWeight: 'bold', color: '#858192'}}>
               Already have an Account?
             </Text>
             <TouchableOpacity
@@ -156,7 +168,7 @@ class Signupp extends React.Component {
 
                 this.props.navigation.navigate('Login');
               }}>
-              <Text style={{ fontWeight: 'bold', color: '#858192' }}> Login</Text>
+              <Text style={{fontWeight: 'bold', color: '#858192'}}> Login</Text>
             </TouchableOpacity>
           </View>
         </View>
