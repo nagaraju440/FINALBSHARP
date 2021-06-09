@@ -39,7 +39,7 @@ async function onFacebookButtonPress() {
 
   // Attempt login with permissions
   // console.log(LoginManager.logInWithPermissions,"this is the reason bro");
-  // LoginManager.logOut();
+  LoginManager.logOut();
   // console.log(LoginManager.getDefaultAudience(), LoginManager.logOut())
   // y.logOut();
 
@@ -77,6 +77,8 @@ GoogleSignin.configure({
 
 async function onGoogleButtonPress() {
   // Get the users ID token
+  // await GoogleSignin.revokeAccess();
+  await GoogleSignin.signOut();
   const { idToken } = await GoogleSignin.signIn();
 
   // Create a Google credential with the token
@@ -168,6 +170,7 @@ class Login extends React.Component {
       .on('value', snapshot => {
         console.log('User data of GOogle: ', snapshot.val());
         if (snapshot.val() === null) {
+          // firebase.database().ref('/Courses')
           firebase.database().ref('Users/' + auth().currentUser.uid).set({
             username: auth().currentUser.displayName,
             email: auth().currentUser.email,

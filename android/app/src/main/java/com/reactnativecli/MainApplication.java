@@ -3,7 +3,13 @@ package com.reactnativecli;
 import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
-import com.facebook.react.ReactApplication; 
+import com.facebook.react.ReactApplication;
+// import com.upi.payment.UpiPaymentPackage;
+import com.upiPay.UpiPayPackage;
+// import com.upi.payment.UpiPaymentPackage;
+// import com.upi.payment.UpiPaymentPackage;
+// import com.reactnativecommunity.webview.RNCWebViewPackage;
+// import com.upi.payment.UpiPaymentPackage; 
 // import com.reatnativecli.RNMetronomePackage;
 import com.zmxv.RNSound.RNSoundPackage;
 import com.reactnativecli.HelloWorldPackage;
@@ -60,6 +66,12 @@ public class MainApplication extends Application implements ReactApplication {
           
             Arrays.<ReactPackage>asList(
             new MainReactPackage(),
+            // new UpiPaymentPackage(),
+            new UpiPayPackage(),
+            // new UpiPaymentPackage(),
+            // new UpiPaymentPackage(),
+            // new RNCWebViewPackage(),
+            // new UpiPaymentPackage(),
             // new RNMetronomePackage(),
             new RNSoundPackage(),
             // new LinearGradientPackage(),

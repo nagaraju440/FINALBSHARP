@@ -25,94 +25,90 @@ import User from '../Icons/User';
 import Courosal from '../corosal/courosal';
 import Courosel2 from '../corosal/courosel2';
 import StackNav from '../TopNavs/stack';
-var firebase = require("firebase");
+var firebase = require('firebase');
 var config = {
-  databaseURL: "https://sample-b0875.firebaseio.com/",
-  projectId: "sample-b0875",
+  databaseURL: 'https://sample-b0875.firebaseio.com/',
+  projectId: 'sample-b0875',
 };
 if (!firebase.apps.length) {
   firebase.initializeApp(config);
 }
 class Aboutpage extends React.Component {
   constructor(props) {
-    super(props)
-  
+    super(props);
+
     this.state = {
-       getkeys:[],
-       getvalues:[],
-       getvalue2:{}
-    }
+      getkeys: [],
+      getvalues: [],
+      getvalue2: {},
+    };
   }
-  
-  componentDidMount=()=>{
-        firebase.database()
+
+  componentDidMount = () => {
+    firebase
+      .database()
       .ref('/Courses')
       .once('value')
-     .then(snapshot => {
-       console.log('User data: ', snapshot.val()),
-       this.setState({getkeys:
-        Object.keys(
-          snapshot.val()
-          ),
-          getvalues:
-          Object.values(
-            snapshot.val()
-          )
-        })
-     })
-}
-mapping=()=>{
-  return(
-    <View>
-      <Text>hiiii</Text>
-      {this.state.getkeys.map((i)=>{
-        console.log('hiiii---------------')
-        return(
-          <View>
-            <Text>
-                hiii
-            </Text>
+      .then((snapshot) => {
+        console.log('User data: ', snapshot.val()),
+          this.setState({
+            getkeys: Object.keys(snapshot.val()),
+            getvalues: Object.values(snapshot.val()),
+          });
+      });
+  };
+  mapping = () => {
+    return (
+      <View>
+        <Text>hiiii</Text>
+        {this.state.getkeys.map((i) => {
+          console.log('hiiii---------------');
+          return (
+            <View>
+              <Text>hiii</Text>
             </View>
-        )
-      })}
-    </View>
-    
-  )
-}
-  click = () => {
-    console.log('hiii');
+          );
+        })}
+      </View>
+    );
   };
   click = () => {
     console.log('hiii');
   };
-  AssigningDatabase=(i)=>{
-    console.log("database assigned",{i})
-    }
+  click = () => {
+    console.log('hiii');
+  };
+  AssigningDatabase = (i) => {
+    console.log('database assigned', {i});
+  };
   render() {
-    
-    {console.log("this is firebase keys",firebase.database()
-    .ref('/Courses')
-      // this.state.getkeys
-    )
-}
+    {
+      console.log('this is firebase keys', this.state.getkeys);
+    }
 
     return (
-      <View style={{backgroundColor:'white'}}>
+      <View style={{backgroundColor: 'white'}}>
         {/* <StackNav /> */}
-        <StackNav/>
+        <StackNav />
         <ScrollView>
           <View style={styles.outerbox}>
             <View style={styles.imagestyle}>
               <Courosal />
             </View>
-            <Text style={styles.text1style}>About our acadamy</Text>
-            <Text style={styles.text2style}>
-              We are the best Carnatic Classical Music Academy in Hyderabad,
-              specialised in both online music classes and offline music
-              classes, established in the year 1998 with an aim to spread the
-              knowledge of BS#ARP MUSIC worldwide. We provide online music
-              classes for kids and all age group of students.
-            </Text>
+              <Text style={styles.text1style}>About our acadamy</Text>
+              <Text style={styles.text2style}>
+                Bsharp Is the Brain child of 3 Music lovers with a mission to take
+                music to every music enthusiast in every home through the Online
+                medium.
+              </Text>
+              <Text style={styles.text2style}>
+                B'sharp Music Academy is the brainchild of few Music Lovers who
+                wished to make Music learning available to every one at the
+                comfort of their homes. We have the best Music teachers in the
+                category of Guitar, Keyboard and Carnatic Vocals. We intend to
+                spread our wings further into teaching other instruments and
+                Hindustani Vocals very soon.
+              </Text>
             <Text style={styles.text3style}>Talent !!!</Text>
             <Text style={styles.text2style}>
               Some text to tell about what we teach. Something like Instruments,
@@ -128,44 +124,50 @@ mapping=()=>{
               </View>
               <View style={styles.forthirdbox}></View>
               <Text style={styles.text1style}>Courses</Text>
-              <Text style={styles.text2style}>
+              {/* <Text style={styles.text2style}>
                 Some text to tell about what we teach. Something like
                 Instruments, vocals and stuff. Make sure that atleast 5 lines
                 are filled so that the description wouldn’t feel empty. I’ll
                 just Write some random text and stuff to fill 5 lines but this
                 didn’t seem to work so added some more text. This is for courses
                 and and stuff.
-              </Text>
+              </Text> */}
             </View>
-        {this.state.getvalues.map((i,l)=>{
-        console.log('hiiii---------------')
-        return(
-          <View style={styles.sunilc} key={l}>
-              <View style={styles.image}>
-                <Image source={Piano} style={styles.piano1}></Image>
-              </View>
-              <View style={styles.sunilcborderwidth}>
-                <View style={styles.flex}>
-                  <Text style={styles.language}>Telugu</Text>
-                  <Text style={styles.courseName}>{i.name}</Text>
-                  <Text style={styles.courseCost}>₹{i.fees}</Text>
-                </View>
-                <View>
-                  <Text style={styles.details}>
-                   {i.description}
-                  </Text>
-                </View>
+            {this.state.getvalues.map((i) => {
+              console.log('hiiii---------------');
+              return (
+                <View style={styles.sunilc}>
+                  <View style={styles.image}>
+                    <Image source={Piano} style={styles.piano1}></Image>
+                  </View>
+                  <View style={styles.sunilcborderwidth}>
+                    <View style={styles.flex}>
+                      <Text style={styles.language}>Telugu</Text>
+                      <Text style={styles.courseName}>{i.name}</Text>
+                      {/* <Text style={styles.courseCost}>₹{i.fees}</Text> */}
+                    </View>
+                    <View style={styles.details}>
+                      <Text >
+                        {/* {i.description} */}
+                        Teacher name : {i.teacher.name}
+                      </Text>
+                      <Text>Experiance:{i.teacher.experience}years </Text>
+                      <Text>Class only on sundays and saturdays </Text>
+                    </View>
 
-                <View style={styles.flex}>
-                  <TouchableOpacity onPress={()=>this.props.navigation.navigate("topnav2")}>
-                    <Text style={styles.registerBtn}>Register</Text>
-                  </TouchableOpacity>
-                  <Text style={styles.teacherBtn}>{i.teacher.name}</Text>
+                    <View style={styles.flex}>
+                      <TouchableOpacity
+                        onPress={() =>
+                          this.props.navigation.navigate({name:'topnav2',params:i})
+                        }>
+                        <Text style={styles.registerBtn}>Register</Text>
+                      </TouchableOpacity>
+                      {/* <Text style={styles.teacherBtn}>{i.teacher.name}</Text> */}
+                    </View>
+                  </View>
                 </View>
-              </View>
-            </View>
-        )
-      })}
+              );
+            })}
             <Text style={styles.teacherstyle}>Teachers :)</Text>
             <Text style={styles.text2style}>
               Some text to tell about what we teach. Something like Instruments,
@@ -243,7 +245,7 @@ const styles = StyleSheet.create({
     color: '#000000',
     lineHeight: 20,
     //    letterSpacing:0.1,
-    marginTop: 25,
+    marginTop: 20,
   },
   text3style: {
     fontFamily: 'Poppins',
@@ -258,7 +260,7 @@ const styles = StyleSheet.create({
   },
   piano1: {
     width: '100%',
-    height: 295,
+    height: '100%',
     borderTopRightRadius: 15,
     borderTopLeftRadius: 15,
   },
@@ -289,16 +291,16 @@ const styles = StyleSheet.create({
   },
   sunilc: {
     width: '100%',
-    height: 518,
+    height: 378,
 
     // backgroundColor:"blue",
-    marginTop: 50,
+    marginTop:20,
   },
   sunilcborderwidth: {
     borderRadius: 6,
     borderColor: 'whitesmoke',
     borderWidth: 3,
-    height: 223,
+    height: 170,
     // borderRadius:15,
     marginTop: -1,
 
@@ -382,7 +384,7 @@ const styles = StyleSheet.create({
   //  suni gadi stylings
   image: {
     width: '100%',
-    height: 295,
+    height: 200,
     backgroundColor: 'lightgrey',
     justifyContent: 'center',
     borderTopStartRadius: 15,
@@ -438,7 +440,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins',
     height: 28,
     width: 82,
-    backgroundColor:'#2C57EF',
+    backgroundColor: '#2C57EF',
     borderRadius: 6,
     textAlign: 'center',
     textAlignVertical: 'center',

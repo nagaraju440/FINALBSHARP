@@ -20,7 +20,7 @@ const Switch = createSwitchNavigator({
   SignUp : Signupp
 },
 {
-  initialRouteName:'Swipe'
+  initialRouteName:'Deside'
 }
 );
 AppContainer = createAppContainer(Switch);

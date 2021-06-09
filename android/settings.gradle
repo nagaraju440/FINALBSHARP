@@ -1,4 +1,16 @@
 rootProject.name = 'reactnativecli'
+include ':react-native-upi-payment'
+project(':react-native-upi-payment').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-upi-payment/android')
+include ':react-native-upi-pay'
+project(':react-native-upi-pay').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-upi-pay/android')
+include ':react-native-upi-payment'
+project(':react-native-upi-payment').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-upi-payment/android')
+include ':react-native-upi-payment'
+project(':react-native-upi-payment').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-upi-payment/android')
+include ':react-native-webview'
+project(':react-native-webview').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-webview/android')
+include ':react-native-upi-payment'
+project(':react-native-upi-payment').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-upi-payment/android')
 include ':react-native-metronome'
 project(':react-native-metronome').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-metronome/android')
 include ':react-native-sound'

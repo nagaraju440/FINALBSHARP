@@ -45,10 +45,19 @@ import Menu from './Icons/Menu'
 import Notification from './Icons/Notification';
 import User from './Icons/User'
 import { FloatingAction } from "react-native-floating-action"; // eslint-disable-line import/no-unresolved
-
+// import RNUpiPayment from 'react-native-upi-payment'
+import RNUpiPayment from 'react-native-upi-pay';
 import auth from '@react-native-firebase/auth';
 import { NavigationActions } from 'react-navigation'
-// import Floatstack from './screens/float'
+import Floatstack from './screens/float'
+var firebase = require("firebase");
+var config = {
+  databaseURL: "https://sample-b0875.firebaseio.com/",
+  projectId: "sample-b0875",
+};
+if (!firebase.apps.length) {
+  firebase.initializeApp(config);
+}
 const actions = [
   {
    color: "#25D366",
@@ -73,6 +82,16 @@ const actions = [
 ];
 
 class Courses extends React.Component {
+  constructor(props){
+    super();
+    this.state={
+        Status:"", txnId:"",
+        name:'',
+        age:'',
+        number:'',
+        email:''
+    }
+}
   // componentDidMount=()=>{
   //   auth()
   // .signOut()
@@ -81,11 +100,120 @@ class Courses extends React.Component {
   // );
   // }
   click=()=>{
-    console.log("registering")
-    this.props.navigation.navigate('UserPage1')
+    console.log("registering",this.state,this.props.route.params)
+    
+    // this.props.navigation.navigate('UserPage1')
+  }
+  registerStudent=()=>{
+    console.log("hehehheeheheh")
   }
     render() {
-        console.log(Piano);
+      that=this;
+      function floo(){
+        console.log("waiting for money")
+          RNUpiPayment.initializePayment({
+              vpa: '9347747143@okbizaxis', // or can be john@ybl or mobileNo@upi
+              payeeName: 'Payee Name',
+              amount: 1,
+              transactionRef: 'AXId8c71205eb7d459889bb7018bdf2c056'
+          },successCallback,failureCallback);
+      }
+      function failureCallback(data){
+        console.log(data)
+        // in case no action taken
+        if (data['status']=="FAILURE"){
+            that.setState({Status:"FAILURE"})
+            that.setState({message:data['message']});
+        }
+        // in case of googlePay
+        else if (data['Status']=="FAILURE"){
+            that.setState({Status:"FAILURE"})
+            that.setState({message:"app closed without doing payment"});;
+        }
+        // in case of phonepe
+        else if (data['Status']=="Failed"){
+            that.setState({Status:"FAILURE"});
+            that.setState({message:"app closed without doing payment"});
+        }
+        // in case of phonepe
+        else if(data['Status']=="Submitted"){
+            that.setState({Status:"FAILURE"});
+            that.setState({message:"transaction done but pending"});
+        }
+        // any other case than above mentioned
+        else{
+            that.setState({Status:"FAILURE"});
+            that.setState({message:data['Status']});
+        }
+    }
+    function successCallback(data){
+        //
+        console.log(data);
+        that.setState({Status:"SUCCESS"});
+        that.setState({txnId:data['txnId']});
+        that.setState({message:"Succccessfull payment"});
+    }
+      // function failureCallback(data){
+//             console.log(data)
+//             // in case no action taken
+//             if (data['status']=="FAILURE"){
+//                 that.setState({Status:"FAILURE"})
+//                 that.setState({message:data['message']});
+//             }
+//             // in case of googlePay
+//             else if (data['Status']=="FAILURE"){
+//                 that.setState({Status:"FAILURE"})
+//                 that.setState({message:"app closed without doing payment"});;
+//             }
+//             // in case of phonepe
+//             else if (data['Status']=="Failed"){
+//                 that.setState({Status:"FAILURE"});
+//                 that.setState({message:"app closed without doing payment"});
+//             }
+//             // in case of phonepe
+//             else if(data['Status']=="Submitted"){
+//                 that.setState({Status:"FAILURE"});
+//                 that.setState({message:"transaction done but pending"});
+//             }
+//             // any other case than above mentioned
+//             else{
+//                 that.setState({Status:"FAILURE"});
+//                 that.setState({message:data['Status']});
+//             }
+//         }
+//         function successCallback(data){
+//             //
+//             console.log(data);
+//             that.setState({Status:"SUCCESS"});
+//             that.setState({txnId:data['txnId']});
+//             that.setState({message:"Succccessfull payment"});
+//         }
+      //  var failureCallback=(data)=>{
+      //   console.log("failed",data)
+      //   // this.registerStudent()
+      //     if(data['Status']=="SUCCESS"){
+      //       console.log("are yarr succsess brooooooooo")
+      //       alert("sucsessfully regisstered for your course")
+      //       firebase.database()
+      //         .ref('/Admin/'+auth().currentUser.uid)
+      //         .set({
+      //           name: this.state.name,
+      //           age: this.state.age,
+      //           email:this.state.email,
+      //           number:this.state.number
+      //         })
+      //         .then(() => console.log('Data set.'));
+      //         that.setState({Status:"SUCCESS"});
+      //         that.setState({txnId:data['txnId']});}
+      //     else{
+      //         that.setState({Status:"FAILURE"})}
+      // }
+      // function successCallback(data){
+      //   console.log("sucsessfully register for your course")
+
+
+      //     //nothing happened here using Google Pay
+      // }
         return (
           <View style={{backgroundColor:'white'}}>
       {/* <StackNav/> */}
@@ -153,6 +281,7 @@ students.
         containerStyle={{height:46,borderRadius:15}}
         inputContainerStyle={{height:46,borderRadius:15}}
         baseColor="black"
+        onChangeText={t=>{this.setState({name:t})}}
       />  
 
 
@@ -165,6 +294,7 @@ students.
         containerStyle={{height:46,borderRadius:15}}
         inputContainerStyle={{height:46,borderRadius:15}}
         baseColor="black"
+        onChangeText={t=>{this.setState({age:t})}}
       />
 
        </View>
@@ -176,6 +306,7 @@ students.
         containerStyle={{height:46,borderRadius:15}}
         inputContainerStyle={{height:46,borderRadius:15}}
         baseColor="black"
+        onChangeText={t=>{this.setState({number:t})}}
       /> 
         </View>
        <View style={{marginTop:22}}>
@@ -186,6 +317,7 @@ students.
         containerStyle={{height:46,borderRadius:15}}
         inputContainerStyle={{height:46,borderRadius:15}}
         baseColor="black"
+        onChangeText={t=>{this.setState({email:t})}}
       /> 
         </View>
        <View style={{marginTop:22}}>
@@ -200,7 +332,7 @@ students.
 
         </View> 
         <View  >
-         <TouchableOpacity onPress={this.click}><Text style={styles.registerBtn}>Register</Text></TouchableOpacity>
+         <TouchableOpacity onPress={()=>{floo()}}><Text style={styles.registerBtn}>Register</Text></TouchableOpacity>
          </View>
          
                 </View>
