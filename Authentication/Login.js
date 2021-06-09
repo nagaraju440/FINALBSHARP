@@ -33,13 +33,13 @@ var x = 0;
 
 // var y=LoginManager.getInstance()
 async function onFacebookButtonPress() {
-  console.log(LoginManager.logInWithPermissions, "here also ima wrote this")
+  // console.log(LoginManager.logInWithPermissions, "here also ima wrote this")
 
   // LoginManager.setLoginBehavior(WEB_ONLY);
 
   // Attempt login with permissions
   // console.log(LoginManager.logInWithPermissions,"this is the reason bro");
-  // LoginManager.logOut();
+  await LoginManager.logOut();
   // console.log(LoginManager.getDefaultAudience(), LoginManager.logOut())
   // y.logOut();
 
@@ -76,6 +76,8 @@ GoogleSignin.configure({
 });
 
 async function onGoogleButtonPress() {
+  await GoogleSignin.revokeAccess();
+  await GoogleSignin.signOut();
   // Get the users ID token
   const { idToken } = await GoogleSignin.signIn();
 

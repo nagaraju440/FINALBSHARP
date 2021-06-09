@@ -14,7 +14,7 @@ import {
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer ,useRoute} from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import Courses from '../topnav2';
+// import Courses from '../topnav2';
 import Menu from '../Icons/Menu'
 import Notification from '../Icons/Notification';
 import User from '../Icons/User'

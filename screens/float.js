@@ -1,9 +1,9 @@
 import React, { PureComponent } from "react";
 import { View, SafeAreaView, StyleSheet, Alert } from "react-native";
 import { FloatingAction } from "react-native-floating-action"; // eslint-disable-line import/no-unresolved
-import Courses from '../topnav2';
+// import Courses from '../topnav2';
 // import Aboutpage from '../Aboutpage';
-import Drawernavi from '../Navigations/TopNav'
+// import Drawernavi from '../Navigations/TopNav'
 import Aboutpage from '../DrawerNavFiles/About'
 import TopNav4 from '../TopNavs/TopNav4';
 class FloatingActionRightScreen extends PureComponent {

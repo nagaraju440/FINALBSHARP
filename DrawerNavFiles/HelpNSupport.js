@@ -16,7 +16,7 @@ import Menu from '../Icons/Menu'
 import Notification from '../Icons/Notification';
 import User from '../Icons/User'
 // import Floatstack from '../screens/floatstack'
-import FloatingActionRightScreen from '../screens/float'
+// import FloatingActionRightScreen from '../screens/float'
 function HelpNSupport({navigation}){
     return(
     <View style={{backgroundColor:'white',height:800}}>
@@ -60,7 +60,7 @@ function HelpNSupport({navigation}){
         </Text>
         {/* <View style={{marginTop:200}}> */}
       {/* <Floatstack/> */}
-      <FloatingActionRightScreen/>
+      {/* <FloatingActionRightScreen/> */}
             {/* </View> */}
     </View>
     )

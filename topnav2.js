@@ -40,7 +40,7 @@ import Svg, {
     Mask,
   } from 'react-native-svg';
 import Piano from './images/pianoimage.jpg'
-import StackNav from './TopNavs/stack'
+// import StackNav from './TopNavs/stack'
 import Menu from './Icons/Menu'
 import Notification from './Icons/Notification';
 import User from './Icons/User'
@@ -48,7 +48,7 @@ import { FloatingAction } from "react-native-floating-action"; // eslint-disable
 
 import auth from '@react-native-firebase/auth';
 import { NavigationActions } from 'react-navigation'
-import Floatstack from './screens/float'
+// import Floatstack from './screens/float'
 const actions = [
   {
    color: "#25D366",
