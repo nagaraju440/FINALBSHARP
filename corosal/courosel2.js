@@ -30,7 +30,7 @@ export default class Courosel2 extends React.Component {
             style={{width:76,height:76,borderRadius:76,marginTop:20,marginLeft:45}}>
            </Image>
            <Text style={{textAlign:'center',marginTop:20,fontFamily:'SemiBold',fontSize:14}}>Viswanath Murthy</Text>
-           <Text style={{textAlign:'center',fontStyle:'poppins',fontSize:10,textAlign:'justify',padding:18}}>2 years teaching experience
+           <Text style={{textAlign:'center',fontSize:10,textAlign:'justify',padding:18}}>2 years teaching experience
                  at xyz academy, 257 Stage
                  performances and taught
                  more than 10,000 Students</Text>
@@ -41,7 +41,7 @@ export default class Courosel2 extends React.Component {
             style={{width:76,height:76,borderRadius:76,marginTop:20,marginLeft:45}}>
            </Image>
            <Text style={{textAlign:'center',marginTop:20,fontFamily:'SemiBold',fontSize:14}}>Viswanath Murthy</Text>
-           <Text style={{textAlign:'center',fontStyle:'poppins',fontSize:10,textAlign:'justify',padding:18}}>2 years teaching experience
+           <Text style={{textAlign:'center',fontSize:10,textAlign:'justify',padding:18}}>2 years teaching experience
                  at xyz academy, 257 Stage
                  performances and taught
                  more than 10,000 Students</Text>
@@ -52,7 +52,7 @@ export default class Courosel2 extends React.Component {
             style={{width:76,height:76,borderRadius:76,marginTop:20,marginLeft:45}}>
            </Image>
            <Text style={{textAlign:'center',marginTop:20,fontFamily:'SemiBold',fontSize:14}}>Viswanath Murthy</Text>
-           <Text style={{textAlign:'center',fontStyle:'poppins',fontSize:10,textAlign:'justify',padding:18}}>2 years teaching experience
+           <Text style={{textAlign:'center',fontSize:10,textAlign:'justify',padding:18}}>2 years teaching experience
                  at xyz academy, 257 Stage
                  performances and taught
                  more than 10,000 Students</Text>

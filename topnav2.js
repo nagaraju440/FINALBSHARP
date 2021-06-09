@@ -48,7 +48,7 @@ import { FloatingAction } from "react-native-floating-action"; // eslint-disable
 
 import auth from '@react-native-firebase/auth';
 import { NavigationActions } from 'react-navigation'
-import Floatstack from './screens/float'
+// import Floatstack from './screens/float'
 const actions = [
   {
    color: "#25D366",

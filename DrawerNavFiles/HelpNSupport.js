@@ -16,7 +16,7 @@ import Menu from '../Icons/Menu';
 import Notification from '../Icons/Notification';
 import User from '../Icons/User';
 // import Floatstack from '../screens/floatstack'
-import FloatingActionRightScreen from '../screens/float';
+// import FloatingActionRightScreen from '../screens/float';
 import StackNav from '../TopNavs/stack';
 function HelpNSupport({navigation}) {
   return (

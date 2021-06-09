@@ -14,26 +14,26 @@ import {
   Button,
 } from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {NavigationContainer, useRoute} from '@react-navigation/native';
-import Courses from '../topnav2';
+// import {NavigationContainer, useRoute} from '@react-navigation/native';
+// import Courses from '../topnav2';
 import Menu from '../Icons/Menu';
 import Notification from '../Icons/Notification';
 import User from '../Icons/User';
-import AboutIcon from '../Icons/AboutIcon';
-import HelpNSupportIcon from '../Icons/HelpNSupportIcon';
-import MyCourseIcon from '../Icons/MyCourseIcon';
-import PaymentsIcon from '../Icons/PaymentsIcon';
-import About from '../DrawerNavFiles/About';
-import HelpNSupport from '../DrawerNavFiles/HelpNSupport';
-import MyCourses from '../DrawerNavFiles/mycourses-P';
-import Payments from '../DrawerNavFiles/Payments';
-import SettingsIcon from '../Icons/SettingsIcon';
+// import AboutIcon from '../Icons/AboutIcon';
+// import HelpNSupportIcon from '../Icons/HelpNSupportIcon';
+// import MyCourseIcon from '../Icons/MyCourseIcon';
+// import PaymentsIcon from '../Icons/PaymentsIcon';
+// import About from '../DrawerNavFiles/About';
+// import HelpNSupport from '../DrawerNavFiles/HelpNSupport';
+// import MyCourses from '../DrawerNavFiles/mycourses-P';
+// import Payments from '../DrawerNavFiles/Payments';
+// import SettingsIcon from '../Icons/SettingsIcon';
 // import NotificationPage from '../Naviagations/NotificationPage'
 // import UserPage from '../Navigations/UserPage'
-import NotificationPage from '../Navigations/NotificationPage';
-import UserPage from '../Navigations/UserPage';
-import DrawerContent from '../Navigations/DrawerContent';
-import Settings from '../DrawerNavFiles/Settings';
+// import NotificationPage from '../Navigations/NotificationPage';
+// import UserPage from '../Navigations/UserPage';
+// import DrawerContent from '../Navigations/DrawerContent';
+// import Settings from '../DrawerNavFiles/Settings';
 import DashBoardIcon from '../Icons/DashBoardIcon';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import Profile from '../bottomSheet/Profile';
