@@ -147,18 +147,18 @@ class Aboutpage extends React.Component {
                       {/* <Text style={styles.courseCost}>₹{i.fees}</Text> */}
                     </View>
                     <View style={styles.details}>
-                      <Text >
-                        {/* {i.description} */}
-                        Teacher name : {i.teacher.name}
+                      <Text style={styles.descriptionstyle}>
+                        {i.description}
+                        {/* Teacher name : {i.teacher.name} */}
                       </Text>
-                      <Text>Experiance:{i.teacher.experience}years </Text>
+                      {/* <Text>Experiance:{i.teacher.experience}years </Text> */}
                       <Text>Class only on sundays and saturdays </Text>
                     </View>
 
                     <View style={styles.flex}>
                       <TouchableOpacity
                         onPress={() =>
-                          this.props.navigation.navigate({name:'topnav2',params:i})
+                          this.props.navigation.navigate({name:'ViewCourse',params:i})
                         }>
                         <Text style={styles.registerBtn}>Register</Text>
                       </TouchableOpacity>
@@ -247,6 +247,14 @@ const styles = StyleSheet.create({
     //    letterSpacing:0.1,
     marginTop: 20,
   },
+  descriptionstyle: {
+    fontFamily: 'Raleway',
+    fontSize: 12,
+    color: '#000000',
+    lineHeight: 20,
+    //    letterSpacing:0.1,
+    marginTop: 10,
+  },
   text3style: {
     fontFamily: 'Poppins',
     fontSize: 18,
@@ -291,8 +299,7 @@ const styles = StyleSheet.create({
   },
   sunilc: {
     width: '100%',
-    height: 378,
-
+    height: 478,
     // backgroundColor:"blue",
     marginTop:20,
   },
@@ -300,7 +307,7 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     borderColor: 'whitesmoke',
     borderWidth: 3,
-    height: 170,
+    height: 270,
     // borderRadius:15,
     marginTop: -1,
 
@@ -416,6 +423,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: '700',
     left: 25,
+    width:150,
     color: '#292629',
   },
   courseCost: {

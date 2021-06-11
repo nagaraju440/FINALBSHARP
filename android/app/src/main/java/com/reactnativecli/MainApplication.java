@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import com.brentvatne.react.ReactVideoPackage;
 // import com.upi.payment.UpiPaymentPackage;
 import com.upiPay.UpiPayPackage;
 // import com.upi.payment.UpiPaymentPackage;
@@ -66,6 +67,7 @@ public class MainApplication extends Application implements ReactApplication {
           
             Arrays.<ReactPackage>asList(
             new MainReactPackage(),
+            new ReactVideoPackage(),
             // new UpiPaymentPackage(),
             new UpiPayPackage(),
             // new UpiPaymentPackage(),

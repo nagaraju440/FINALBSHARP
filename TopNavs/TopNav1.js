@@ -39,10 +39,11 @@ import Tanpura from '../screens/Tanpura'
 import Guitar from '../screens/Guitar'
 import Aboutpage from'../DrawerNavFiles/About'
 import topnav2 from '../topnav2'
+import ViewCourse from '../DrawerNavFiles/ViewCourse'
 const Stack = new createStackNavigator();
 
 const TopNav1 = ({navigation}) => {
-  console.log('hii dashboard:TopNav1');
+  // console.log('hii dashboard:TopNav1');
   // console.log(props.route.params.Params,"hloooooooo")
   return (
     //--------------- Creating stack navigation for TopNav-------------------
@@ -65,6 +66,7 @@ const TopNav1 = ({navigation}) => {
       <Stack.Screen name="Guitar" component={Guitar} />
       <Stack.Screen name="AboutPage" component={Aboutpage}/>  
       <Stack.Screen name="topnav2" component={topnav2} options={{headerShown: false}}/>
+      <Stack.Screen name="ViewCourse" component={ViewCourse} options={{headerShown: false}}/>
     </Stack.Navigator>
     // {/* </NavigationContainer> */}
   );
