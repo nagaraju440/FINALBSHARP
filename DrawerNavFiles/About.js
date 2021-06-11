@@ -50,7 +50,7 @@ class Aboutpage extends React.Component {
       .ref('/Courses')
       .once('value')
       .then((snapshot) => {
-        console.log('User data: ', snapshot.val()),
+        // console.log('User data: ', snapshot.val()),
           this.setState({
             getkeys: Object.keys(snapshot.val()),
             getvalues: Object.values(snapshot.val()),

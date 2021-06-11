@@ -6,7 +6,7 @@ import {
     View,
     Image,ScrollView,
     TouchableOpacity,
-    Button,
+    Button, LogBox 
     // ScrollView
 } from 'react-native';
 
@@ -89,7 +89,9 @@ class Courses extends React.Component {
         name:'',
         age:'',
         number:'',
-        email:''
+        email:'',
+        courseData:'',
+        batchNo:''
     }
 }
   // componentDidMount=()=>{
@@ -100,16 +102,29 @@ class Courses extends React.Component {
   // );
   // }
   click=()=>{
-    console.log("registering",this.state,this.props.route.params)
+    console.log("registering",this.state,this.props.route.params.data)
     
     // this.props.navigation.navigate('UserPage1')
   }
   registerStudent=()=>{
     console.log("hehehheeheheh")
   }
+  componentDidMount=()=>{
+    LogBox.ignoreLogs(['Animated: `useNativeDriver`']);
+    this.setState({courseData:this.props.route.params.data,batchNo:this.props.route.params.batchNo})
+    // console.log(this.props.route.params,"topnav2.js")
+  }
+  
     render() {
-      that=this;
+    var that=this;
+     function uuidv4() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+          var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+          return v.toString(16);
+        });
+      }
       function floo(){
+        // console.log("random uid is",uuidv4(),that.props.route.params)
         console.log("waiting for money")
           RNUpiPayment.initializePayment({
               vpa: '9347747143@okbizaxis', // or can be john@ybl or mobileNo@upi
@@ -148,10 +163,47 @@ class Courses extends React.Component {
     }
     function successCallback(data){
         //
+        alert("sucsessfulled payed")
         console.log(data);
         that.setState({Status:"SUCCESS"});
         that.setState({txnId:data['txnId']});
         that.setState({message:"Succccessfull payment"});
+        var randomUid=uuidv4()
+        firebase
+        .database()
+         .ref('/Courses/Course'+that.props.route.params.data.no+'/Batches/BatchNo'+that.props.route.params.batchNo+'/Peoples/'+auth().currentUser.uid)
+         .set({
+          uid:randomUid
+        })
+        .then((snapshot) => {
+          console.log("sucsessfully added random uid")
+          firebase.database().ref('/Students/'+randomUid)
+          .set({
+            name: that.state.name,
+                age:that.state.age,
+                email:that.state.email,
+                number:that.state.number,
+                userUid:auth().currentUser.uid,
+                courseName:that.props.route.params.data.name,
+                courseNo:that.props.route.params.data.no,
+                BatchNo:that.props.route.params.batchNo
+          }).then(l=>{
+            console.log("sucsessfully registerd")
+            alert("sucsessfully registered for the course")
+          })
+          firebase.database().ref('/Users/'+auth().currentUser.uid+'/Courses/course'+that.props.route.params.data.no)
+          .set({
+           name:that.props.route.params.data.name,
+           isRegisterd:true,
+           courseName:that.props.route.params.data.name,
+           courseNo:that.props.route.params.data.no,
+           BatchNo:that.props.route.params.batchNo
+          }).then(l=>{
+            console.log("sucsessfully registerd")
+            alert("sucsessfully registered for the course")
+            that.props.navigation.navigate('About')
+          })
+        });
     }
       // function failureCallback(data){
 //             console.log(data)
@@ -218,41 +270,7 @@ class Courses extends React.Component {
           <View style={{backgroundColor:'white'}}>
       {/* <StackNav/> */}
        {/* .........................top bsharp..............................      */}
-             <View style={{width:"100%",height:57,flexDirection:'row',alignItems:'center',borderWidth:0.0,elevation:1}}>
-
-             <View 
-             style={{marginLeft:'6.5%'}}
-             >
-                <TouchableOpacity 
-                onPress={()=>{
-                  this.props.navigation.openDrawer()
-                }}
-                >
-                <Menu/>
-                </TouchableOpacity>
-             </View>
-           <View style={{marginLeft:'5.5%'}}>
-               <Text style={{fontSize:18,fontWeight:'bold',fontFamily:'Poppins'}}>BS#arp</Text>
-           </View>
-           <View style={{marginLeft:'44.9%'}}>
-               <TouchableOpacity
-               onPress={()=>{
-                    this.props.navigation.navigate('NotificationPage')
-                }}
-               >
-
-               <Notification/>
-               </TouchableOpacity>
-           </View>
-           <View style={{marginLeft:'3.5%'}}>
-              <TouchableOpacity
-              onPress={()=>{
-                    this.props.navigation.navigate('UserPage')
-                }}>
-              <User/>
-              </TouchableOpacity>
-           </View>
-             </View>
+             
           
             <ScrollView >
             {/* <StckNav */}
@@ -260,14 +278,8 @@ class Courses extends React.Component {
                 <View style={styles.TopNav}>
                     
                     <Image source={Piano} style={styles.Image} />
-                   <Text style={styles.heading1}>Full Course Mastering Keyboard</Text>
-                    <Text style={styles.text1}>
-                    We are the best Carnatic Classical Music Academy in 
-Hyderabad, specialised in both online music classes and offline
-music classes, established in the year  1998   with an   aim   to 
-spread  the  knowledge of BS#ARP MUSIC worldwide. We 
-provide online music classes for kids and all age group of 
-students.
+                   <Text style={styles.heading1}>{this.props.route.params.data.name} Course</Text>
+                    <Text style={styles.text1}>{this.props.route.params.data.description}
                     </Text>
                 
                 <View style={{marginTop:20
@@ -398,8 +410,8 @@ const styles = StyleSheet.create({
     heading1: {
         marginTop: 35,
         textAlign: 'center',
-        fontFamily: 'Bold',
-        fontSize: 16,
+        fontFamily: 'bold',
+        fontSize: 20,
         // marginLeft: 50
     },
     text1: {
