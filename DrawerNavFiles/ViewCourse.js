@@ -200,6 +200,7 @@ export default class ViewCourse extends Component {
                               {Object.values(
                                 this.props.route.params.Batches,
                               ).map((l, i) => {
+                                console.log(l.day)
                                 if (l.day === 'saturday') {
                                   return (
                                     <View

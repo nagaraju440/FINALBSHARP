@@ -66,7 +66,7 @@ const TopNav1 = ({navigation}) => {
       <Stack.Screen name="Guitar" component={Guitar} />
       <Stack.Screen name="About" component={Aboutpage}   options={{headerShown: false}}/>  
       <Stack.Screen name="topnav2" component={topnav2} />
-      <Stack.Screen name="ViewCourse" component={ViewCourse} />
+      <Stack.Screen name="ViewCourse" component={ViewCourse} options={{headerTitle:'Course Details'}}/>
     </Stack.Navigator>
     // {/* </NavigationContainer> */}
   );

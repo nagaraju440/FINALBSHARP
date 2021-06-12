@@ -57,7 +57,11 @@ const StackNav = () => {
           elevation: 1,
         }}>
         <View style={{marginLeft: '6.5%'}}>
-          <TouchableOpacity>
+          <TouchableOpacity 
+          onPress={()=>{
+            console.log("open")
+          }}
+          >
             <Menu />
           </TouchableOpacity>
         </View>

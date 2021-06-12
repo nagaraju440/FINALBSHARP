@@ -89,7 +89,7 @@ class Aboutpage extends React.Component {
 
     return (
       <View style={{backgroundColor: 'white'}}>
-        {/* <StackNav /> */}
+        <StackNav />
         {/* <StackNav /> */}
         <ScrollView>
           <View style={styles.outerbox}>
@@ -161,7 +161,7 @@ class Aboutpage extends React.Component {
                         onPress={() =>
                           this.props.navigation.navigate({name:'ViewCourse',params:i})
                         }>
-                        <Text style={styles.registerBtn}>Register</Text>
+                        <Text style={styles.registerBtn}>View Demo</Text>
                       </TouchableOpacity>
                       {/* <Text style={styles.teacherBtn}>{i.teacher.name}</Text> */}
                     </View>

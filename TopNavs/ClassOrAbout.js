@@ -45,7 +45,6 @@ export default class ClassOrAbout extends Component {
     render() {
         return (
             <View style={{backgroundColor:'white'}}>
-            <StackNav/>
             <View>
                 {
                     this.state.x===''?<View style={{backgroundColor:'white',height:windowHeight}}>
