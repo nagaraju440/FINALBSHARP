@@ -33,10 +33,12 @@ export default class ViewCourse extends Component {
       z: false, // for third drop down ( sunday slots- slot1, slot2, slot3 )
       value: '',
       setValue: '',
+      videoUrl:''
     };
   }
   componentDidMount = () => {
-    // console.log(this.props.route.params, 'is props');
+    console.log(this.props.route.params.videoUrl, 'isvideo url');
+    this.setState({videoUrl:this.props.route.params.videoUrl})
   };
   register = () => {
     console.log('jelooakhfkajk',this.state.value);
@@ -83,12 +85,13 @@ export default class ViewCourse extends Component {
                 style={{
                   width: '93.3%',
                   height: 210,
-                  backgroundColor: 'grey',
+                  backgroundColor: 'whitesmoke',
                   marginTop: 20,
                   borderRadius: 10,
                 }}>
-                <Video
-                  source={{uri:this.props.route.params.videoUrl}} // Can be a URL or a local file.
+               {
+                  this.state.videoUrl===''?<Text>Loading...</Text>:<Video
+                  source={{uri:this.state.videoUrl}} // Can be a URL or a local file.
                   ref={(ref) => {
                     this.player = ref;
                   }} // Store reference
@@ -98,8 +101,9 @@ export default class ViewCourse extends Component {
                   resizeMode="cover"
                   controls={true}
                   // fullscreen={true}
-                  // fullscreenAutorotate={false}
+                  // fullscreenAutorotate={true}
                 />
+                }
               </View>
               <View
                 style={{

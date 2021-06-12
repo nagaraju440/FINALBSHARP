@@ -36,7 +36,7 @@ class Signupp extends React.Component {
     super(props);
     this.state = {
       check: false,
-      username: '',
+      userName: '',
       password: '',
       email: '',
       x: 0,
@@ -62,27 +62,14 @@ class Signupp extends React.Component {
     console.log("hiiii", this.state.email, this.state.password)
     auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
       .then(() => {
-
         firebase.database().ref('Users/' + auth().currentUser.uid).set({
-          username: userName,
+          username: this.state.userName,
           email: this.state.email,
           password: this.state.password,
-          courses: {
-            course1: {
-              name: 'mastering piano',
-              isRegistered: false,
-              fee: '2000'
-            },
-            course2: {
-              name: 'mastering guitar',
-              isRegistered: false,
-              fee: '2000'
-            }
-          }
           // lname
         }).then((data) => {
           //success callback
-          console.log('data ', data)
+          console.log('dsucsessfully creatd uder data into datbase ', )
         }).catch((error) => {
           //error callback
           console.log('error ', error)

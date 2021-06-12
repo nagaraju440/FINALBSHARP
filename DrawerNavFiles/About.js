@@ -45,6 +45,7 @@ class Aboutpage extends React.Component {
   }
 
   componentDidMount = () => {
+    console.log("i am about page hehe")
     firebase
       .database()
       .ref('/Courses')
@@ -89,7 +90,7 @@ class Aboutpage extends React.Component {
     return (
       <View style={{backgroundColor: 'white'}}>
         {/* <StackNav /> */}
-        <StackNav />
+        {/* <StackNav /> */}
         <ScrollView>
           <View style={styles.outerbox}>
             <View style={styles.imagestyle}>

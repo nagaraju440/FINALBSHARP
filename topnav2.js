@@ -50,6 +50,7 @@ import RNUpiPayment from 'react-native-upi-pay';
 import auth from '@react-native-firebase/auth';
 import { NavigationActions } from 'react-navigation'
 import Floatstack from './screens/float'
+import { EventRegister } from 'react-native-event-listeners'
 var firebase = require("firebase");
 var config = {
   databaseURL: "https://sample-b0875.firebaseio.com/",
@@ -83,7 +84,7 @@ const actions = [
 
 class Courses extends React.Component {
   constructor(props){
-    super();
+    super(props);
     this.state={
         Status:"", txnId:"",
         name:'',
@@ -94,13 +95,16 @@ class Courses extends React.Component {
         batchNo:''
     }
 }
-  // componentDidMount=()=>{
+  componentDidMount=()=>{
+    console.log(this.props,"is props hiii")
+    // this.props.navigation.popToTop()
+
   //   auth()
   // .signOut()
   // .then(() => console.log('User signed out!')
   
   // );
-  // }
+  }
   click=()=>{
     console.log("registering",this.state,this.props.route.params.data)
     
@@ -110,12 +114,14 @@ class Courses extends React.Component {
     console.log("hehehheeheheh")
   }
   componentDidMount=()=>{
+    // EventRegister.emit('loadData', 'it works!!!')
     LogBox.ignoreLogs(['Animated: `useNativeDriver`']);
     this.setState({courseData:this.props.route.params.data,batchNo:this.props.route.params.batchNo})
     // console.log(this.props.route.params,"topnav2.js")
   }
   
     render() {
+      // console.log("hehehhehhe",this.props.navigation.navigate)
     var that=this;
      function uuidv4() {
         return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
@@ -124,6 +130,9 @@ class Courses extends React.Component {
         });
       }
       function floo(){
+        
+        that.props.navigation.popToTop()
+
         // console.log("random uid is",uuidv4(),that.props.route.params)
         console.log("waiting for money")
           RNUpiPayment.initializePayment({
@@ -200,8 +209,9 @@ class Courses extends React.Component {
            BatchNo:that.props.route.params.batchNo
           }).then(l=>{
             console.log("sucsessfully registerd")
-            alert("sucsessfully registered for the course")
-            that.props.navigation.navigate('About')
+            alert("sucsessfully registered for the course") 
+            that.props.navigation.popToTop()
+           EventRegister.emit('loadData', 'it works!!!')
           })
         });
     }

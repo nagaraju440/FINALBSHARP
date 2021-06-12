@@ -33,22 +33,56 @@ import UserPage from '../Navigations/UserPage'
 import DrawerContent from '../Navigations/DrawerContent';
 import Settings from '../DrawerNavFiles/Settings'
 import DashBoardIcon from '../Icons/DashBoardIcon';
+import { floor } from 'react-native-reanimated';
+import ClassOrAbout from './ClassOrAbout'
+import auth from '@react-native-firebase/auth';
+var firebase = require("firebase");
+var config = {
+  databaseURL: "https://sample-b0875.firebaseio.com/",
+  projectId: "sample-b0875",
+};
+if (!firebase.apps.length) {
+  firebase.initializeApp(config);
+}
 const Stack = new createStackNavigator();
+var x,y
 
-
+    // firebase.database().ref('/Users/'+auth().currentUser.uid+'/Courses')
+    // .once('value')
+    //    .then((snapshot) => {
+    //        var i=0
+    //    console.log(snapshot.val())
+    //    if(snapshot.val()!=null){
+    //        i++
+    //     x=About
+    //    }else{
+    //    x=About
+    //    }
+      
+    //    console.log("x is",x,y)
+       
+    //    })
+  
+       
+      
+    
+  
 const TopNav4=({ navigation })=> {
-    console.log('hii About:TopNav4');
+    
+    console.log('hii About:TopNav4',x);
     // console.log(props.route.params.Params,"hloooooooo")
+   
+    
+   
     return (
             //--------------- Creating stack navigation for TopNav-------------------
             // <NavigationContainer>
                <Stack.Navigator>        
                    <Stack.Screen 
                          name="About" 
-                         component={About}
+                         component={ClassOrAbout}
                          options={{headerShown: false}}
                         />
-
                         <Stack.Screen name="NotificationPage" component={NotificationPage} />
                         <Stack.Screen name="UserPage" component={UserPage} />
                         <Stack.Screen name="UserPage1" component={UserPage} />
