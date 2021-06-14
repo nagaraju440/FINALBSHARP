@@ -39,16 +39,21 @@ import TopNav2 from '../TopNavs/TopNav2';
 import TopNav3 from '../TopNavs/TopNav3';
 import TopNav4 from '../TopNavs/TopNav4';
 import TopNav5 from '../TopNavs/TopNav5';
-import TopNav6 from '../TopNavs/TopNav6';
+
+// import TopNav6 from '../TopNavs/TopNav6';
 const Stack = new createStackNavigator();
 const Drawer = createDrawerNavigator();
-function Drawernavi(route, navigation) {
+
+function Drawernavi(props) {
+ console.log("i am topnav.js",props)
   return (
     <>
       {/* -------------------------------creating Navigation Container------------------------------             */}
       {/* <NavigationContainer> */}
       {/* --------------------------------creating Drawer navigation--------------------------------         */}
       <Drawer.Navigator
+      
+      initialRouteName={props.props}
         onChange={() => {
           console.log('clicked');
         }}
@@ -62,18 +67,18 @@ function Drawernavi(route, navigation) {
         )}>
         {/* --------------------------------creating Drawer Screens---------------------------------- */}
         <Drawer.Screen
-          name="Dashboard"
-          component={TopNav1}
-          options={{
-            headerShown: false,
-            drawerIcon: ({focused, size}) => <DashBoardIcon />,
-          }}
-        />
-        <Drawer.Screen
           name="MyCourses"
           component={MyCourses}
           options={{
             drawerIcon: ({focused, size}) => <MyCourseIcon />,
+          }}
+        />
+<Drawer.Screen
+          name="Home"
+          component={About}
+          options={{
+            headerShown: false,
+            drawerIcon: ({focused, size}) => <DashBoardIcon />,
           }}
         />
         <Drawer.Screen

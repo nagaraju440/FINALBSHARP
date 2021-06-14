@@ -62,10 +62,10 @@ class Aboutpage extends React.Component {
     return (
       <View>
         <Text>hiiii</Text>
-        {this.state.getkeys.map((i) => {
+        {this.state.getkeys.map((i,i1) => {
           console.log('hiiii---------------');
           return (
-            <View>
+            <View key={i1}>
               <Text>hiii</Text>
             </View>
           );
@@ -84,7 +84,7 @@ class Aboutpage extends React.Component {
   };
   render() {
     {
-      console.log('this is firebase keys', this.state.getkeys);
+      console.log('this is firebase keys', this.state.getkeys,"i am about");
     }
 
     return (
@@ -134,10 +134,10 @@ class Aboutpage extends React.Component {
                 and and stuff.
               </Text> */}
             </View>
-            {this.state.getvalues.map((i) => {
+            {this.state.getvalues.map((i,l) => {
               console.log('hiiii---------------');
               return (
-                <View style={styles.sunilc}>
+                <View style={styles.sunilc} key={l}>
                   <View style={styles.image}>
                     <Image source={Piano} style={styles.piano1}></Image>
                   </View>

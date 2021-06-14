@@ -47,9 +47,9 @@ componentDidMount=()=>{
         <ScrollView horizontal
         showsHorizontalScrollIndicator={false}> 
         {
-          this.state.data.map(l=>{
+          this.state.data.map((l,i)=>{
             return(
-              <View style={{height:276,width:169,borderWidth:3,borderColor:'#EEEEEE',borderRadius:5,marginLeft:10}}>
+              <View key={i} style={{height:276,width:169,borderWidth:3,borderColor:'#EEEEEE',borderRadius:5,marginLeft:10}}>
            <Image
             source={{uri:l.imgUrl}}
             style={{width:76,height:76,borderRadius:76,marginTop:5,marginLeft:45}}>

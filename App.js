@@ -29,6 +29,8 @@ import {NavigationContainer} from '@react-navigation/native';
 import SwitchNav from './Authentication/Switch';
 import Drawernavi from './Navigations/TopNav';
 import auth from '@react-native-firebase/auth';
+import Decide from './Navigations/Decide'
+// import Decide from './navigations/Decide'
 // import { NavigationContainer } from '@react-navigation/native';
 // import Tanpura from './floating/tanpura'
 // import Stack100 from './StackTesting/Stack'
@@ -75,7 +77,8 @@ class App extends React.Component {
 
     if (this.state.x == 1) {
       return (<NavigationContainer>
-        <Drawernavi />
+        {/* <Drawernavi /> */}
+        <Decide/>
 
       </NavigationContainer>
       )
