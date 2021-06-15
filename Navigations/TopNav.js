@@ -39,6 +39,7 @@ import TopNav2 from '../TopNavs/TopNav2';
 import TopNav3 from '../TopNavs/TopNav3';
 import TopNav4 from '../TopNavs/TopNav4';
 import TopNav5 from '../TopNavs/TopNav5';
+import Home from '../DrawerNavFiles/Home';
 
 // import TopNav6 from '../TopNavs/TopNav6';
 const Stack = new createStackNavigator();
@@ -70,12 +71,12 @@ function Drawernavi(props) {
           name="MyCourses"
           component={MyCourses}
           options={{
-            drawerIcon: ({focused, size}) => <MyCourseIcon />,
+            drawerIcon: ({focused, size}) => <MyCourseIcon />
           }}
         />
 <Drawer.Screen
           name="Home"
-          component={About}
+          component={Home}
           options={{
             headerShown: false,
             drawerIcon: ({focused, size}) => <DashBoardIcon />,
