@@ -22,7 +22,8 @@ export default class Home extends Component {
       }
     
       componentDidMount = () => {
-        console.log("i am about page hehe")
+        //   console.log(this.props.route)
+
         firebase
           .database()
           .ref('/Courses')
@@ -56,6 +57,8 @@ export default class Home extends Component {
                 <StackNav></StackNav>
                <ScrollView>
                 <View style={styles.outerbox}>
+              <Text style={styles.text1style}>Courses</Text>
+
                 {this.state.getvalues.map((i,l) => {
               console.log('hiiii---------------');
               return (
@@ -81,11 +84,20 @@ export default class Home extends Component {
                     <View style={styles.flex}>
                       <TouchableOpacity
                         onPress={() =>
-                          this.props.navigation.navigate({name:'ViewCourse',params:i})
+                          this.props.navigation.navigate({name:'Video',params:i})
                         }>
                         <Text style={styles.registerBtn}>View Demo</Text>
                       </TouchableOpacity>
                       {/* <Text style={styles.teacherBtn}>{i.teacher.name}</Text> */}
+                      <TouchableOpacity
+                      
+
+                        onPress={() =>
+                            this.props.navigation.navigate({name:'ViewCourse',params:i})
+                        }
+                        >
+                        <Text style={styles.registerBtn1}>Book for a Demo Class</Text>
+                      </TouchableOpacity>
                     </View>
                   </View>
                 </View>
@@ -123,7 +135,7 @@ const styles = StyleSheet.create({
       fontSize: 16,
       color: '#000000',
       fontWeight: 'bold',
-      marginTop: 41,
+    //   marginTop: 21,
     },
     text2style: {
       fontFamily: 'Raleway',
@@ -339,6 +351,18 @@ const styles = StyleSheet.create({
       textAlign: 'center',
       textAlignVertical: 'center',
     },
+    registerBtn1: {
+        color: '#fff',
+        fontSize: 11,
+        fontFamily: 'Poppins',
+        height: 28,
+        width: 142,
+        backgroundColor: '#2C57EF',
+        borderRadius: 6,
+        textAlign: 'center',
+        textAlignVertical: 'center',
+        marginLeft:20
+      },
     teacherBtn: {
       color: '#292929',
       fontSize: 11,

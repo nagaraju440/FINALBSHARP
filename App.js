@@ -48,6 +48,8 @@ import Floatstack from './screens/Floatstack'
 import Metro from './floating/metro'
 import database from '@react-native-firebase/database';
 import firebase from "@react-native-firebase/app";
+import StackNav from './TopNavs/stack';
+import StackNavi from './Navigations/StackNavi';
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -78,7 +80,8 @@ class App extends React.Component {
     if (this.state.x == 1) {
       return (<NavigationContainer>
         {/* <Drawernavi /> */}
-        <Decide/>
+        {/* <Decide/> */}
+        <StackNavi/>
 
       </NavigationContainer>
       )
