@@ -44,7 +44,8 @@ import com.facebook.reactnative.androidsdk.FBSDKPackage;
 import com.facebook.CallbackManager;
 // import io.invertase.firebase.auth.RNFirebaseAuthPackage; 
 // import io.invertase.firebase.modules.app.ReactNativeFirebaseAppPackage;
-
+import io.invertase.firebase.messaging.RNFirebaseMessagingPackage; 
+// import io.invertase.firebase.notifications.RNFirebaseNotificationsPackage;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -66,6 +67,8 @@ public class MainApplication extends Application implements ReactApplication {
           return 
           
             Arrays.<ReactPackage>asList(
+          packages.add(new RNFirebaseMessagingPackage()),
+
             new MainReactPackage(),
             new ReactVideoPackage(),
             // new UpiPaymentPackage(),
@@ -89,7 +92,9 @@ public class MainApplication extends Application implements ReactApplication {
             new RNGoogleSigninPackage() ,
             new ReactNativeFirebaseAppPackage(),
               new ReactNativeFirebaseAuthPackage(),
-               new SafeAreaContextPackage()
+               new SafeAreaContextPackage(),
+               new ReactNativeFirebaseMessagingPackage(),
+              //  new RNFirebaseNotificationsPackage()
             //  new RNFirebaseAuthPackage()
             // new ReactNativeFirebaseAppPackage()
             );

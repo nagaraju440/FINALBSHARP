@@ -19,6 +19,7 @@ import Notification from '../Icons/Notification';
 import User from '../Icons/User';
 import StackNav from '../TopNavs/stack';
 class MyCourses extends React.Component {
+ 
   render() {
     return (
       <View style={{backgroundColor: 'white'}}>
