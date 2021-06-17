@@ -42,7 +42,7 @@ export default class FoundersCourosel extends React.Component {
   componentDidMount = () => {
     firebase
       .database()
-      .ref('/teachers')
+      .ref('/Founders')
       .once('value')
       .then((snapshot) => {
         //  console.log('User data: ', Object.values(snapshot.val())),
@@ -55,7 +55,8 @@ export default class FoundersCourosel extends React.Component {
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {this.state.data.map((l, i) => {
             return (
-              <View key={i} style={{height:300, width: 180,alignItems:'center',borderColor:'gery',borderWidth:1,marginRight:10,marginTop:20,borderRadius:10,padding:5, }}>
+            <ScrollView>
+                <View key={i} style={{height:350, width: 180,alignItems:'center',borderColor:'gery',borderWidth:1,marginRight:10,marginTop:20,borderRadius:10,padding:5, }}>
                 <Image
                   source={{uri: l.imgUrl}}
                   style={{
@@ -75,6 +76,7 @@ export default class FoundersCourosel extends React.Component {
                 </Text>
                 <Text style={{textAlign:'center',fontSize:11,fontWeight:'300',color:'#2A2A2D', textAlign:'justify',padding:10,lineHeight:15,}}>{l.description}</Text>
               </View>
+            </ScrollView>
             );
           })}
         </ScrollView>
