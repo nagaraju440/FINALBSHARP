@@ -15,6 +15,7 @@ import {
   ActivityIndicator,
   LogBox,
   Linking,
+  SnapshotViewIOSBase,
 } from 'react-native';
 import {
   TextField,
@@ -23,26 +24,57 @@ import {
 } from 'react-native-material-textfield';
 import { initialWindowMetrics } from 'react-native-safe-area-context';
 import auth from '@react-native-firebase/auth';
+import firestore from '@react-native-firebase/firestore';
 import database from '@react-native-firebase/database';
+// import firebase from "@react-native-firebase/app";
+
+var firebase = require("firebase");
+
 
 class Signupp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       check: false,
-      username: '',
+      userName: '',
       password: '',
       email: '',
       x: 0,
       l: 0,
     };
   }
+
+  componentDidMount = () => {
+
+    var config = {
+      databaseURL: "https://sample-b0875.firebaseio.com/",
+      projectId: "sample-b0875",
+    };
+    if (!firebase.apps.length) {
+      firebase.initializeApp(config);
+    }
+
+  }
+
   signupbuttonclicking = () => {
     console.log("trying to sign up")
     // this.setState({l:1});
     console.log("hiiii", this.state.email, this.state.password)
     auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
       .then(() => {
+        firebase.database().ref('Users/' + auth().currentUser.uid).set({
+          username: this.state.userName,
+          email: this.state.email,
+          password: this.state.password,
+          // lname
+        }).then((data) => {
+          //success callback
+          console.log('dsucsessfully creatd uder data into datbase ', )
+        }).catch((error) => {
+          //error callback
+          console.log('error ', error)
+        })
+
         console.log('User account created & signed in!');
         alert("User account created and please log in")
         // console.log("here akso we get uid bro",auth())
@@ -63,6 +95,10 @@ class Signupp extends React.Component {
 
         console.error(error);
       });
+
+
+
+
     // this.props.navigation.navigate('Aboutpage')
   }
   render() {
@@ -85,7 +121,7 @@ class Signupp extends React.Component {
                 color: '#B0B0B0',
               }}
               // onChangeText={(email) => this.setState({email})}
-              value={this.state.email}
+              value={this.state.userName}
               containerStyle={{ height: 46, borderRadius: 15 }}
               inputContainerStyle={{ height: 46 }}
               baseColor="black"

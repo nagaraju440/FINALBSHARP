@@ -23,21 +23,23 @@ import {
 } from 'react-native-material-textfield';
 import { initialWindowMetrics } from 'react-native-safe-area-context';
 import auth from '@react-native-firebase/auth';
+import database from '@react-native-firebase/database';
 import { LoginManager, AccessToken, LoginButton } from 'react-native-fbsdk';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
+var firebase = require("firebase");
 
 
 var x = 0;
 
 // var y=LoginManager.getInstance()
 async function onFacebookButtonPress() {
-  console.log(LoginManager.logInWithPermissions,"here also ima wrote this")
+  console.log(LoginManager.logInWithPermissions, "here also ima wrote this")
 
   // LoginManager.setLoginBehavior(WEB_ONLY);
 
   // Attempt login with permissions
   // console.log(LoginManager.logInWithPermissions,"this is the reason bro");
-  // LoginManager.logOut();
+  LoginManager.logOut();
   // console.log(LoginManager.getDefaultAudience(), LoginManager.logOut())
   // y.logOut();
 
@@ -64,6 +66,9 @@ async function onFacebookButtonPress() {
   return auth().signInWithCredential(facebookCredential);
 }
 
+
+
+
 /*************************************Google Login ************************/
 
 GoogleSignin.configure({
@@ -72,6 +77,8 @@ GoogleSignin.configure({
 
 async function onGoogleButtonPress() {
   // Get the users ID token
+  // await GoogleSignin.revokeAccess();
+  await GoogleSignin.signOut();
   const { idToken } = await GoogleSignin.signIn();
 
   // Create a Google credential with the token
@@ -104,8 +111,95 @@ class Login extends React.Component {
       l: 0,
     };
   }
-  componentDidMount=()=>{
+  componentDidMount = () => {
+    var config = {
+      databaseURL: "https://sample-b0875.firebaseio.com/",
+      projectId: "sample-b0875",
+    };
+    if (!firebase.apps.length) {
+      firebase.initializeApp(config);
+    }
+
+
     console.log(LoginManager.logInWithPermissions)
+  }
+  addingFacebookDetails = () => {
+    console.log("auth details of facebook user", auth().currentUser);
+    firebase.database().ref('/Users/' + auth().currentUser.uid)
+      .on('value', snapshot => {
+        console.log('User data of facebook: ', snapshot.val());
+        if (snapshot.val() === null) {
+          firebase.database().ref('Users/' + auth().currentUser.uid).set({
+            username: auth().currentUser.displayName,
+            email: auth().currentUser.email,
+            courses: {
+              course1: {
+                name: 'mastering piano',
+                isRegistered: false,
+                fee: '2500'
+              },
+              course2: {
+                name: 'mastering guitar',
+                isRegistered: false,
+                fee: '2500'
+              }
+            }
+            // password: this.state.password,
+            // lname
+          }).then((data) => {
+            //success callback
+            console.log('data ', data)
+          }).catch((error) => {
+            //error callback
+            console.log('error ', error)
+          })
+        }
+        else {
+          console.log("FaceBook User already Exists");
+        }
+      });
+
+
+  }
+
+  addingGoogleDetails = () => {
+    console.log("auth details of google user", auth().currentUser);
+
+
+    firebase.database().ref('/Users/' + auth().currentUser.uid)
+      .on('value', snapshot => {
+        console.log('User data of GOogle: ', snapshot.val());
+        if (snapshot.val() === null) {
+          // firebase.database().ref('/Courses')
+          firebase.database().ref('Users/' + auth().currentUser.uid).set({
+            username: auth().currentUser.displayName,
+            email: auth().currentUser.email,
+            courses: {
+              course1: {
+                name: 'mastering piano',
+                isRegistered: false,
+                fee: '2500'
+              },
+              course2: {
+                name: 'mastering guitar',
+                isRegistered: false,
+                fee: '2500'
+              }
+            }
+            // password: this.state.password,
+            // lname
+          }).then((data) => {
+            //success callback
+            console.log('data ', data)
+          }).catch((error) => {
+            //error callback
+            console.log('error ', error)
+          })
+        }
+        else {
+          console.log("Google User already Exists");
+        }
+      });
   }
   login = () => {
     this.setState({ l: 1 })
@@ -139,7 +233,7 @@ class Login extends React.Component {
 
         })
         .catch(error => {
-          alert(error.code) 
+          alert(error.code)
           this.setState({ l: 0 })
           // if (error.code === 'auth/invalid-email') {
           //   console.log('That email address is invalid!');
@@ -148,8 +242,9 @@ class Login extends React.Component {
         })
     }
   }
-
-
+createFacebookAccount=()=>{
+   
+}
 
 
   render() {
@@ -247,7 +342,10 @@ class Login extends React.Component {
               height: 53,
             }}>
             <TouchableOpacity style={styles.google}
-              onPress={() => onGoogleButtonPress().then(() => console.log('Signed in with Google!'))}
+              onPress={() => onGoogleButtonPress().then(() => {
+                this.addingGoogleDetails()
+                console.log('Signed in with Google!')
+              })}
             >
               <Image source={require('../images/google.png')} />
               <Text style={{ fontSize: 16, color: 'white', fontWeight: 'bold' }}>
@@ -265,7 +363,10 @@ class Login extends React.Component {
             }}>
             <TouchableOpacity style={styles.fb}
               onPress={() => {
-                onFacebookButtonPress().then(() => console.log('Signed in with Facebook!'))
+                onFacebookButtonPress().then(() => {
+                  this.addingFacebookDetails()
+                  console.log('Signed in with Facebook!')
+                })
               }}>
               <Image source={require('../images/Facebook.png')} />
               <Text style={{ fontSize: 16, color: 'white', fontWeight: 'bold' }}>

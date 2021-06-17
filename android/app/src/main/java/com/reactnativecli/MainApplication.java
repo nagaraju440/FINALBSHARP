@@ -3,7 +3,15 @@ package com.reactnativecli;
 import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
-import com.facebook.react.ReactApplication; 
+import com.facebook.react.ReactApplication;
+import io.invertase.firebase.messaging.ReactNativeFirebaseMessagingPackage;
+import com.brentvatne.react.ReactVideoPackage;
+// import com.upi.payment.UpiPaymentPackage;
+import com.upiPay.UpiPayPackage;
+// import com.upi.payment.UpiPaymentPackage;
+// import com.upi.payment.UpiPaymentPackage;
+// import com.reactnativecommunity.webview.RNCWebViewPackage;
+// import com.upi.payment.UpiPaymentPackage; 
 // import com.reatnativecli.RNMetronomePackage;
 import com.zmxv.RNSound.RNSoundPackage;
 import com.reactnativecli.HelloWorldPackage;
@@ -37,7 +45,8 @@ import com.facebook.reactnative.androidsdk.FBSDKPackage;
 import com.facebook.CallbackManager;
 // import io.invertase.firebase.auth.RNFirebaseAuthPackage; 
 // import io.invertase.firebase.modules.app.ReactNativeFirebaseAppPackage;
-
+// import io.invertase.firebase.messaging.RNFirebaseMessagingPackage; 
+// import io.invertase.firebase.notifications.RNFirebaseNotificationsPackage;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -59,7 +68,17 @@ public class MainApplication extends Application implements ReactApplication {
           return 
           
             Arrays.<ReactPackage>asList(
+          // packages.add(new RNFirebaseMessagingPackage()),
+
             new MainReactPackage(),
+            new ReactNativeFirebaseMessagingPackage(),
+            new ReactVideoPackage(),
+            // new UpiPaymentPackage(),
+            new UpiPayPackage(),
+            // new UpiPaymentPackage(),
+            // new UpiPaymentPackage(),
+            // new RNCWebViewPackage(),
+            // new UpiPaymentPackage(),
             // new RNMetronomePackage(),
             new RNSoundPackage(),
             // new LinearGradientPackage(),
@@ -76,6 +95,8 @@ public class MainApplication extends Application implements ReactApplication {
             new ReactNativeFirebaseAppPackage(),
               new ReactNativeFirebaseAuthPackage(),
                new SafeAreaContextPackage()
+              //  new ReactNativeFirebaseMessagingPackage()
+              //  new RNFirebaseNotificationsPackage()
             //  new RNFirebaseAuthPackage()
             // new ReactNativeFirebaseAppPackage()
             );

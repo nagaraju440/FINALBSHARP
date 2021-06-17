@@ -22,6 +22,12 @@ target 'reactnativecli' do
 
   pod 'RNMetronome', :path => '../node_modules/react-native-metronome'
 
+  pod 'react-native-webview', :path => '../node_modules/react-native-webview'
+
+  pod 'react-native-video', :path => '../node_modules/react-native-video'
+
+  pod 'RNFBMessaging', :path => '../node_modules/@react-native-firebase/messaging'
+
   target 'reactnativecliTests' do
     inherit! :complete
     # Pods for testing

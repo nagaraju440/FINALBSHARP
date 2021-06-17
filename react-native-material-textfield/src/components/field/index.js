@@ -218,14 +218,15 @@ export default class TextField extends PureComponent {
   startFocusAnimation() {
     let { focusAnimation } = this.state;
     let { animationDuration: duration } = this.props;
-
+    
     let options = {
       toValue: this.focusState(),
+      useNativeDriver:false,
       duration,
     };
-
+    
     startAnimation(focusAnimation, options, this.onFocusAnimationEnd);
-  }
+    }
 
   startLabelAnimation() {
     let { labelAnimation } = this.state;
