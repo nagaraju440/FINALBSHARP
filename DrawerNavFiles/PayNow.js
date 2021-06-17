@@ -5,7 +5,7 @@ import {
   TouchableOpacity,
   ScrollView,
   StyleSheet,
-  Image,
+  Image,Card
 } from 'react-native';
 import Piano from '../images/pianoimage.jpg';
 import auth from '@react-native-firebase/auth';
@@ -27,10 +27,15 @@ export default class PayNow extends Component {
       getvalues: [],
       getvalue2: {},
       noCourses: '',
+      payDetails:{
+
+      }
+      ,
+   date:new Date()
     };
   }
   componentDidMount = () => {
-    //    console.log(this.props)
+       console.log(this.state.date)
 
     firebase
       .database()
@@ -49,6 +54,7 @@ export default class PayNow extends Component {
       });
   };
   mapping = () => {
+      
     return (
       <View>
         <Text>hiiii</Text>
@@ -65,10 +71,27 @@ export default class PayNow extends Component {
   };
   payNow = (i) => {
     console.log(i);
+    this.state.payDetails=i;
+    this.setState({payDetails:this.state.payDetails})
+    firebase.database().ref('/Users/'+auth().currentUser.uid+'/Courses/course'+this.state.payDetails.courseNo+'/Payments/')
+      .push().set({
+          name:'nagaraju',
+          money:1500,
+          payDate:JSON.stringify(this.state.date.getDate()),
+          payMonth:JSON.stringify(this.state.date.getMonth()),
+          payYear:JSON.stringify(this.state.date.getFullYear()),
+          WholeDate:JSON.stringify(this.state.date),
+          details:this.state.payDetails
+      }).then(l=>{
+          console.log("added data")
+      }).catch(l=>{
+
+      })
   };
   render() {
     var that = this;
     function floo(paymentApp) {
+        console.log(paymentApp,"in floo")
       RNUpiPayment.initializePayment(
         {
           vpa: '9347747143@okbizaxis', //your upi address like 12345464896@okhdfcbank
@@ -110,7 +133,20 @@ export default class PayNow extends Component {
       }
     }
     function successCallback(data) {
-      //
+        firebase.database().ref('/Users/'+auth().currentUser.uid+'/Courses/course'+that.state.payDetails.courseNo+'/Payments/')
+        .push().set({
+            name:'nagaraju',
+            money:1500,
+            payDate:JSON.stringify(that.state.date.getDate()),
+            payMonth:JSON.stringify(that.state.date.getMonth()),
+            payYear:JSON.stringify(that.state.date.getFullYear()),
+            WholeDate:JSON.stringify(that.state.date),
+            details:that.state.payDetails,
+        }).then(l=>{
+            console.log("added data")
+        }).catch(l=>{
+  
+        })
       console.log(data);
       that.setState({Status: 'SUCCESS'});
       that.setState({txnId: data['txnId']});
@@ -140,6 +176,7 @@ export default class PayNow extends Component {
             <Text>Go To home page and register for the course</Text>
           </View>
         ) : (
+            
             <ScrollView>
                 {/* <Text style={styles.text1style}>Courses</Text> */}
 
@@ -160,7 +197,7 @@ export default class PayNow extends Component {
                         onPress={
                           () => {
                             this.payNow(i);
-                            floo();
+                            floo(i);
                           }
                           //   this.props.navigation.navigate({name:'Video',params:i})
                         }>
@@ -255,14 +292,17 @@ const styles = StyleSheet.create({
     borderRadius: 15,
   },
   sunilc: {
-    width: '100%',
+    width: '95%',
     height: 50,
     // backgroundColor:"blue",
     marginTop:10,
     flexDirection: 'row',
     justifyContent: 'space-between',
-
     padding: 15,
+    borderRadius:10,
+    borderWidth:1,
+    marginLeft:10
+    // borderColor:'grey'
   },
   sunilcborderwidth: {
     borderRadius: 6,
