@@ -55,13 +55,13 @@ export default class FoundersCourosel extends React.Component {
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {this.state.data.map((l, i) => {
             return (
-              <View key={i} style={{height:300, width: 180,alignItems:'center',borderColor:'gery',borderWidth:1,marginRight:10,marginTop:20,borderRadius:10,padding:5, }}>
+              <View key={i} style={{height:300, width: 190,alignItems:'center',borderColor:'gery',borderWidth:1,marginRight:10,marginTop:20,borderRadius:10,padding:5, }}>
                 <Image
                   source={{uri: l.imgUrl}}
                   style={{
                     width: 80,
                     height: 80,
-                    borderRadius: 76,
+                       borderRadius: 76,
                     marginTop: 15,
                   }}></Image>
                 <Text
