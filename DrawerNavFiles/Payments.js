@@ -19,61 +19,17 @@ import StackNav from '../TopNavs/stack';
 import getTheme from '../native-base-theme/components';
 import material from '../native-base-theme/variables/material';
 import { Container, Header, Tab, Tabs, TabHeading, Icon, StyleProvider} from 'native-base';
-function Payments({navigation}) {
+import PayNow from './PayNow';
+function Payments(props) {
   return (
-    <View style={{backgroundColor: 'white', height: 800}}>
-      {/* .............................top bsharp header ....................... */}
-      {/* <View>
-        <View
-          style={{
-            width: '100%',
-            height: 57,
-            flexDirection: 'row',
-            alignItems: 'center',
-            borderWidth: 0.0,
-            elevation: 1,
-          }}>
-          <View style={{marginLeft: '6.5%'}}>
-            <TouchableOpacity
-              onPress={() => {
-                navigation.openDrawer();
-              }}>
-              <Menu />
-            </TouchableOpacity>
-          </View>
-          <View style={{marginLeft: '5.5%'}}>
-            <Text
-              style={{fontSize: 18, fontWeight: 'bold', fontFamily: 'Poppins'}}>
-              BS#arp
-            </Text>
-          </View>
-          <View style={{marginLeft: '44.9%'}}>
-            <TouchableOpacity
-              onPress={() => {
-                //   navigation.navigate('NotificationPage')
-              }}>
-              <Notification />
-            </TouchableOpacity>
-          </View>
-          <View style={{marginLeft: '3.5%'}}>
-            <TouchableOpacity
-              onPress={() => {
-                //    navigation.navigate('UserPage')
-              }}>
-              <User />
-            </TouchableOpacity>
-          </View>
-        </View>
-      </View>
-       */}
-      {/* <Text>hi Payments</Text> */}
+    // <View style={{backgroundColor: 'white', height: 800}}>
       <StyleProvider style={getTheme(material)}>
       <Container >
       <StackNav/>
         
         <Tabs>
           <Tab  heading={ <TabHeading><Text>Pay Now</Text></TabHeading>}  >
-          <Text>not available</Text>
+          <PayNow navigation={props.navigation}/>
           </Tab>
          
           <Tab heading={ <TabHeading><Text>History</Text></TabHeading>}>
@@ -83,7 +39,7 @@ function Payments({navigation}) {
         </Tabs>
       </Container>
       </StyleProvider>
-    </View>
+    // </View>
   );
 }
 export default Payments;

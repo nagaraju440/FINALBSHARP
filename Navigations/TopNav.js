@@ -97,6 +97,13 @@ function Drawernavi(props) {
           }}
         />
         <Drawer.Screen
+          name="Teachers"
+          component={About}
+          options={{
+            drawerIcon: ({focused, size}) => <AboutIcon />,
+          }}
+        />
+        <Drawer.Screen
           name="HelpNSupport"
           component={HelpNSupport}
           options={{

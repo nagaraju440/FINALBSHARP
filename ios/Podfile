@@ -26,6 +26,8 @@ target 'reactnativecli' do
 
   pod 'react-native-video', :path => '../node_modules/react-native-video'
 
+  pod 'RNFBMessaging', :path => '../node_modules/@react-native-firebase/messaging'
+
   target 'reactnativecliTests' do
     inherit! :complete
     # Pods for testing
