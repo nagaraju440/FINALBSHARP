@@ -11,85 +11,64 @@ import {
 const {height, width} = Dimensions.get('screen');
 import StackNav from '../TopNavs/stack';
 
-
+var firebase = require('firebase');
+var config = {
+  databaseURL: 'https://sample-b0875.firebaseio.com/',
+  projectId: 'sample-b0875',
+};
+if (!firebase.apps.length) {
+  firebase.initializeApp(config);
+}
 export class Teachers extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: '',
+    };
+  }
+  componentDidMount = () => {
+    firebase
+      .database()
+      .ref('/teachers')
+      .once('value')
+      .then((snapshot) => {
+        //  console.log('User data: ', Object.values(snapshot.val())),
+        this.state.data = [];
+        this.setState({data: this.state.data});
+        this.setState({data: Object.values(snapshot.val())});
+      });
+  };
   render() {
     return (
       <ScrollView>
-          <StackNav/>
-        <View style={styles.teacherCard}>
-          <View style={styles.imageContainer}>
-            <Text>place image here</Text>
-          </View>
-          <View style={styles.cardInfoContainer}>
-            <Text style={styles.text1}>V Ramakrishnan</Text>
+        <StackNav />
+        <View>
+          {this.state.data === '' ? (
             <View>
-              <Text style={styles.text2}>
-                Pro Guitarist, Singer and a Music Enthusiast he has been
-                teaching Guitar for over 10 years. Ram has been actively
-                performing on Stage with various Music bands. Ram has a unique
-                style in mixing Devotional songs with his peppy Guitar music
-                which makes the audience go WOW! A regular member of Shri.
-                Chayanna’s Satsang team.
-              </Text>
-              <Text style={styles.text2}>
-                Ram is also a popular Youth Trainer and Teaches stress
-                management workshops through Art of Living.
-              </Text>
-              <Text style={styles.text2}>
-                Ram takes care of the Guitar training in B’Sharp Music Academy.
-              </Text>
+              <Text>Loading...</Text>
             </View>
-          </View>
-        </View>
-        <View style={styles.teacherCard}>
-          <View style={styles.imageContainer}>
-            <Text>place image here</Text>
-          </View>
-          <View style={styles.cardInfoContainer}>
-            <Text style={styles.text1}>Raviprakash</Text>
+          ) : (
             <View>
-              <Text style={styles.text2}>
-                Ravi Prakash a fantastic classical singer with years of
-                experience performing on stage and concerts. His in depth
-                knowledge of Carnatic Classical music is a boon to the students
-                who learn from him.
-              </Text>
+              {this.state.data.map((l) => {
+                return (
+                  <View style={styles.teacherCard}>
+                    <View style={styles.imageContainer}>
+                      <Image
+                        source={{uri: l.imgUrl}}
+                        style={{width: '100%', height: '100%'}}
+                      />
+                    </View>
+                    <View style={styles.cardInfoContainer}>
+                      <Text style={styles.text1}>{l.name}</Text>
+                      <View>
+                        <Text style={styles.text2}>{l.description}</Text>
+                      </View>
+                    </View>
+                  </View>
+                );
+              })}
             </View>
-          </View>
-        </View>
-        <View style={styles.teacherCard}>
-          <View style={styles.imageContainer}>
-            <Text>place image here</Text>
-          </View>
-          <View style={styles.cardInfoContainer}>
-            <Text style={styles.text1}>Kiran Shankar</Text>
-            <View>
-              <Text style={styles.text2}>
-                Kiran Shankar is a Successful Music Director and Music Producer
-                and has worked with popular music directors in Kannada Film
-                industry. Kiran has performed in, many stage shows. He is also
-                founding member of the Band
-              </Text>
-            </View>
-          </View>
-        </View>
-        <View style={styles.teacherCard}>
-          <View style={styles.imageContainer}>
-            <Text>place image here</Text>
-          </View>
-          <View style={styles.cardInfoContainer}>
-            <Text style={styles.text1}>Sriram</Text>
-            <View>
-              <Text style={styles.text2}>
-                A dedicated Youth who is dedicated to teach Music to the Young
-                and Energetic. Our Youth specialist Keyboard teacher Sriram is
-                passionate about teaching kids and youngsters the art of playing
-                Keyboard. He has performed on All India Radio and has performed
-                many stage shows.
-              </Text>
-            </View>
-          </View>
+          )}
         </View>
       </ScrollView>
     );
@@ -105,6 +84,10 @@ const styles = StyleSheet.create({
     // backgroundColor:'red',
     marginTop: 20,
     alignItems: 'center',
+    borderBottomColor:'#1CC8EE',
+    borderBottomWidth:1,
+    paddingBottom:25,
+
   },
   imageContainer: {
     alignItems: 'center',

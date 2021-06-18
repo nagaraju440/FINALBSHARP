@@ -6,6 +6,7 @@ import {
   ScrollView,
   StyleSheet,
   Image,
+  Card,
 } from 'react-native';
 import Piano from '../images/pianoimage.jpg';
 import auth from '@react-native-firebase/auth';
@@ -27,10 +28,12 @@ export default class PayNow extends Component {
       getvalues: [],
       getvalue2: {},
       noCourses: '',
+      payDetails: {},
+      date: new Date(),
     };
   }
   componentDidMount = () => {
-    //    console.log(this.props)
+    console.log(this.state.date);
 
     firebase
       .database()
@@ -65,10 +68,36 @@ export default class PayNow extends Component {
   };
   payNow = (i) => {
     console.log(i);
+    this.state.payDetails = i;
+    this.setState({payDetails: this.state.payDetails});
+    firebase
+      .database()
+      .ref(
+        '/Users/' +
+          auth().currentUser.uid +
+          '/Courses/course' +
+          this.state.payDetails.courseNo +
+          '/Payments/',
+      )
+      .push()
+      .set({
+        name: 'nagaraju',
+        money: 1500,
+        payDate: JSON.stringify(this.state.date.getDate()),
+        payMonth: JSON.stringify(this.state.date.getMonth()),
+        payYear: JSON.stringify(this.state.date.getFullYear()),
+        WholeDate: JSON.stringify(this.state.date),
+        details: this.state.payDetails,
+      })
+      .then((l) => {
+        console.log('added data');
+      })
+      .catch((l) => {});
   };
   render() {
     var that = this;
     function floo(paymentApp) {
+      console.log(paymentApp, 'in floo');
       RNUpiPayment.initializePayment(
         {
           vpa: '9347747143@okbizaxis', //your upi address like 12345464896@okhdfcbank
@@ -110,7 +139,29 @@ export default class PayNow extends Component {
       }
     }
     function successCallback(data) {
-      //
+      firebase
+        .database()
+        .ref(
+          '/Users/' +
+            auth().currentUser.uid +
+            '/Courses/course' +
+            that.state.payDetails.courseNo +
+            '/Payments/',
+        )
+        .push()
+        .set({
+          name: 'nagaraju',
+          money: 1500,
+          payDate: JSON.stringify(that.state.date.getDate()),
+          payMonth: JSON.stringify(that.state.date.getMonth()),
+          payYear: JSON.stringify(that.state.date.getFullYear()),
+          WholeDate: JSON.stringify(that.state.date),
+          details: that.state.payDetails,
+        })
+        .then((l) => {
+          console.log('added data');
+        })
+        .catch((l) => {});
       console.log(data);
       that.setState({Status: 'SUCCESS'});
       that.setState({txnId: data['txnId']});
@@ -140,37 +191,33 @@ export default class PayNow extends Component {
             <Text>Go To home page and register for the course</Text>
           </View>
         ) : (
-            <ScrollView>
-                {/* <Text style={styles.text1style}>Courses</Text> */}
+          <ScrollView>
+            {/* <Text style={styles.text1style}>Courses</Text> */}
+            <View style={{flex:1,alignItems:'center'}}>
 
-                {this.state.getvalues.map((i, l) => {
-                  console.log('hiiii---------------');
-                  return (
-                    <View style={styles.sunilc} key={l}>
-                      {/* <View style={styles.image}>
-                    <Image source={Piano} style={styles.piano1}></Image>
-                  </View> */}
-                      {/* <View style={styles.flex}> */}
-                      {/* <Text style={styles.language}>Telugu</Text> */}
-                      <Text style={styles.courseName}>{i.name}</Text>
-                      {/* <Text style={styles.courseCost}>₹{i.fees}</Text> */}
-                      {/* </View> */}
+            {this.state.getvalues.map((i, l) => {
+              console.log('hiiii---------------');
+              return (
+                <View style={styles.sunilc} key={l}>
+                  <Text style={styles.courseName}>{i.name}</Text>
 
-                      <TouchableOpacity
-                        onPress={
-                          () => {
-                            this.payNow(i);
-                            floo();
-                          }
-                          //   this.props.navigation.navigate({name:'Video',params:i})
-                        }>
-                        <Text style={styles.registerBtn}>Pay Now</Text>
-                      </TouchableOpacity>
-                      {/* <Text style={styles.teacherBtn}>{i.teacher.name}</Text> */}
-                    </View>
-                  );
-                })}
-            </ScrollView>
+                  <TouchableOpacity
+                    onPress={
+                      () => {
+                        this.payNow(i);
+                        floo(i);
+                      }
+                      //   this.props.navigation.navigate({name:'Video',params:i})
+                    }
+                    style={styles.btnBg}>
+                    <Text style={styles.registerBtn}>Pay Now</Text>
+                  </TouchableOpacity>
+                  {/* <Text style={styles.teacherBtn}>{i.teacher.name}</Text> */}
+                </View>
+              );
+            })}
+            </View>
+          </ScrollView>
         )}
       </View>
     );
@@ -178,264 +225,48 @@ export default class PayNow extends Component {
 }
 
 const styles = StyleSheet.create({
-
-  topnavstyle: {
-    width: 418.39,
-    height: 57,
-    // position:"fixed",
-  },
-  imagestyle: {
-    // width:"100%",
-    // height:233,
-    // backgroundColor:"whitesmoke",
-  },
-  text1style: {
-    fontFamily: 'Poppins',
-    fontSize: 16,
-    color: '#000000',
-    fontWeight: 'bold',
-    //   marginTop: 21,
-  },
-  text2style: {
-    fontFamily: 'Raleway',
-    fontSize: 12,
-    color: '#000000',
-    lineHeight: 20,
-    //    letterSpacing:0.1,
-    marginTop: 20,
-  },
-  descriptionstyle: {
-    fontFamily: 'Raleway',
-    fontSize: 12,
-    color: '#000000',
-    lineHeight: 20,
-    //    letterSpacing:0.1,
-    marginTop: 10,
-  },
-  text3style: {
-    fontFamily: 'Poppins',
-    fontSize: 18,
-    color: '#000000',
-    lineHeight: 20,
-    fontWeight: 'bold',
-    marginTop: 25,
-  },
-  forthreeboxes: {
-    marginTop: 39,
-  },
-  piano1: {
-    width: '100%',
-    height: '100%',
-    borderTopRightRadius: 15,
-    borderTopLeftRadius: 15,
-  },
-  forfirstbox: {
-    width: '42.88%',
-    height: 219,
-    backgroundColor: '#EEEEEE',
-    borderRadius: 15,
-  },
-  forsecondbox: {
-    marginLeft: 15,
-    marginTop: 44,
-    width: '51.41%',
-    height: 175,
-    backgroundColor: '#EEEEEE',
-    borderRadius: 15,
-  },
-  fortwoboxes: {
-    flexDirection: 'row',
-  },
-  forthirdbox: {
-    // marginLeft:15,
-    marginTop: 15,
-    width: '100%',
-    height: 175,
-    backgroundColor: '#EEEEEE',
-    borderRadius: 15,
-  },
+ 
   sunilc: {
-    width: '100%',
+    width: '95%',
     height: 50,
     // backgroundColor:"blue",
-    marginTop:10,
+    marginTop: 20,
     flexDirection: 'row',
     justifyContent: 'space-between',
-
     padding: 15,
+    borderRadius: 10,
+    borderWidth: 1,
+    // marginLeft: 10,
+    // borderColor:'grey'
+    alignItems:'center'
   },
-  sunilcborderwidth: {
-    borderRadius: 6,
-    borderColor: 'whitesmoke',
-    borderWidth: 3,
-    height: 130,
-    // borderRadius:15,
-    marginTop: -1,
-
-    borderBottomLeftRadius: 15,
-    borderBottomRightRadius: 15,
-  },
-  sunilc1: {
-    width: '100%',
-    height: 523,
-    // backgroundColor:"whitesmoke",
-    marginTop: 25,
-  },
-  teacherstyle: {
-    fontFamily: 'Poppins',
-    fontSize: 18,
-    color: '#000000',
-    fontWeight: 'bold',
-    marginTop: 50,
-  },
-  haricstyle: {
-    width: '100%',
-    height: 236,
-    // backgroundColor:"whitesmoke",
-    marginTop: 25,
-  },
-  achive: {
-    marginTop: 25,
-    width: '100%',
-    height: 392,
-    // backgroundColor:"whitesmoke",
-    flexDirection: 'row',
-  },
-  achive1: {
-    width: '58%',
-    height: '100%',
-  },
-  achive2: {
-    width: '38%',
-    height: '100%',
-    marginLeft: 9,
-  },
-  achive3: {
-    width: '100%',
-    height: 152,
-  },
-  img1: {
-    width: '100%',
-    height: 111,
-    borderRadius: 15,
-    marginTop: 8,
-  },
-  twoimgachive1: {
-    flexDirection: 'row',
-    width: '100%',
-    height: 152,
-    marginTop: 8,
-  },
-  img3: {
-    width: '48%',
-    height: 152,
-    borderRadius: 15,
-  },
-  img4: {
-    width: '48%',
-    height: 152,
-    borderRadius: 15,
-    marginLeft: 8,
-  },
-  img5: {
-    width: '100%',
-    height: 133,
-    borderRadius: 15,
-    marginTop: 8,
-  },
-  img7: {
-    width: '100%',
-    height: 108,
-    borderRadius: 15,
-    marginTop: 8,
-  },
-  //  suni gadi stylings
-  image: {
-    width: '100%',
-    height: 200,
-    backgroundColor: 'lightgrey',
-    justifyContent: 'center',
-    borderTopStartRadius: 15,
-    borderTopRightRadius: 15,
-    alignContent: 'center',
-    alignItems: 'center',
-  },
-  flex: {
-    marginTop: 18,
-    display: 'flex',
-    flexDirection: 'row',
-    marginLeft: 15,
-  },
-  language: {
-    backgroundColor: 'lightgrey',
-    height: 10,
-    width: 30,
-    textAlign: 'center',
-    alignContent: 'center',
-    borderRadius: 8,
-    fontSize: 7,
-    fontFamily: 'poppins',
-    marginTop: 5,
-    backgroundColor: '#EEEEEE',
-  },
+ 
+ 
 
   courseName: {
-    fontFamily: 'Raleway',
+    fontFamily: '',
     fontSize: 15,
     fontWeight: '700',
-    left: 25,
-    width: 150,
+    // left: 25,
+    // width: 150,Raleway
     color: '#292629',
   },
-  courseCost: {
-    fontSize: 9,
-    left: 125,
-    marginTop: 5,
-    color: '#292629',
+  btnBg:{
+    backgroundColor: '#2C57EF',
+    borderRadius: 6,
+    justifyContent:'center',
+    alignItems:'center',
+    height: 28,
+    width: 82,
+
   },
-  details: {
-    marginTop: 10,
-    marginLeft: 16,
-    fontFamily: 'Raleway',
-    color: '#292629',
-    width: '90%',
-    fontSize: 12,
-    lineHeight: 20,
-  },
+
 
   registerBtn: {
     color: '#fff',
     fontSize: 11,
     fontFamily: 'Poppins',
-    height: 28,
-    width: 82,
-    backgroundColor: '#2C57EF',
-    borderRadius: 6,
-    textAlign: 'center',
-    textAlignVertical: 'center',
+   
   },
-  registerBtn1: {
-    color: '#fff',
-    fontSize: 11,
-    fontFamily: 'Poppins',
-    height: 28,
-    width: 142,
-    backgroundColor: '#2C57EF',
-    borderRadius: 6,
-    textAlign: 'center',
-    textAlignVertical: 'center',
-    marginLeft: 20,
-  },
-  teacherBtn: {
-    color: '#292929',
-    fontSize: 11,
-    fontFamily: 'Poppins',
-    height: 28,
-    width: 82,
-    backgroundColor: '#EEEEEE',
-    left: 5,
-    borderRadius: 6,
-    textAlign: 'center',
-    textAlignVertical: 'center',
-  },
+ 
 });

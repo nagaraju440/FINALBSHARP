@@ -224,11 +224,11 @@ const styles = StyleSheet.create({
   outerbox: {
     width: '85%',
     //   height: 3695,
-    //   borderColor:"red",
+      // borderColor:"red",
     //   backgroundColor:"red",
     //   paddingTop:1000,
     marginLeft: '7%',
-    marginTop: 34,
+    marginBottom:50,
   },
   topnavstyle: {
     width: 418.39,

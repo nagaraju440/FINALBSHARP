@@ -20,6 +20,7 @@ import getTheme from '../native-base-theme/components';
 import material from '../native-base-theme/variables/material';
 import { Container, Header, Tab, Tabs, TabHeading, Icon, StyleProvider} from 'native-base';
 import PayNow from './PayNow';
+import PayHistory from './PayHistory';
 function Payments(props) {
   return (
     // <View style={{backgroundColor: 'white', height: 800}}>
@@ -33,7 +34,7 @@ function Payments(props) {
           </Tab>
          
           <Tab heading={ <TabHeading><Text>History</Text></TabHeading>}>
-          <Text>not available</Text>
+          <PayHistory/>
 
           </Tab>
         </Tabs>

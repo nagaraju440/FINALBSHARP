@@ -50,6 +50,7 @@ import database from '@react-native-firebase/database';
 import firebase from "@react-native-firebase/app";
 import StackNav from './TopNavs/stack';
 import StackNavi from './Navigations/StackNavi';
+import Trail from './bottomSheet/Trail';
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -91,13 +92,12 @@ class App extends React.Component {
     }
 
     //   return(
-    //     <NavigationContainer>
-    //     <Floatstack/>
-    // </NavigationContainer>
+    // //     <NavigationContainer>
+    // //     <Floatstack/>
+    // // </NavigationContainer>
+    // <Trail/>
     //   )
-    {/* // return(
-    // <Tanpura />
-    // ) */}
+   
   }
 
   // ----------------port-8081------------------
