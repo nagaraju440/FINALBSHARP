@@ -41,6 +41,7 @@ import TopNav4 from '../TopNavs/TopNav4';
 import TopNav5 from '../TopNavs/TopNav5';
 import Home from '../DrawerNavFiles/Home';
 import Teachers from '../DrawerNavFiles/Teacher';
+import TeacherIcon from '../DrawerNavFiles/svgIcons/TeacherIcon'
 
 // import TopNav6 from '../TopNavs/TopNav6';
 const Stack = new createStackNavigator();
@@ -101,7 +102,7 @@ function Drawernavi(props) {
           name="Teachers"
           component={Teachers}
           options={{
-            drawerIcon: ({focused, size}) => <AboutIcon />,
+            drawerIcon: ({focused, size}) => <TeacherIcon/>,
           }}
         />
         <Drawer.Screen

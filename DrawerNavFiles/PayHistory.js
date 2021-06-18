@@ -85,6 +85,7 @@ class PayHistory extends Component {
                       <View
                         style={{
                           width: '95%',
+                          height:44,
                           paddingLeft: 20,
                           paddingRight: 20,
                           paddingTop: 10,
