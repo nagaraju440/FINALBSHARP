@@ -96,6 +96,8 @@ class PayHistory extends Component {
                           borderWidth: 1,
                           borderRadius: 10,
                           marginTop: 10,
+                          height:50,
+                          marginLeft:10
                         }}>
                         <View>
                           <Text

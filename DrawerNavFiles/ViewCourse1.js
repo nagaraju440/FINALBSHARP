@@ -37,26 +37,28 @@ export default class ViewCourse extends Component {
     };
   }
   componentDidMount = () => {
-    console.log(this.props.route.params.videoUrl, 'isvideo url');
+    // console.log(this.props.route.params.videoUrl, 'isvideo url');
+    // console.log('jelooakhfkajk',this.state.value,"course no is",this.props.route.params.no);
+
     this.setState({videoUrl:this.props.route.params.videoUrl})
   };
   register = () => {
-    console.log('jelooakhfkajk',this.state.value);
+    console.log('jelooakhfkajk',this.state.value,"course no is",this.props.route.params.no);
     if(this.state.value===''){
       alert("please select the slot")
     }else{
-      firebase
-      .database()
-      .ref('/Courses/Course'+this.props.route.params.no+'/Batches/BatchNo'+this.state.value+'/Peoples')
-      .once('value')
-      .then((snapshot) => {
-        console.log( Object.keys(snapshot.val()).length)
-      if( Object.keys(snapshot.val()).length===12){
-        alert("this slot is reached maximum people please select another slot")
-      }else{
+      // firebase
+      // .database()
+      // .ref('/Courses/Course'+this.props.route.params.no+'/Batches/BatchNo'+this.state.value+'/Peoples')
+      // .once('value')
+      // .then((snapshot) => {
+      //   console.log( snapshot.val())
+      // if( Object.keys(snapshot.val()).length===12){
+      //   alert("this slot is reached maximum people please select another slot")
+      // }else{
         this.props.navigation.navigate({name:'DetailsOfDemoClass',params:{data:this.props.route.params,batchNo:this.state.value}})
-      }
-      });
+      // }
+      // });
     }
    
     

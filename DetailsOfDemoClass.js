@@ -107,7 +107,7 @@ class Courses extends React.Component {
   }
   bookDemoClass=()=>{
     
-      firebase.database().ref('/DemoClass/'+auth().currentUser.uid+'/Courses/'+'/Course'+this.props.route.params.data.no)
+      firebase.database().ref('/DemoClass/'+'/Courses/'+'/Course'+this.props.route.params.data.no+'/Students/'+auth().currentUser.uid)
       .set({
             name: this.state.name,
             age:this.state.age,

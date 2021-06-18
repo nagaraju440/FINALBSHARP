@@ -15,6 +15,8 @@ import auth from '@react-native-firebase/auth';
 import { createStackNavigator } from '@react-navigation/stack';
 import Home from './home.js'
 import Students from './Students'
+import DemoClassStudents from './DemoClassStudents.js';
+import DemoClassCourseWiseStudents from './DemoClassCourseWiseStudents.js';
 const Stack = createStackNavigator();
 class Adminnav extends React.Component {
     state = {  }
@@ -42,18 +44,19 @@ class Adminnav extends React.Component {
         return ( 
             // <View>
                 // {/* <Text>hello</Text> */}
-                <NavigationContainer>
+                // <NavigationContainer>
                  <Stack.Navigator>
                  <Stack.Screen name="Home" component={Home}  options={{
                headerShown: false
               }}/>
                  <Stack.Screen name="Students" component={Students} />
+                 <Stack.Screen name="DemoClassStudents" component={DemoClassStudents} />
                  {/* <Stack.Screen name="Fee" component={Fee} />
                  <Stack.Screen name="Attendence" component={Attendence} />
                  <Stack.Screen name="Posts" component={Posts} /> */}
-                 
+                 <Stack.Screen name="DemoClassCourseWiseStudents" component={DemoClassCourseWiseStudents} />
                  </Stack.Navigator>
-                </NavigationContainer>
+                // </NavigationContainer>
             // </View>
          );
     }

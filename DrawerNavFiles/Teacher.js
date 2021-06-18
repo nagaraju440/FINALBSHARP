@@ -40,8 +40,10 @@ export class Teachers extends Component {
   };
   render() {
     return (
-      <ScrollView>
+      <View>
         <StackNav />
+
+      <ScrollView>
         <View>
           {this.state.data === '' ? (
             <View>
@@ -71,6 +73,7 @@ export class Teachers extends Component {
           )}
         </View>
       </ScrollView>
+      </View>
     );
   }
 }

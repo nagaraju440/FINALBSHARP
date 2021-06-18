@@ -5,6 +5,7 @@ import About from '../DrawerNavFiles/About'
 import { EventRegister } from 'react-native-event-listeners'
 import Drawernavi from './TopNav';
 import MyCourses from '../DrawerNavFiles/mycourses-P';
+import { not } from 'react-native-reanimated';
 
 // import StackNav from './stack';
 var firebase = require("firebase");
@@ -22,11 +23,28 @@ export default class ClassOrAbout extends Component {
         super(props);
         this.state={
            x:'',
-           component:''
+           component:'',
+           y:''
         }
 
     }
     loadData=()=>{
+        // ..........................login student user or admin checking..............................
+        firebase.database().ref('/Admins/').orderByChild('email').equalTo(auth().currentUser.email)
+ .once('value').then(l=>{  
+    console.log(l.val(),"is l")
+    if(l.val()==null){
+     x=0
+     this.setState({y:0})
+     console.log("x is",x,l)
+    }else{
+        this.setState({y:1})
+     console.log("x is",x,l)
+    }
+ }).catch(l=>{
+   console.log("no such documentttt")
+ })
+        // ..................student registered for the course or not...............................
         firebase.database().ref('/Users/'+auth().currentUser.uid+'/Courses')
         .once('value')
            .then((snapshot) => {
@@ -57,11 +75,11 @@ export default class ClassOrAbout extends Component {
             )
         }else if(this.state.x===false){
          return(
-             <Drawernavi props={'About'}/>
+             <Drawernavi props={{pageName:'About',isAdmin:this.state.y}}/>
          )
         }else if(this.state.x===true){
             return(
-                <Drawernavi/>
+                <Drawernavi props={{pageName:'MyCourses',isAdmin:this.state.y}}/>
             )
         }
         // return (

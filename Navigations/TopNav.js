@@ -41,87 +41,178 @@ import TopNav4 from '../TopNavs/TopNav4';
 import TopNav5 from '../TopNavs/TopNav5';
 import Home from '../DrawerNavFiles/Home';
 import Teachers from '../DrawerNavFiles/Teacher';
+var firebase = require("firebase");
+var config = {
+  databaseURL: "https://sample-b0875.firebaseio.com/",
+  projectId: "sample-b0875",
+};
+if (!firebase.apps.length) {
+  firebase.initializeApp(config);
+}
+import auth from '@react-native-firebase/auth';
+import AdminPage from '../DrawerNavFiles/AdminPage';
 
 // import TopNav6 from '../TopNavs/TopNav6';
 const Stack = new createStackNavigator();
 const Drawer = createDrawerNavigator();
 
 function Drawernavi(props) {
- console.log("i am topnav.js",props)
-  return (
-    <>
-      {/* -------------------------------creating Navigation Container------------------------------             */}
-      {/* <NavigationContainer> */}
-      {/* --------------------------------creating Drawer navigation--------------------------------         */}
-      <Drawer.Navigator
+
+ console.log("i am topnav.js hehe",props,auth().currentUser.email)
+     if(props.props.isAdmin===0){
+       return(
+        <Drawer.Navigator
       
-      initialRouteName={props.props}
-        onChange={() => {
-          console.log('clicked');
-        }}
-        drawerContent={(props) => (
-          <DrawerContent
-            {...props}
+        initialRouteName={props.props.pageName}
+          onChange={() => {
+            console.log('clicked');
+          }}
+          drawerContent={(props) => (
+            <DrawerContent
+              {...props}
+              options={{
+                title: 'BS#ARP',
+              }}
+            />
+          )}>
+          {/* --------------------------------creating Drawer Screens---------------------------------- */}
+          <Drawer.Screen
+            name="MyCourses"
+            component={MyCourses}
             options={{
-              title: 'BS#ARP',
+              drawerIcon: ({focused, size}) => <MyCourseIcon />
             }}
           />
-        )}>
-        {/* --------------------------------creating Drawer Screens---------------------------------- */}
-        <Drawer.Screen
-          name="MyCourses"
-          component={MyCourses}
-          options={{
-            drawerIcon: ({focused, size}) => <MyCourseIcon />
+             <Drawer.Screen
+            name="Home"
+            component={Home}
+            options={{
+              headerShown: false,
+              drawerIcon: ({focused, size}) => <DashBoardIcon />,
+            }}
+          />
+          <Drawer.Screen
+            name="Payments"
+            component={Payments}
+            options={{
+              drawerIcon: ({focused, size}) => <PaymentsIcon />,
+            }}
+          />
+          <Drawer.Screen
+            name="About"
+            component={About}
+            options={{
+              drawerIcon: ({focused, size}) => <AboutIcon />,
+            }}
+          />
+          <Drawer.Screen
+            name="Teachers"
+            component={Teachers}
+            options={{
+              drawerIcon: ({focused, size}) => <AboutIcon />,
+            }}
+          />
+          <Drawer.Screen
+            name="HelpNSupport"
+            component={HelpNSupport}
+            options={{
+              drawerIcon: ({focused, size}) => <HelpNSupportIcon />,
+            }}
+          />
+        
+          <Drawer.Screen
+            name="Settings"
+            component={Settings}
+            options={{
+              drawerIcon: ({focused, size}) => <SettingsIcon />,
+            }}
+          />
+        </Drawer.Navigator>
+       )
+     }else if(props.props.isAdmin===1){
+       return(
+        <Drawer.Navigator
+      
+        initialRouteName={props.props.pageName}
+          onChange={() => {
+            console.log('clicked');
           }}
+          drawerContent={(props) => (
+            <DrawerContent
+              {...props}
+              options={{
+                title: 'BS#ARP',
+              }}
+            />
+          )}>
+          {/* --------------------------------creating Drawer Screens---------------------------------- */}
+          <Drawer.Screen
+            name="MyCourses"
+            component={MyCourses}
+            options={{
+              drawerIcon: ({focused, size}) => <MyCourseIcon />
+            }}
+          />
+             <Drawer.Screen
+            name="Home"
+            component={Home}
+            options={{
+              headerShown: false,
+              drawerIcon: ({focused, size}) => <DashBoardIcon />,
+            }}
+          />
+          <Drawer.Screen
+            name="Payments"
+            component={Payments}
+            options={{
+              drawerIcon: ({focused, size}) => <PaymentsIcon />,
+            }}
+          />
+          <Drawer.Screen
+            name="About"
+            component={About}
+            options={{
+              drawerIcon: ({focused, size}) => <AboutIcon />,
+            }}
+          />
+          <Drawer.Screen
+            name="Teachers"
+            component={Teachers}
+            options={{
+              drawerIcon: ({focused, size}) => <AboutIcon />,
+            }}
+          />
+          <Drawer.Screen
+            name="HelpNSupport"
+            component={HelpNSupport}
+            options={{
+              drawerIcon: ({focused, size}) => <HelpNSupportIcon />,
+            }}
+          />
+         <Drawer.Screen
+            name="Admin"
+            component={AdminPage}
+            options={{
+              drawerIcon: ({focused, size}) => <SettingsIcon />,
+            }}
+         
         />
-<Drawer.Screen
-          name="Home"
-          component={Home}
-          options={{
-            headerShown: false,
-            drawerIcon: ({focused, size}) => <DashBoardIcon />,
-          }}
-        />
-        <Drawer.Screen
-          name="Payments"
-          component={Payments}
-          options={{
-            drawerIcon: ({focused, size}) => <PaymentsIcon />,
-          }}
-        />
-        <Drawer.Screen
-          name="About"
-          component={About}
-          options={{
-            drawerIcon: ({focused, size}) => <AboutIcon />,
-          }}
-        />
-        <Drawer.Screen
-          name="Teachers"
-          component={Teachers}
-          options={{
-            drawerIcon: ({focused, size}) => <AboutIcon />,
-          }}
-        />
-        <Drawer.Screen
-          name="HelpNSupport"
-          component={HelpNSupport}
-          options={{
-            drawerIcon: ({focused, size}) => <HelpNSupportIcon />,
-          }}
-        />
-        <Drawer.Screen
-          name="Settings"
-          component={Settings}
-          options={{
-            drawerIcon: ({focused, size}) => <SettingsIcon />,
-          }}
-        />
-      </Drawer.Navigator>
-      {/* </NavigationContainer> */}
-    </>
-  );
+        
+         <Drawer.Screen
+            name="Settings"
+            component={Settings}
+            options={{
+              drawerIcon: ({focused, size}) => <SettingsIcon />,
+            }}
+          /> 
+        </Drawer.Navigator>
+       )
+     }else{
+       return(
+         <Text>Loading..</Text>
+       )
+     }
+ 
 }
 const styles = StyleSheet.create({
   direction: {

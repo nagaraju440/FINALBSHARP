@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-<<<<<<< HEAD
     AppRegistry,
     StyleSheet,
     Text,
@@ -11,11 +10,21 @@ import {
     ImageBackground,ScrollView
 } from 'react-native';
 import Svg, {G,Path} from 'react-native-svg'
+import StackNav from '../TopNavs/stack';
 import welcome from './welcome.png';
 class Home extends React.Component {
+  constructor(props){
+    super(props)
+  }
     state = {  }
+    componentDidMount=()=>{
+      // console.log(this.props)
+    }
+    
     render() { 
-        return ( 
+        return (
+          <View style={{backgroundColor:'white'}}> 
+            <StackNav/>
             <ScrollView style={{backgroundColor:"white"}}>
                 <View style={styles.overall}>
                     <View style={{Width:"100%",height:197}}>
@@ -31,7 +40,25 @@ class Home extends React.Component {
                       <TouchableOpacity style={{width:"47.09%",height:115,backgroundColor:"whitesmoke",borderRadius:15,justifyContent: "center",alignItems:"center"}}>
                       <Text style={{fontSize:17}}>Students</Text>
                           </TouchableOpacity>
-                          <TouchableOpacity style={{width:"47.09%",marginLeft:21,height:115,backgroundColor:"whitesmoke",borderRadius:15,justifyContent: "center",alignItems:"center"}}>
+{/* ........................................View Demo.......................... */}
+<TouchableOpacity 
+onPress={()=>{
+  this.props.navigation.navigate('DemoClassStudents')
+}}
+style={{width:"47.09%",marginLeft:21,height:115,backgroundColor:"whitesmoke",borderRadius:15,justifyContent: "center",alignItems:"center"}}>
+                          <Svg id="Document" xmlns="http://www.w3.org/2000/svg" width="34.029" height="34.029" viewBox="0 0 34.029 34.029">
+  <G id="Document-2" data-name="Document" transform="translate(5.318 3.899)">
+    <Path id="Stroke_1" data-name="Stroke 1" d="M10.237.5H0" transform="translate(6.729 18.604)" fill="none" stroke="#0e0e0e" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+    <Path id="Stroke_2" data-name="Stroke 2" d="M10.237.5H0" transform="translate(6.729 12.668)" fill="none" stroke="#0e0e0e" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+    <Path id="Stroke_3" data-name="Stroke 3" d="M3.906.5H0" transform="translate(6.729 6.746)" fill="none" stroke="#0e0e0e" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+    <Path id="Stroke_4" data-name="Stroke 4" d="M17.239,0,6.337.006C2.423.03,0,2.6,0,6.532V19.571C0,23.518,2.442,26.1,6.389,26.1l10.9,0c3.913-.024,6.338-2.6,6.338-6.528V6.532C23.629,2.585,21.186,0,17.239,0Z" transform="translate(0 0)" fill="none" stroke="#0e0e0e" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+  </G>
+</Svg>
+
+                             <Text style={{fontSize:14}}>Demo Class Students</Text>
+                          </TouchableOpacity>
+                          {/* ...................attendence.................. */}
+                          {/* <TouchableOpacity style={{width:"47.09%",marginLeft:21,height:115,backgroundColor:"whitesmoke",borderRadius:15,justifyContent: "center",alignItems:"center"}}>
                           <Svg id="Document" xmlns="http://www.w3.org/2000/svg" width="34.029" height="34.029" viewBox="0 0 34.029 34.029">
   <G id="Document-2" data-name="Document" transform="translate(5.318 3.899)">
     <Path id="Stroke_1" data-name="Stroke 1" d="M10.237.5H0" transform="translate(6.729 18.604)" fill="none" stroke="#0e0e0e" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
@@ -42,7 +69,7 @@ class Home extends React.Component {
 </Svg>
 
                              <Text style={{fontSize:17}}>Attendence</Text>
-                          </TouchableOpacity>
+                          </TouchableOpacity> */}
                       </View>
 
                       {/* second rowwww */}
@@ -92,39 +119,16 @@ class Home extends React.Component {
                 </View>
                 <View style={{height:70}}></View>
             </ScrollView>
-=======
-    SafeAreaView,
-    StyleSheet,
-    ScrollView,
-    View,
-    Text,
-    StatusBar,
-  } from 'react-native';
-class HomeC extends React.Component {
-    componentDidMount=()=>{
-        var x=this.props.navigation;
-        x.navigate('Upload course')
-    }
-   
-    render() { 
-        return ( 
-            <View>
-                <Text>hiiiii</Text>
             </View>
->>>>>>> 649fac8f2d39fd0210e55b93c81b04f45786021f
          );
     }
 }
  
-<<<<<<< HEAD
 export default Home;
 const styles = StyleSheet.create({
     overall:{
         marginLeft:21,
         width:"89.85%",
-        marginTop:85,
+        marginTop:45,
     }
 })
-=======
-export default HomeC;
->>>>>>> 649fac8f2d39fd0210e55b93c81b04f45786021f
