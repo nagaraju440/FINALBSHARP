@@ -216,7 +216,7 @@ class Courses extends React.Component {
         onChangeText={t=>{this.setState({email:t})}}
       /> 
         </View>
-       <View style={{marginTop:22}}>
+       {/* <View style={{marginTop:22}}>
                  <OutlinedTextField
         label='Batch'
         keyboardType='default'
@@ -226,7 +226,7 @@ class Courses extends React.Component {
         baseColor="black"
       /> 
 
-        </View> 
+        </View>  */}
         <View  >
          <TouchableOpacity onPress={()=>{this.bookDemoClass()}}><Text style={styles.registerBtn}>Register</Text></TouchableOpacity>
          </View>

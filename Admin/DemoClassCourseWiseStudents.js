@@ -38,6 +38,7 @@ class DemoClassCourseWiseStudents extends Component {
                             this.state.data.length===0?<View><Text>Loading...</Text></View>:
                             <View>{
                                 this.state.data.map((l,i)=>{
+                                  console.log(l)
                                     return(
                                         <View style={{ marginTop:25 }} key={i}>
                                         <View style={{ flexDirection: 'row', alignItems: 'center', paddingLeft: 24, paddingRight: 24, width: 312,borderRadius:30 }}>

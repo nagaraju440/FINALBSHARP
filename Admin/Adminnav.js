@@ -19,6 +19,7 @@ import DemoClassStudents from './DemoClassStudents.js';
 import DemoClassCourseWiseStudents from './DemoClassCourseWiseStudents.js';
 import SelectSlot from './SelectSlot'
 import AdminTopNav2Register from '../AdminTopNav2Register.js';
+import AdminStudents from './AdminStudents.js';
 const Stack = createStackNavigator();
 class Adminnav extends React.Component {
     state = {  }
@@ -51,7 +52,8 @@ class Adminnav extends React.Component {
                  <Stack.Screen name="Home" component={Home}  options={{
                headerShown: false
               }}/>
-                 <Stack.Screen name="Students" component={Students} />
+                 <Stack.Screen name="Students" component={AdminStudents} />
+                 {/* <Stack.Screen name="Students" component={Students} /> */}
                  <Stack.Screen name="DemoClassStudents" component={DemoClassStudents} />
                  {/* <Stack.Screen name="Fee" component={Fee} />
                  <Stack.Screen name="Attendence" component={Attendence} />

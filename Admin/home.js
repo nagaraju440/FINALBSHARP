@@ -37,7 +37,11 @@ class Home extends React.Component {
                     {/* first rowwww */}
                     <View style={{width:"100%",height:395,marginTop:30}}>
                       <View style={{flexDirection:"row"}}>
-                      <TouchableOpacity style={{width:"47.09%",height:115,backgroundColor:"whitesmoke",borderRadius:15,justifyContent: "center",alignItems:"center"}}>
+                      <TouchableOpacity
+                      onPress={()=>{
+                        this.props.navigation.navigate('Students')
+                      }}
+                      style={{width:"47.09%",height:115,backgroundColor:"whitesmoke",borderRadius:15,justifyContent: "center",alignItems:"center"}}>
                       <Text style={{fontSize:17}}>Students</Text>
                           </TouchableOpacity>
 {/* ........................................View Demo.......................... */}

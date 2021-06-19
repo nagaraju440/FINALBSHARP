@@ -107,7 +107,14 @@ class AdminTopNav2Register extends React.Component {
   }
   click=()=>{
     console.log("registering student hehehe",this.props.route.params.userData,"hihoohho")
+    // console.log("trying to delete",
+    // firebase.database().ref('/DemoClass/Courses/Course/'+this.props.route.params.data.no+'/Students/'+this.props.route.params.userData.userUid+'/isCompleted').remove()
     
+    // )
+    firebase.database().ref('/DemoClass/Courses/Course'+this.props.route.params.data.no+'/Students/'+this.props.route.params.userData.userUid).remove()
+            .then(l=>{
+                console.log("heheheh")
+            })
     // this.props.navigation.navigate('UserPage1')
   }
   registerStudent=()=>{
@@ -178,9 +185,14 @@ class AdminTopNav2Register extends React.Component {
            BatchNo:that.props.route.params.batchNo
           }).then(l=>{
             console.log("sucsessfully registerd")
+            firebase.database().ref('/DemoClass/Courses/Course'+that.props.route.params.data.no+'/Students/'+that.props.route.params.userData.userUid).remove()
+            .then(l=>{
+                console.log("heheheh")
+            })
             alert("sucsessfully registered for the course") 
             that.props.navigation.popToTop()
-           EventRegister.emit('loadData', 'it works!!!')
+        //    EventRegister.emit('loadData', 'it works!!!')
+
           })
         });
     }
