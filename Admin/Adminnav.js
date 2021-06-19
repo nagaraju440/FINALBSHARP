@@ -17,6 +17,8 @@ import Home from './home.js'
 import Students from './Students'
 import DemoClassStudents from './DemoClassStudents.js';
 import DemoClassCourseWiseStudents from './DemoClassCourseWiseStudents.js';
+import SelectSlot from './SelectSlot'
+import AdminTopNav2Register from '../AdminTopNav2Register.js';
 const Stack = createStackNavigator();
 class Adminnav extends React.Component {
     state = {  }
@@ -55,6 +57,10 @@ class Adminnav extends React.Component {
                  <Stack.Screen name="Attendence" component={Attendence} />
                  <Stack.Screen name="Posts" component={Posts} /> */}
                  <Stack.Screen name="DemoClassCourseWiseStudents" component={DemoClassCourseWiseStudents} />
+                 <Stack.Screen name="SelectSlot" component={SelectSlot} />
+                 <Stack.Screen name="AdminRegister" component={AdminTopNav2Register} />
+
+
                  </Stack.Navigator>
                 // </NavigationContainer>
             // </View>

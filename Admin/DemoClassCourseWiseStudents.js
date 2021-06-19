@@ -12,18 +12,24 @@ class DemoClassCourseWiseStudents extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        data:[]
+        data:[],
+        batchesData:{}
     };
   }
   componentDidMount=()=>{
     //   console.log("data",this.props.route.params)
       firebase.database().ref('/DemoClass/Courses/Course'+this.props.route.params.no+'/Students/')
       .once('value').then(l=>{
-        //   console.log(Object.keys(l.val()))
+          // console.log(l.val())
         this.setState({data:Object.values(l.val())})
       })
+      firebase.database().ref('/Courses/Course'+this.props.route.params.no+'')
+      .once('value').then(l=>{
+          console.log(l.val())
+        // this.setState({data:Object.values(l.val())})
+      this.setState({batchesData:l.val()})
+      })
   }
-
   render() {
     return (
       <View>
@@ -44,7 +50,12 @@ class DemoClassCourseWiseStudents extends Component {
                                               <Text style={{ fontFamily: "Roboto", fontSize: 16, fontWeight: 'bold', color: '#06183C' }}>{l.name}</Text>
                                               <Text style={{ fontFamily: "Roboto", fontSize: 14, color: '#06183C', }}>{l.number}</Text>
                                             </View>
-                                            <TouchableOpacity>
+                                            <TouchableOpacity
+                                            onPress={()=>{
+                                              // console.log("l is",this.state.batchesData)
+                                              this.props.navigation.navigate({name:'SelectSlot',params:{batchesData:this.state.batchesData,userData:l,img:this.props.route.params.img,no:this.props.route.params.no,name:this.props.route.params.name}})
+                                            }}
+                                            >
                                                 <Text>Register</Text>
                                             </TouchableOpacity>
                                           </View>

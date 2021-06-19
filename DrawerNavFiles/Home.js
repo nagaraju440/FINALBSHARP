@@ -198,12 +198,13 @@ export default class Home extends Component {
                       </TouchableOpacity>
                       {/* <Text style={styles.teacherBtn}>{i.teacher.name}</Text> */}
                       <TouchableOpacity
-                        onPress={() =>
+                        onPress={() =>{
+                          // console.log("i is ",i)
                           this.props.navigation.navigate({
                             name: 'ViewCourse',
                             params: i,
                           })
-                        }>
+                        }}>
                         <Text style={styles.registerBtn1}>
                           Book for a Demo Class
                         </Text>
