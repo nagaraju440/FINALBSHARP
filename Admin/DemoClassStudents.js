@@ -31,32 +31,52 @@ componentDidMount=()=>{
     return (
       <ScrollView style={{width:'95%',marginLeft:10}}>
        {
-           this.state.data.map(l=>{
-               return(
-                   <View >
-               <TouchableOpacity
-               onPress={()=>{
-                //    console.log(l)
-                   this.props.navigation.navigate({name:'DemoClassCourseWiseStudents',params:l})
-               }}
-               >
-                    <View >
-                <View >
-                 <View>
-                 <Image source={{uri:l.img}} style={{width:'100%',height:200,marginTop:70}}>
-                  </Image>
-                     </View>
-                  <View style={{marginTop:-100}}>
-           <Text style={{fontWeight:'bold',fontSize:20,textAlign:'center',}}> {l.name}</Text>
-                
-                      </View>
-                </View>
-                
-              </View>
-               </TouchableOpacity>
-               </View>
-               )
-           })
+             <View
+             style={{
+               width: '100%',
+               // padding:10,
+               alignItems:'center',
+               flexDirection: 'row',
+               flexWrap: 'wrap',
+               justifyContent:'space-evenly'
+             }}>
+             {this.state.data.map((l) => {
+               return (
+                 <TouchableOpacity
+                   onPress={() => {
+                     //    console.log(l)
+                     this.props.navigation.navigate({
+                       name: 'DemoClassCourseWiseStudents',
+                       params: l,
+                     });
+                   }}
+                   style={{width: '46%', height: 180,marginTop:10,padding:10}}
+                  >
+                   <Image
+                     source={{uri: l.img}}
+                     style={{
+                       width: '100%',
+                       height: '100%',
+                       // marginTop: 70,
+                       borderRadius:10,
+                       opacity:0.4,
+                     }}></Image>
+                     <Text
+                       style={{
+                         fontWeight: 'bold',
+                         fontSize: 16,
+                         textAlign: 'center',
+                         // elevation:5,
+                         marginTop:-100,
+                         color:'#040629'
+                       }}>
+                       {' '}
+                       {l.name}
+                     </Text>
+                 </TouchableOpacity>
+               );
+             })}
+           </View>
        }
       </ScrollView>
     );

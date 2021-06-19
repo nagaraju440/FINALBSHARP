@@ -35,38 +35,74 @@ class DemoClassCourseWiseStudents extends Component {
       <View>
           {/* <Text>hlo</Text> */}
                         {
-                            this.state.data.length===0?<View><Text>Loading...</Text></View>:
-                            <View>{
-                                this.state.data.map((l,i)=>{
-                                  console.log(l)
-                                    return(
-                                        <View style={{ marginTop:25 }} key={i}>
-                                        <View style={{ flexDirection: 'row', alignItems: 'center', paddingLeft: 24, paddingRight: 24, width: 312,borderRadius:30 }}>
-                                          <Image
-                                            source={{uri:'https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg'}}
-                                            style={{width:50,height:50,}}
-                                          />
-                                          <View style={{ flexDirection: 'row', justifyContent: 'space-between', width: 250 }}>
-                                            <View style={{ marginLeft: 15 }}>
-                                              <Text style={{ fontFamily: "Roboto", fontSize: 16, fontWeight: 'bold', color: '#06183C' }}>{l.name}</Text>
-                                              <Text style={{ fontFamily: "Roboto", fontSize: 14, color: '#06183C', }}>{l.number}</Text>
-                                            </View>
-                                            <TouchableOpacity
-                                            onPress={()=>{
-                                              // console.log("l is",this.state.batchesData)
-                                              this.props.navigation.navigate({name:'SelectSlot',params:{batchesData:this.state.batchesData,userData:l,img:this.props.route.params.img,no:this.props.route.params.no,name:this.props.route.params.name}})
-                                            }}
-                                            >
-                                                <Text>Register</Text>
-                                            </TouchableOpacity>
-                                          </View>
-                    
-                                        </View>
-                    
+                           this.state.data.length === 0 ? (
+                            <View>
+                              <Text>Loading...</Text>
+                            </View>
+                          ) : (
+                            <View style={{alignItems: 'center'}}>
+                              {this.state.data.map((l, i) => {
+                                return (
+                                  <View
+                                    style={{
+                                      flexDirection: 'row',
+                                      width: 330,
+                                      height: 70,
+                                      borderRadius: 10,
+                                      borderWidth: 1,
+                                      alignItems:'center',
+                                      justifyContent:'space-between',
+                                      padding:12,
+                                      marginTop:10,
+                                      // backgroundColor:'#D9DBFC',
+                                      borderColor:'#D9DBFC'
+                                    }}
+                                    key={i}>
+                                    {/* <Image
+                                        source={{
+                                          uri: 'https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg',
+                                        }}
+                                        style={{width: 50, height: 50}}
+                                      /> */}
+                                      <View >
+                                        <Text
+                                          style={{
+                                            fontFamily: 'Roboto',
+                                            fontSize: 16,
+                                            fontWeight: 'bold',
+                                            color: '#06183C',
+                                          }}>
+                                          {l.name}
+                                        </Text>
+                                        <Text
+                                          style={{
+                                            fontFamily: 'Roboto',
+                                            fontSize: 16,
+                                            color: '#06183C',
+                                            marginTop:3,
+                                          }}>
+                                          {l.number}
+                                        </Text>
                                       </View>
-                                    )
-                                })
-                                }</View>
+                                      <TouchableOpacity
+                                      onPress={()=>{
+this.props.navigation.navigate({name:'SelectSlot',params:{batchesData:this.state.batchesData,userData:l,img:this.props.route.params.img,no:this.props.route.params.no,name:this.props.route.params.name}})
+
+                                      }}
+                                      style={{height:30,width:70,backgroundColor:'#000dff',
+                                    justifyContent:'center',
+                                  alignItems:'center',
+                                borderRadius:5,
+                  
+                              }}
+                                      >
+                                        <Text style={{color:'#fff',fontFamily:'Roboto',}}>Register</Text>
+                                      </TouchableOpacity>
+                                    </View>
+                                );
+                              })}
+                            </View>
+                          )
                         }
       </View>
     );

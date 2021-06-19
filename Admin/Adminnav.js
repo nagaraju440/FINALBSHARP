@@ -20,6 +20,7 @@ import DemoClassCourseWiseStudents from './DemoClassCourseWiseStudents.js';
 import SelectSlot from './SelectSlot'
 import AdminTopNav2Register from '../AdminTopNav2Register.js';
 import AdminStudents from './AdminStudents.js';
+import CourseWiseRegisterdStudents from './CourseWiseRegisterdStudents.js';
 const Stack = createStackNavigator();
 class Adminnav extends React.Component {
     state = {  }
@@ -61,6 +62,8 @@ class Adminnav extends React.Component {
                  <Stack.Screen name="DemoClassCourseWiseStudents" component={DemoClassCourseWiseStudents} />
                  <Stack.Screen name="SelectSlot" component={SelectSlot} />
                  <Stack.Screen name="AdminRegister" component={AdminTopNav2Register} />
+                 <Stack.Screen name="CourseWiseRegisteredStudents" component={CourseWiseRegisterdStudents} />
+
 
 
                  </Stack.Navigator>
